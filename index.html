@@ -1,0 +1,1562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modernist Lines 現代主義-傢具/辦公/居家布置</title>
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
+    <link rel="stylesheet" href="css/myall.css">
+
+    <style>
+        .box01{
+        height: 200px;
+      }
+        .s04_image{
+            background-image: url(image/furniture/slider_responsive3.jpg); 
+            height: 500px; 
+            background-attachment: fixed;
+            background-size: 100vh; 
+            background-repeat: no-repeat;
+            border-radius: 0 20px 20px 0;
+        }
+        .s05_test_image{
+            height: 400px;
+            width: 90%;
+            transition: transform 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+        }
+        .s05_test_image:hover{
+            transform: scale(1.1); 
+        }
+        .s05_3_text{
+            transition: transform 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+        }
+        .s05_3_text:hover{
+            transform: scale(1.05);
+        }
+        .s05_text{
+                z-index: 10;
+                color: aliceblue;
+            }
+        .carousel-caption{
+            background-color: rgba(0,0,0,0.4);
+            color:  var(--mytextcolorWhite2);
+            border-radius: 10px;
+        }
+
+        @media screen and (max-width:768px){
+            .s07_text,.s09_text,.s11_text{
+                z-index: 10;
+                background-color: rgba(0,0,0,0.4);
+                color: aliceblue;
+                padding: 15px;
+                
+            }
+            /* .s04_text{
+                max-width: fit-content;
+                margin-inline: auto;
+                margin-top: 40px;
+            } */
+            .s04_icon{
+                display: none;
+            }
+            .no_animate{
+                animation: none !important;
+            }
+        }
+        
+      
+     a{ 
+        text-decoration: none;
+        color: var(--mytextcolorWhite2);
+      }
+
+      .animate__fadein,.animate__fadeinLeft,.animate__fadeinRight,.animate__fadeinTop,.animate__fadeInDown{
+        will-change: transform, opacity;
+      }
+        
+    </style>
+</head>
+<body>
+    <!-- ************s01*************** -->
+    <section id="s01" class="bg-secondary">
+        <div class="container ">
+            <div class="row align-items-center">
+                <div class="col-4 d-none me-auto" id="s01_manager_only">
+                    <a href="#" target="_blank"><i class="fa-solid fa-gears"></i>控制台</a>
+                    <a href="20240718-product.html" target="_blank"><i class="fa-solid fa-file-excel "></i>產品建檔</a>
+                    <a href="20240820-member_control_panel.html" target="_blank"><i class="fa-solid fa-user-gear"></i>會員管理</a>
+                </div>
+                <div class="col-4 text-center mt-2">
+                    <div class="h5 text-white">Modernist Lines家具工坊</div>
+                </div>
+                <div class="col-4 text-end ms-auto">
+                    <a href="#">
+                        <i class="fa-brands fa-facebook text-white me-3" ></i>
+                    </a>
+                    <a href="#">
+                        <i class="fa-brands fa-x-twitter text-white"></i>
+                    </a>     
+                </div>
+            </div>      
+        </div>
+    </section>
+
+    <!-- ************s02*************** -->
+    <section id="s02">
+        <nav class="navbar navbar-expand-md navbar-light bg-dark navbar-dark">
+            <div class="container">
+              <a class="navbar-brand" href="index.html"><img src="image/furniture/Modernist_logo3.png" width="80px" alt=""></a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <ul class="navbar-nav me-5">
+                <li class="nav-item d-none me-2" id="s02_login_icon">
+                    <span class="h3 text-color02"><i class="fa-solid fa-user" id="s02_login_icon_2"></i> <span class="h5" id="login_username_message"></span></span>
+                </li>
+                <li class="nav-item" id="s02_login_button">
+                    <a class="nav-link" data-bs-toggle="modal" data-bs-target="#loginModal" href="#"><i class="fa-solid fa-arrow-right-to-bracket me-2"></i>登入</a>
+                </li>
+                <li class="nav-item" id="s02_register_button">
+                    <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#registeredModal"><i class="fa-solid fa-user-plus me-2"></i>註冊</a>
+                </li>
+                <li class="nav-item d-none" id="s02_logout_button">
+                    <a class="nav-link" href="#" data-bs-toggle="modal"><i class="fa-solid fa-right-from-bracket me-2"></i></i>登出</a>
+                </li>
+            </ul>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-md-auto  mr-md-auto">
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-circle-info fs-4 me-1"></i>
+                    產品介紹
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="product.html"><i class="fa-solid fa-box me-1"></i>產品一覽</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="product.html" type="button"><i class="fa-solid fa-couch me-1"></i>沙發/椅子</a></li>
+                        <li><a class="dropdown-item" href="product.html" type="button"><i class="fa-solid fa-mug-saucer me-1"></i>辦公桌/椅</a></li>
+                        <li><a class="dropdown-item" href="product.html" type="button"><i class="fa-solid fa-shower me-1"></i>衛浴用品</a></li>
+                        <li><a class="dropdown-item" href="product.html" type="button"><i class="fa-solid fa-kitchen-set me-1"></i>廚具/餐具</a></li>
+                        <li><a class="dropdown-item" href="product.html" type="button"><i class="fa-solid fa-lightbulb me-1"></i>&nbsp;燈具/照明</a></li>
+                        <li><a class="dropdown-item" href="product.html" type="button"><i class="fa-solid fa-rug me-1"></i>窗簾/毛毯</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#s06-2"><i class="fa-solid fa-box fs-4"></i>精選推薦</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#s07-3"><i class="fa-solid fa-ticket fs-4"></i>最新優惠</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="about.html"><i class="fa-solid fa-book fs-4"></i>關於我們</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-user-gear fs-4 me-1"></i>
+                    會員專區
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown" id="dropdown-menu_vip">
+                      <li><a class="dropdown-item dropdown-item-vip disabled" href="#s07-3"><i class="fa-solid fa-crown me-1"></i>vip優惠</a></li>
+                      <li><a class="dropdown-item dropdown-item-vip disabled" href="#"><i class="fa-solid fa-calendar-check me-1"></i>&nbsp;&nbsp;vip權利</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item dropdown-item-vip disabled" href="#"><i class="fa-solid fa-angles-right"></i>查看更多</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+    </section>
+    <!-- loginModal -->
+        <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header text-bg-warning">
+                    <h5 class="modal-title" id="loginModalLabel">會員登入</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label for="l_username" class="form-label">帳號</label>
+                            <input type="text" class="form-control" id="l_username" name="l_username">
+                        </div>
+                        <div class="mb-3">
+                            <label for="l_password" class="form-label">密碼</label>
+                            <!-- 加上form標籤 解決Password field is not contained in a form報錯 -->
+                            <!-- 加上autocomplete="off/on" 解決[DOM] Input elements should have autocomplete attributes (suggested: "new-password")報錯 -->
+                            <form>
+                                <input type="password" class="form-control" id="l_password" name="l_password" autocomplete="on" >
+                            </form> 
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary" id="l_ok_btn">登入</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- registeredModal -->
+        <div class="modal fade" id="registeredModal" tabindex="-1" aria-labelledby="registeredModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-xl ">
+                <div class="modal-content">
+                    <div class="modal-header text-bg-success">
+                    <h5 class="modal-title" id="registeredModalLabel">會員註冊</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="mb-3">
+                                    <label for="r_username" class="form-label" >帳號</label>
+                                    <input type="text" class="form-control is-invalid" id="r_username" name="r_username" placeholder="請輸入3~8個字">
+                                    <div class="invalid-feedback">不符合規定</div>
+                                    <div class="valid-feedback">符合規定</div>
+                                </div>
+                                <div class="mb-3 ">
+                                    <label for="r_password" class="form-label">密碼</label>
+                                    <div class="input-group">
+                                        <input type="password" class="form-control is-invalid" id="r_password" name="r_password" placeholder="請輸入密碼">
+                                        <div class="btn text-end" id="show_password"><i class="fa-solid fa-eye"></i></div>
+                                        <div class="valid-feedback">符合規定</div>
+                                        <div class="invalid-feedback">密碼至少8個字，至少包含一個數字與一組大小寫字母 EX:Aa123456</div>
+                                    </div>  
+                                </div>
+                                <div class="mb-3">
+                                    <label for="r_re_password" class="form-label">請再次輸入密碼</label>
+                                    <input type="password" class="form-control hiding is-invalid" id="r_re_password" name="r_re_password" placeholder="確認密碼">
+                                    <div class="valid-feedback">符合規定</div>
+                                    <div class="invalid-feedback">不符合規定</div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="r_datepicker" class="form-label">生日</label>
+                                    <input type="text" class="form-control hiding is-invalid" id="r_datepicker" name="r_datepicker" readonly>
+                                    <div class="valid-feedback">符合規定</div>
+                                    <div class="invalid-feedback">不符合規定</div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="r_email" class="form-label">email</label>
+                                    <input type="text" class="form-control hiding is-invalid" id="r_email" name="r_email" placeholder="EX:1234567@gmail.com">
+                                    <div class="valid-feedback">符合規定</div>
+                                    <div class="invalid-feedback">請輸入mail</div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <h3>會員守則</h3>
+                                <p>帳號安全與保護：
+                                    會員應確保其帳號和密碼的安全，不得將帳號資訊提供給第三方。如果發現帳號被未經授權的使用，應立即通知網站管理員</p>
+                                <p>真實性與準確性：
+                                    會員在註冊帳號及購物時應提供準確的個人信息，並確保所有提交的資料是真實和完整的。</p>
+                                <p>遵守法律法規：
+                                    會員在使用網站服務過程中應遵守所有相關法律法規，不得從事任何非法或不正當的活動，如欺詐、盜竊或侵權行為。</p>
+                                <p>責任與義務：
+                                    會員應對其在網站上進行的所有活動負責，包括但不限於購買商品、提交評論和參與論壇等，並承擔由此產生的責任。</p>
+                                <p>支付與退款政策：
+                                    會員在進行購物時應遵守網站的支付政策，包括付款方式和退款規定。所有的交易均按照網站的支付和退款條款處理。</p>
+                                <p>知識產權：
+                                    會員不得未經授權使用網站上的知識產權，包括商標、版權內容和其他受保護的材料。網站內容僅可用於個人、非商業用途。</p>
+                                <p>修改與終止：
+                                    網站保留隨時修改會員條款的權利。會員應定期查閱條款變更。如會員違反條款，網站有權暫停或終止其帳號及服務。</p>
+                                <div class="form-check">
+                                    <input type="checkbox" name="r_agree" id="r_agree" class="form-check-input is-invalid">
+                                    <label for="r_agree" class="form-check-label">同意</label>
+                                    <div class="valid-feedback"></div>
+                                    <div class="invalid-feedback"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary" id="r_ok_btn">確認註冊</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <!-- ************s03*************** -->
+    <section id="s03">
+        <div id="s03_Captions" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#s03_Captions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#s03_Captions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#s03_Captions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+              <button type="button" data-bs-target="#s03_Captions" data-bs-slide-to="3" aria-label="Slide 4"></button>
+              <button type="button" data-bs-target="#s03_Captions" data-bs-slide-to="4" aria-label="Slide 5"></button>
+            </div>
+            <div class="carousel-inner ">
+              <div class="carousel-item active bg-cover wow animate__animated animate__fadeIn" data-wow-duration="1s" data-wow-delay="0.5s" data-wow-iteration="1" style="background-image: url(image/furniture/furniture04.jpg); height: 70vh ;">
+                <div class="carousel-caption wow animate__animated animate__fadeIn" data-wow-duration="1s" data-wow-delay="0.75s" data-wow-iteration="1"  >
+                  <h2>北歐x簡約</h2>
+                  <p>簡約線條,功能實用</p>
+                </div>
+              </div>
+              <div class="carousel-item bg-cover" style="background-image: url(image/furniture/furniture02.jpg); height: 70vh; ">
+                <div class="carousel-caption" >
+                  <h2>工業x辦公</h2>
+                  <p>人體工學，打造舒適辦公環境</p>
+                </div>
+              </div>
+              <div class="carousel-item bg-cover" style="background-image: url(image/furniture/furniture03.jpg); height: 70vh ;">
+                <div class="carousel-caption" >
+                  <h2>秋風x南洋</h2>
+                  <p>溫馨氛圍，完美融入秋季的自然美感和舒適感。</p>
+                </div>
+              </div>
+              <div class="carousel-item bg-cover" style="background-image: url(image/furniture/furniture08.jpg); height: 70vh ;">
+                <div class="carousel-caption" >
+                  <h2>傳統x現代x再結合</h2>
+                  <p>經典再造，古典優雅</p>
+                </div>
+              </div>
+              <div class="carousel-item bg-cover" style="background-image: url(image/furniture/furniture09.jpg); height: 70vh ;">
+                <div class="carousel-caption" >
+                  <h2>英式鄉村</h2>
+                  <p>傳統壁爐,溫暖整個寒冬</p>
+                </div>
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#s03_Captions" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#s03_Captions" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+    </section>
+     <!-- ************s06-1*************** -->
+     <section id="s06-1" class="my-5 wow animate__animated animate__fadeIn" data-wow-duration="1s" data-wow-delay="1s" data-wow-iteration="1">
+        <div class="container">
+            <div class="s06-1_responsive text-center" >
+                <div class="position-relative bg-navbar01">
+                    <i class="fa-solid fa-couch fa-4x"></i>
+                    <h3>沙發/椅子</h3>
+                    <a href="#"class="stretched-link"></a>
+                </div>
+                <div class="position-relative bg-navbar01">
+                    <i class="fa-solid fa-mug-saucer fa-4x"></i>
+                    <h3>辦公桌/辦公椅</h3>
+                    <a href="#"class="stretched-link"></a>
+                </div>
+                <div class="position-relative bg-navbar01">
+                    <i class="fa-solid fa-bed fa-4x"></i>
+                    <h3>床組/寢具</h3>
+                    <a href="#"class="stretched-link"></a>
+                </div>
+                <div class="position-relative bg-navbar01">
+                    <i class="fa-solid fa-shower fa-4x"></i>
+                    <h3>衛浴用品</h3>
+                    <a href="#"class="stretched-link"></a>
+                </div>
+                <div class="position-relative bg-navbar01">
+                    <i class="fa-solid fa-kitchen-set fa-4x"></i>
+                    <h3>廚具/餐具</h3>
+                    <a href="#"class="stretched-link"></a>
+                </div>
+                <div class="position-relative bg-navbar01">
+                    <i class="fa-regular fa-lightbulb fa-4x"></i>
+                    <h3>燈具/照明</h3>
+                    <a href="#"class="stretched-link"></a>
+                </div>
+                <div class="position-relative bg-navbar01">
+                    <i class="fa-solid fa-rug fa-4x"></i>
+                    <h3>窗簾/地毯</h3>
+                    <a href="#"class="stretched-link"></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-cover" style="background-image: url(image/furniture/banner05.jpg);background-attachment:fixed;">
+        <!-- ************s04*************** -->
+        <section id="s04" class="my-5 d-none d-md-block " style="position: relative;overflow: hidden;">
+            <div class="row">
+                <div class="container-fluid">
+                    <div class=" row s04_icon">
+                        <i class="fa-solid fa-house-chimney fa-5x ms-5 wow animate__animated animate__slideInLeft text-colorDarkBlue s04_icon01"  style="position: absolute ; opacity:0.7 ; left:40% ; top: 70%;z-index:1"></i>
+                        <i class="fa-solid fa-medal fa-5x ms-5 wow animate__animated animate__slideInLeft text-colorRed s04_icon02" style="position: absolute ; opacity:0.7 ; left:59% ; top: 70%;z-index:2"></i>
+                        <i class="fa-solid fa-tree fa-5x ms-5 wow animate__animated animate__slideInLeft text-colorDarkGreen s04_icon03"  style="position: absolute ; opacity:0.7 ; left:78% ; top: 70%;z-index:3"></i>
+                    </div>
+                    <div class="row align-items-center">  
+                        <div class="col-md-5 s04_image" style="z-index: 10;"></div>
+                        <div class="col-md-7 wow animate__animated animate__fadeIn" data-wow-duration="2s">
+                            <h1>空間的純粹感，無價。</h1>
+                            <p>讓光影來詮釋空間本質擁有純粹的灰階</p>
+                            <div class="row mt-4">
+                                <div class="col-md-4">
+                                    <h4 class="fw-500">來自世界各地的用戶</h4>
+                                    <h2 class="counter01">1953545<span class="h4">/人</span></h2>
+                                </div>
+                                <div class="col-md-4">
+                                    <h4 class="fw-500">廣受好評</h4>
+                                    <h2 class="counter02">9.5<span class="h4">/★</span></h2>
+                                </div>
+                                <div class="col-md-4">
+                                    <h4 class="fw-500">歷經</h4>
+                                    <h2 class="counter03">73<span class="h4">/年</span></h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="s04_2" class="my-5 d-md-none d-block" style="position: relative; overflow: hidden;">
+            <div class="row">
+                <div class="col-md-5 bg-cover" style="position: absolute ; background-image: url(image/furniture/slider_responsive3.jpg);top: 0;bottom: 0;left: 0;"></div>
+            </div>
+            <div class="container">
+                <div class="row text-center">
+                    <div class="col-md-7 s07_text">
+                        <div class="h3 wow animate__animated animate__fadeInRight" data-wow-duration="1.25s" data-wow-delay="0.25s" data-wow-iteration="1">空間的純粹感，無價。</div>
+                        <p class="wow animate__animated animate__fadeInRight" data-wow-duration="1.25s" data-wow-delay="0.25s" data-wow-iteration="1">讓光影來詮釋空間本質擁有純粹的灰階</p>
+                        <div class="row mt-5 wow animate__animated animate__fadeInLeft" data-wow-duration="1.25s" data-wow-delay="0.25s" data-wow-iteration="1">
+                            <div class="col-md-4">
+                                <h4 class="fw-500">來自世界各地的用戶</h4>
+                                <h2 class="counter04">1953545<span class="h4">/人</span></h2>
+                            </div>
+                            <div class="col-md-4">
+                                <h4 class="fw-500">廣受好評</h4>
+                                <h2 class="counter05">9.5<span class="h4">/★</span></h2>
+                            </div>
+                            <div class="col-md-4">
+                                <h4 class="fw-500">歷經</h4>
+                                <h2 class="counter06">73<span class="h4">/年</span></h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                <!-- <div class="container"> 
+                        <div class="col-md-7 wow animate__animated animate__fadeIn  s07_text" data-wow-duration="2s" data-wow-delay="0s" data-wow-iteration="1">
+                            <h1>空間的純粹感，無價。</h1>
+                            <p>讓光影來詮釋空間本質擁有純粹的灰階</p>
+                            <div class="row mt-4">
+                                <div class="col-md-4">
+                                    <h4 class="fw-500">來自世界各地的用戶</h4>
+                                    <h2 class="counter01">1953545<span class="h4">/人</span></h2>
+                                </div>
+                                <div class="col-md-4">
+                                    <h4 class="fw-500">廣受好評</h4>
+                                    <h2 class="counter02">9.5<span class="h4">/★</span></h2>
+                                </div>
+                                <div class="col-md-4">
+                                    <h4 class="fw-500">歷經</h4>
+                                    <h2 class="counter03">73<span class="h4">/年</span></h2>
+                                </div>
+                            </div>
+                        </div>
+                </div> -->
+        </section>
+        <!-- *************s05-test------------>
+        <section id="s05_test" class="my-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="col-11 wow animate__animated animate__fadeInLeft" data-wow-duration="1s" data-wow-delay="0.25s" data-wow-iteration="1">
+                            <p class="fw-100 h5 ">一路走來</p>
+                            <div class="h2 fw-900">modern liner始終如一</div>
+                            <p class="h5 lh-lg">多年來，Modern Liner 系列產品一直保持其獨特的設計風格和品質,一直沒有改變。</p>
+                            <p class="h5 lh-lg">這種持續的穩定性體現了品牌對現代主義設計理念的堅持和承諾。</p>
+                        </div>
+                        <p class="bg-cover s05_test_image mt-4 wow animate__animated animate__fadeInUp" data-wow-duration="1s" data-wow-delay="0.5s" data-wow-iteration="1" style="background-image:url(image/furniture/furniture13.jpg) ;"></p>
+                    </div>
+                    <div class="col-md-4">
+                        <p class="bg-cover s05_test_image wow animate__animated animate__fadeInDown d-md-block d-none" data-wow-duration="1s" data-wow-delay="0.75s" data-wow-iteration="1" style="background-image:url(image/furniture/furniture12.jpg);"></p>
+                        <div class="col-11 mt-3 wow animate__animated animate__fadeInUp" data-wow-duration="1s" data-wow-delay="1s" data-wow-iteration="1">
+                            <p class="fw-100 h5 ">多樣化家具</p>
+                            <div class="h2 fw-900">你想要的,我們都有</div>
+                            <p class="h5 lh-lg mt-1">Modern Liner 的產品系列涵蓋了客廳,臥室,餐廳及辦公空間的多種家具,無論是單一的家具作品還是整體的室內佈置,都能展現出品牌獨特的現代主義風格。</p> 
+                        </div>
+                    </div>
+                    <div class="col-md-4 m-auto wow animate__animated animate__fadeInTopRight" data-wow-duration="1s" data-wow-delay="1.25s" data-wow-iteration="1">
+                        <!-- <div class="col-11">
+                            <p class="fw-100 h5 ">歷經多年</p>
+                            <div class="h2 fw-900">modern liner始終如一</div>
+                            <p class="h5 lh-lg">無論是家居愛好者還是專業設計師,我們都致力於成為他們的首選品牌，為全球客戶提供優雅且實用的家具作品。</p>
+                        </div> -->
+                        <p class="bg-cover s05_test_image" style="background-image:url(image/furniture/furniture11.jpg) ;"></p>
+                    </div>
+                </div>
+            </div>
+        </section>  
+    </section>
+    <!--s05-3-->
+    <section id="s05-3" class="my-5" style="position: relative;">
+        <div class="row">
+            <div class="col-md-4 col-6 bg-cover" style="background-image: url(image/furniture/wood_grainOP.jpg); position: absolute; top: 0;left: 0; bottom: 100px;; z-index: 1;"></div>
+            <div class="col-md-6 col-7 bg-cover wow animate__animated animate__fadeInLeft rounded-5" data-wow-duration="1s" data-wow-delay="0s" data-wow-iteration="1" style="background-image: url(image/furniture/wood_table_03.jpg); position: absolute; top: 100px;left: 100px; bottom: 50px;; z-index: 2;"></div>
+        </div>
+        <div class="container-fluid mt-5">
+            <div class="row">
+                <div class="col-11 mt-5">
+                    <div class="row justify-content-end mt-5 ">
+                        <div class="col-8 mt-5 d-flex justify-content-center align-items-center wow animate__animated animate__fadeInRight rounded-5 s05_3_text" data-wow-duration="1s" data-wow-delay="0.1s" data-wow-iteration="1" style="background-color:#F0E4CE;height: 500px; z-index: 10;">
+                            <a href="" class="text-black">
+                                <div class="row w-75">
+                                    <div class="col-12 ms-md-0 ms-5">
+                                        <p class="h4 text-muted">about</p>
+                                        <p class="h1 fw-800">modern liner</p>
+                                        <p  style="background-color: #C5C4C1; height: 2px; width: 80%;"></p>
+                                        <div class="text-muted">
+                                            <p class="h5">modern liner的使命是成為全球領先的現代家具品牌,為每一個家庭提供設計優雅,質量卓越的家具產品。</p>
+                                            <p class="h5 mt-5">未來，公司將繼續引領行業潮流，推動環保和可持續發展，成為家居生活品質的象徵。</p>
+                                        </div>
+                                        <p class="h5 mt-3">了解更多>></p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--s05-4-->
+    <section id="s05-4" class="my-5" style="position: relative; overflow: hidden;">
+        <div class="row">
+            <div class="col-6 bg-cover" style="background-image: url(image/furniture/wood_grainOP.jpg); position: absolute; top: 0;left: 0; bottom: 50px; z-index: 1;"></div>
+            <div class="col-6 bg-cover wow animate__animated animate__fadeInLeft rounded-5" data-wow-duration="1s" data-wow-delay="0s" data-wow-iteration="1" style="background-image: url(image/furniture/wood_table.jpg); position: absolute; top: 200px;left: 40%; bottom: 0; z-index: 2;"></div>
+        </div>
+        <div class="container-fluid mt-5">
+            <div class="row">
+                <div class="col-md-7 mt-5 ">
+                    <div class="row justify-content-end mt-5  ">
+                        <div class="col-md-8 mt-5  wow animate__animated animate__fadeInRight rounded-5 s05_3_text" data-wow-duration="1s" data-wow-delay="0.1s" data-wow-iteration="1" style="height: 500px; z-index: 10;">
+                            <a href="" class="text-black ">
+                                <div class="row w-75 ms-md-0 ms-5">
+                                    <div class="col-12">
+                                        <p class="h1 fw-800">設計師精選</p>
+                                        <p  style="background-color: #6b6b6a; height: 3px; width: 70%;"></p>
+                                        <div class="row d-flex align-items-center justify-content-center p-5" style="background-color: rgba(255, 255, 255, 0.89);">
+                                            <div class="col-12">
+                                                <div class="text-muted">
+                                                    <p class="h5">精選了當今家居設計領域的不同流派與風格，每一系列都是設計師精心打造，是品味與品質的象徵。</p>
+                                                    <p class="h5 mt-2">無論你偏好極簡、工業、自然、北歐或奢華風格，都能為你提供靈感，幫助你打造理想的居家環境。</p>
+                                                </div>
+                                                <p class="h5 mt-3">查看更多>></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+     <!-- ************s06-2*************** -->
+     <section id="s06-2" class="my-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <div class="h1 fw-900 wow animate__animated animate__fadeIn" data-wow-duration="1s" data-wow-delay="0s" data-wow-iteration="1">精選推薦</div>
+                </div>
+            </div>
+                <div class="s06_2_responsive d-none">
+                    <div class="wow animate__animated animate__fadeInLeft no_animate" data-wow-duration="1s" data-wow-delay="0.25s" data-wow-iteration="1">
+                        <div class="card">
+                            <div class="card-img-top bg-cover" style="background-image: url(image/furniture/chair01.jpg);height: 350px;"></div>
+                            <div class="card-footer text-color02 bg-recommend01">
+                                <h3 class="f-800 mb-3 mt-3">Arc Lounge Chair</h3>
+                                <p class="fs-5">Modernist Lines的經典之作，擁有優雅的弧形設計、簡潔的線條與優美的色調。椅子採用高品質的真皮面料和不鏽鋼框架，結合舒適和美觀。這款椅子不僅具備時尚的外觀，還提供了極佳的舒適度，非常適合用於現代客廳或辦公室空間。</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="wow animate__animated animate__fadeInUp" data-wow-duration="1s" data-wow-delay="0.25s" data-wow-iteration="1">
+                        <div class="card">
+                            <div class="card-img-top  bg-cover" style="background-image: url(image/furniture/coffeeTable01.jpg);height: 350px;"></div>
+                            <div class="card-footer text-color02 bg-recommend02 no_animate">
+                                <h3 class="f-800 mb-3 mt-3">Orbit Coffee Table </h3>
+                                <p class="fs-5">Orbit Coffee Table 是一款設計獨特的咖啡桌，採用圓形玻璃桌面和金屬框架設計。這款桌子的特點是其環形的金屬支架，看起來像是星球環繞的軌道。玻璃桌面為透明設計，使其更具視覺輕盈感，適合搭配各種沙發和休閒椅。</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="wow animate__animated animate__fadeInRight" data-wow-duration="1s" data-wow-delay="0.5s" data-wow-iteration="1">
+                        <div class="card">
+                            <div class="card-img-top  bg-cover" style="background-image: url(image/furniture/diningTable01.jpg);height: 350px;"></div>
+                            <div class="card-footer text-color02 bg-recommend03 no_animate">
+                                <h3 class="f-800 mb-3 mt-3">Flux Dining Table</h3>
+                                <p class="fs-5">Flux Dining Table 是一款極具現代感的餐桌，特色在於其桌腳的獨特設計。桌腳採用不對稱的曲線形狀，模仿了水流的動感，使整體設計顯得輕盈而動感。桌面採用實木材質，結合了現代與自然的元素，非常適合現代家庭的餐廳空間。</p>
+                            </div>
+                        </div>
+                    </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- ************s07*************** -->
+    <section id="s07" class="my-5 " style="overflow: hidden;">
+      <div class="container">
+        <div class="slider responsive">
+            <div class="card me-3">
+                <div class="card-img-top bg-cover" style="background-image: url(image/furniture/slider_responsive1.jpg);height: 300px;"></div>
+                <div class="card-footer bg-light-pink text-color02" >
+                    <p>\simplicity簡約系列/</p>
+                    <p class="h3 fw-900">簡潔線條,功能實用</p>
+                    <p class="h6">注重功能實用和材質質樸,設計純粹且無多餘裝飾,營造舒適自然的空間。</p>
+                    </br>
+                    <button type="button" class="bg-btnHyperlink"><i class="fa-solid fa-arrow-right"></i></button>
+                </div>
+            </div>
+            <div class="card me-3">
+                <div class="card-img-top bg-cover" style="background-image: url(image/furniture/slider_responsive2.jpg);height: 300px;"></div>
+                <div class="card-footer bg-light-wood text-color02">
+                    <p>\Modernist Lines70周年系列/</p>
+                    <p class="h3 fw-900">經典再造,古典優雅</p>
+                    <p class="h6">結合復古與現代設計,搭配高品質材質,提供卓越舒適與永恆魅力。</p>
+                    </br>
+                    <button type="button" class="bg-btnHyperlink"><i class="fa-solid fa-arrow-right"></i></button>
+                </div>
+            </div>
+            <div class="card me-3">
+                <div class="card-img-top bg-cover" style="background-image: url(image/furniture/slider_responsive3.jpg);height: 300px;"></div>
+                <div class="card-footer bg-office text-color02">
+                    <p>\Modern辦公系列/</p>
+                    <p class="h3 fw-900">符合人體工學,提升工作效率</p>
+                    <p class="h6">多段升降桌、現代設計人體工學椅及多種辦公家具，輕鬆打造舒適工作環境</p>
+                    </br>
+                    <button type="button" class="bg-btnHyperlink"><i class="fa-solid fa-arrow-right"></i></button>
+                </div>
+            </div>
+            <div class="card me-3">
+                <div class="card-img-top bg-cover" style="background-image: url(image/furniture/slider_responsive4.jpg);height: 300px;"></div>
+                <div class="card-footer bg-warmth text-color02">
+                    <p>\Warmth冬季系列/</p>
+                    <p class="h3 fw-900">暖色系家具,溫暖整個寒冬</p>
+                    <p class="h6">現代壁爐,提供視覺與實際的溫暖 ; 厚實窗簾與絨毛地毯,提供額外的舒適感和保暖性</p>
+                    </br>
+                    <button type="button" class="bg-btnHyperlink"><i class="fa-solid fa-arrow-right"></i></button>
+                </div>
+            </div>
+            <div class="card me-3">
+                <div class="card-img-top bg-cover bg-autumn" style="background-image: url(image/furniture/slider_responsive5.jpg);height: 300px;"></div>
+                <div class="card-footer bg-autumn text-color02">
+                    <p>\Automne秋季系列/</p>
+                    <p class="h3 fw-900">繽紛色彩點綴秋季居家</p>
+                    <p class="h6">秋季繽紛色彩家具,增添溫馨氛圍，完美融入秋季的自然美感和舒適感。</p>
+                    </br>
+                    <button type="button" class="bg-btnHyperlink"><i class="fa-solid fa-arrow-right"></i></button>
+                </div>
+            </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ************s07-3*************** -->
+    <section id="s07-3" class="my-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <div class="h1 fw-900 wow animate__animated animate__fadeIn" data-wow-duration="1s" data-wow-delay="0s" data-wow-iteration="1">最新優惠</div>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-xl-4 wow animate__animated animate__fadeIn" data-wow-duration="1s" data-wow-delay="0s" data-wow-iteration="1">
+                    <div class="card">
+                        <div class="card-img-top bg-cover" id="s07_3_bg01" style="background-image: url(image/furniture/chair01.jpg);height: 300px; opacity: 0.2;"></div>
+                        <div class="card-footer text-color02 bg-recommend01">
+                            <div>Arc</div>
+                            <h3 class="fw-800">休閒椅</h3>
+                            <div class="d-flex flex-nowrap">
+                                <div class="h4 text-white-50" style="text-decoration: line-through">$599</div>
+                                <div class="h4 text-danger" id="s07_3_questionMark01"><i class="fa-solid fa-arrow-down ms-2"></i></div>
+                            </div>
+                            <div class="d-none" id="s07_3_price01">
+                                <div>會員價</div>
+                                <div class="h2 fw-900">499!!</div>
+                            </div>
+                            <p class="fs-5" id="s07_3_login01"><a data-bs-toggle="modal" data-bs-target="#loginModal" href="#">登入</a>以取得優惠</p>
+                        </div>
+                    </div>
+                </div>
+                <div class=" col-xl-4 wow animate__animated animate__fadeIn" data-wow-duration="1s" data-wow-delay="0.25s" data-wow-iteration="1">
+                    <div class="card">
+                        <div class="card-img-top  bg-cover" id="s07_3_bg02" style="background-image: url(image/furniture/coffeeTable01.jpg);height: 300px; opacity:0.2;"></div>
+                        <div class="card-footer text-color02 bg-recommend02">
+                            <div>Orbit</div>
+                            <h3 class="fw-800">咖啡桌/圓桌</h3>
+                            <div class="d-flex flex-nowrap">
+                                <div class="h4 text-white-50" style="text-decoration: line-through">$999</div>
+                                <div class="h4 text-danger" id="s07_3_questionMark02"><i class="fa-solid fa-arrow-down ms-2"></i></div>
+                            </div>
+                            <div class="d-none" id="s07_3_price02">
+                                <div>會員價</div>
+                                <div class="h2 fw-900">899!!</div>
+                            </div>
+                            
+                            <p class="fs-5" id="s07_3_login02"><a data-bs-toggle="modal" data-bs-target="#loginModal" href="#">登入</a>以取得優惠</p>
+                        </div>
+                    </div>
+                </div>
+                <div class=" col-xl-4 wow animate__animated animate__fadeIn" data-wow-duration="1s" data-wow-delay="0.5s" data-wow-iteration="1">
+                    <div class="card">
+                        <div class="card-img-top  bg-cover" id="s07_3_bg03" style="background-image: url(image/furniture/diningTable01.jpg);height: 300px; opacity: 0.2;"></div>
+                        <div class="card-footer text-color02 bg-recommend03">
+                            <div>Flux</div>
+                            <h3 class="fw-800">餐桌/方桌</h3>
+                            <div class="d-flex flex-nowrap">
+                                <div class="h4 text-white-50" style="text-decoration: line-through">$1099</div>
+                                <div class="h4 text-danger" id="s07_3_questionMark03"><i class="fa-solid fa-arrow-down ms-2"></i></div>
+                            </div>
+                            <div class="d-none" id="s07_3_price03">
+                                <div>會員價</div>
+                                <div class="h2 fw-900" >999!!</div>
+                            </div>
+                            <p class="fs-5" id="s07_3_login03"><a data-bs-toggle="modal" data-bs-target="#loginModal" href="#">登入</a>以取得優惠</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row d-none">
+                <div class="col-4 wow animate__animated animate__fadeInLeft" data-wow-duration="1s" data-wow-delay="0.25s" data-wow-iteration="1">
+                    <div class="card">
+                        <div class="card-img-top bg-cover" style="background-image: url(image/furniture/chair01.jpg);height: 350px;"></div>
+                        <div class="card-footer text-color02 bg-recommend01">
+                            <h3 class="f-800 mb-3 mt-3">Arc Lounge Chair</h3>
+                            <p class="fs-5">Modernist Lines的經典之作，擁有優雅的弧形設計和簡潔的線條。椅子採用高品質的真皮面料和不鏽鋼框架，結合舒適和美觀。這款椅子不僅具備時尚的外觀，還提供了極佳的舒適度，非常適合用於現代客廳或辦公室空間。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4 wow animate__animated animate__fadeInUp" data-wow-duration="1s" data-wow-delay="0.25s" data-wow-iteration="1">
+                    <div class="card">
+                        <div class="card-img-top  bg-cover" style="background-image: url(image/furniture/coffeeTable01.jpg);height: 350px;"></div>
+                        <div class="card-footer text-color02 bg-recommend02">
+                            <h3 class="f-800 mb-3 mt-3">Orbit Coffee Table </h3>
+                            <p class="fs-5">Orbit Coffee Table 是一款設計獨特的咖啡桌，採用圓形玻璃桌面和金屬框架設計。這款桌子的特點是其環形的金屬支架，看起來像是星球環繞的軌道。玻璃桌面為透明設計，使其更具視覺輕盈感，適合搭配各種沙發和休閒椅。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4 wow animate__animated animate__rotateInDownRight" data-wow-duration="1s" data-wow-delay="0.5s" data-wow-iteration="1">
+                    <div class="card">
+                        <div class="card-img-top bg-cover" style="background-image: url(image/furniture/diningTable01.jpg);height: 350px;"></div>
+                        <div class="card-footer text-color02 bg-recommend03">
+                            <h3 class="f-800 mb-3 mt-3">Flux Dining Table</h3>
+                            <p class="fs-5">Flux Dining Table 是一款極具現代感的餐桌，特色在於其桌腳的獨特設計。桌腳採用不對稱的曲線形狀，模仿了水流的動感，使整體設計顯得輕盈而動感。桌面採用實木材質，結合了現代與自然的元素，非常適合現代家庭的餐廳空間。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-cover" style="background-image: url(image/furniture/Modernist_furniture-OP.jpg);"> 
+    <!-- ************s08*************** -->
+        <section id="s08" class="mt-5 mb-2" style="position: relative;overflow: hidden;">
+            <div class="row">
+                <div class="col-md-5 bg-cover wow animate__animated animate__fadeInLeft" data-wow-duration="1s" data-wow-delay="0s" data-wow-iteration="1" style="position: absolute ; background-image: url(image/furniture/desk_lamp02-v2.jpg);top: 0;bottom: 0;left: 0;"></div>
+            </div>
+            <div class="container">
+                <div class="row justify-content-end">
+                    <div class="col-md-7 s07_text ">
+                        <div class="h3 wow animate__animated animate__fadeInRight" data-wow-duration="1.25s" data-wow-delay="0.25s" data-wow-iteration="1">現代主義設計</div>
+                        <p class="wow animate__animated animate__fadeInRight" data-wow-duration="1.25s" data-wow-delay="0.25s" data-wow-iteration="1">Modernist Lines的設計理念深受現代主義影響，強調功能性、簡潔性和幾何美學。公司的產品通常具有簡約的線條、清晰的形狀和純粹的結構，避免多餘的裝飾，以實用性為核心。</p>
+                        <button class="btn btn-outline-danger wow animate__animated animate__fadeInRight" data-wow-duration="2s" data-wow-delay="0.25s" data-wow-iteration="1">查看更多</button>
+                        <div class="row mt-5 wow animate__animated animate__fadeInUp" data-wow-duration="1.25s" data-wow-delay="0.5s" data-wow-iteration="1">
+                            <div class="col-md-6">
+                                <div class="h3">創新材料應用</div>
+                                <p>公司勇於探索和應用各種新材料，如不鏽鋼和玻璃等。這些材料不僅賦予產品現代感，還能提升家具的耐用性和功能性。例如，使用透明玻璃和金屬支架的家具既有視覺輕盈感，又能承受較大的重量。</p>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="h3">前衛和藝術融合</div>
+                                <p>Modernist Lines的產品常常呈現出一種藝術與前衛的融合感，設計中融入了抽象和創意元素。無論是桌子的獨特桌腳設計還是椅子的弧形造型，都展現了對傳統家具設計的突破和創新。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ************s09*************** -->
+        <section id="s09" class="my-5">
+            <div class="container">
+                <div class="row  align-items-center">
+                    <div class="col-md-12 m-auto">
+                        <div class="d-flex wow animate__animated animate__fadeInLeft" data-wow-duration="2s" data-wow-offset="100">
+                            <i class="fa-solid fa-hammer fa-5x me-3"></i>
+                            <div>
+                                <div class="h3">模組化和靈活性
+                                </div>
+                                <p>公司設計的許多產品都具有模組化特性，可以根據不同空間和需求進行組合和調整。這樣的設計不僅提高了家具的實用性，還能讓用戶根據個人喜好和空間特點進行個性化配置。</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row align-items-center mt-3">
+                        <div class="col-md-12 m-auto">
+                            <div class="d-flex wow animate__animated animate__fadeInRight" data-wow-duration="2s" data-wow-offset="125">
+                                <i class="fa-solid fa-medal fa-5x me-3"></i>
+                                <div>
+                                    <div class="h3">高品質與細節</div>
+                                    <p>Modernist Lines非常重視產品的品質和細節。無論是材料的選擇、工藝的精湛還是設計的細緻，都體現了對高品質標準的追求。每一件家具都經過精心設計和製作，確保其耐用性和美觀性。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>           
+                </div>
+            </div>
+        </section>
+
+        <!-- ************s10*************** -->
+        <section id="s10" style="position: relative; overflow: hidden;" class="mt-2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-7 s09_text">
+                        <div class="row  align-items-center">
+                            <div class="col-md-12 m-auto">
+                                <div class="d-flex wow animate__animated animate__fadeInRight"  data-wow-duration="2s" data-wow-offset="200">
+                                    <div>
+                                        <div class="h3">環保與可持續性
+                                        </div>
+                                        <p>現代消費者越來越重視環保和可持續性，Modernist Lines也致力於這一理念。公司積極選用可持續材料，並採用環保的生產工藝，致力於減少對環境的影響。這包括使用水性漆和無毒塗料，降低揮發性有機化合物（VOCs）的釋放。此外，Modernist Lines 還注重能源效率，努力減少製造過程中的能耗。</p>
+                                        </n>
+                                        </n>
+                                        <p>這些特色使得Modernist Lines成為一家在現代主義家具設計領域獨具一格的公司，其產品在市場上具有很高的辨識度和吸引力。</p> 
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-end">
+                <div class="col-md-5 bg-cover wow animate__animated animate__fadeInLeft"  data-wow-duration="2s" data-wow-offset="200" style="position: absolute;background-image: url(image/furniture/desk_lamp01.jpg);top: 0;bottom: 0; right: 0;">
+                </div>
+            </div>
+        </section>
+    </section>
+    
+    <section id="s11" class="bg-cover my-5" style="background-image: url(image/furniture/table04.jpg);">
+        <div class="container">
+            <div class="row " >
+                <div class="col-12 d-flex justify-content-center align-items-center ">
+                    <div class="card p-5 my-5 bg-op2-white">
+                        <div class="card-body">
+                            <div class="mb-3 h3">聯繫我們</div>
+                            <div class="mb-3 h5 text-muted">若有任何需求與疑問 請聯繫我們</div>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label" for="">姓名</label>
+                                    <input type="text" class="form-control" required>  
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label" for="">電話</label>
+                                    <input type="phone" class="form-control" required>
+                                </div>
+                                <div class="col-md-12 mb-3">
+                                    <label class="form-label" for="">email</label>
+                                    <input type="mail" class="form-control">                                   
+                                </div>
+                                <div class="col-md-12 mb-3">
+                                    <label class="form-label" for="">備註</label>
+                                    <textarea class="form-control" rows="2"></textarea>                                    
+                                </div>
+                                <div class="col-md-12 mb-3 ">
+                                    <button class="btn btn-secondary w-100">送出</button>
+                                </div>
+                            </div>                   
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+       <!-- ************s12*************** -->
+        <section id="s12" class="my-5 ">
+            <div class="container-fluid">
+                <div class="row ">
+                    <div class="col-md-6 ">
+                        <div class="col-md-12 bg-cover h-100 " style="background-image: url(image/furniture/office01-2.jpg);">
+                            <div class="container h-100">
+                                <div class="row d-flex flex-column align-items-center h-100">
+                                    <div class="col-7 s11_text s05_text h-100 d-flex flex-column" style="background-color: rgba(0,0,0,0.6);">
+                                        <small class="text-danger fw-900 mt-3">防詐騙聲明</small>
+                                        <div class="h3 fw-500">Modernist Lines保障您的個資安全</div>
+                                        <p class="lh-lg">請勿聽信不明來電,本公司不會主動以電話聯絡索取你個人的金融帳號,信用卡相關資料;如接到可疑來電或簡訊請勿輕信,可撥165防詐騙專線通報。</p>
+                                        <div class="col-6 mt-auto">
+                                            <button class="bg-btnGrey  mb-3">詳細資料>></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mt-md-0 mt-3">
+                        <div class="col-md-12 bg-cover h-100" style="background-image: url(image/furniture/furniture02-2.jpg); ">
+                            <div class="container h-100">
+                                <div class="row d-flex flex-column align-items-center h-100">
+                                    <div class="col-7 s11_text s05_text h-100 d-flex flex-column"style="background-color: rgba(0,0,0,0.6);">
+                                        <small class="text-danger fw-900 mt-3">產品保固</small>
+                                        <div class="h3 fw-500">產品安全聲明</div>
+                                        <p class="lh-lg">Modernist Lines以用戶的安全與體驗為第一考量,一旦產品出現安全相關問題,我們會立即採取行動降低任何風險;若不幸發生災害,本公司亦會全權負責</p>
+                                        <div class="col-6 mt-auto">
+                                            <button class="bg-btnGrey  mb-3">詳細資料>></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ************s13*************** -->
+        <section id="s13" class=" bg-op-colo1 align-content-center" style="height: 100px; border-bottom: 1px solid #dfd2c1;">
+           <div class="container">
+                <div class="row align-items-center ">
+                    <div class="col-6 ">
+                        <a class="navbar-brand" href="index.html"><img src="image/furniture/Modernist_logo2.png" width="80px" alt=""></a>
+                    </div>
+                    <div class="col-6 d-flex justify-content-center">
+                        <ul class="nav">
+                            <li class="nav-item text-center">
+                              <a class="nav-link active" aria-current="page" href="#">產品一覽</a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link" href="#">關於我們</a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link" href="#">精選推薦</a>
+                            </li>
+                          </ul>
+                    </div>
+                    
+                </div>
+           </div>
+        </section>
+        <!-- ************s13*************** -->
+        <section id="s14" class=" bg-op-colo1 align-content-center" style="height: 100px;">
+            <div class="container">
+                 <div class="row">
+                     <ul class="nav">
+                        <li class="nav-item">
+                            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">© Modern Liner 2024. All Rights Reserved.</a>
+                        </li>
+                    </ul>
+                 </div>
+            </div>
+         </section>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/sweetalert2@11.js"></script>
+    <script src="https://unpkg.com/counterup2@2.0.2/dist/index.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="slick/slick.min.js"></script>
+    <script src="js/wow.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+    <script>
+        var flag_r_username = false;
+        var flag_r_password = false;
+        var flag_r_re_password = false;
+        var flag_r_datepicker = false;
+        var flag_r_email = false;
+        var flag_r_agree = false;
+        //正規表達式
+        //密碼
+        const rules_pwd = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/ ;
+        //email
+        const rules_email= /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        $(function(){
+             //wow初始化
+            new WOW().init();
+
+             //計數器
+             const counterUp = window.counterUp.default;
+
+                const callback = entries => {
+                    entries.forEach( entry => {
+                        const el = entry.target
+                        if ( entry.isIntersecting && ! el.classList.contains( 'is-visible' ) ) {
+                            counterUp( el, {
+                                duration: 1500,
+                                delay: 16,
+                            } )
+                            el.classList.add( 'is-visible' );
+                        };
+                    } )
+                };
+
+                const IO = new IntersectionObserver( callback, { threshold: 1 } )
+
+                const el01 = document.querySelector( '.counter01' );
+                IO.observe( el01 );
+                const el02 = document.querySelector( '.counter02' );
+                IO.observe( el02 );
+                const el03 = document.querySelector( '.counter03' );
+                IO.observe( el03 );
+                const el04 = document.querySelector( '.counter04' );
+                IO.observe( el04 );
+                const el05 = document.querySelector( '.counter05' );
+                IO.observe( el05 );
+                const el06 = document.querySelector( '.counter06' );
+                IO.observe( el06 );
+            
+            //確認uid是否存在且合法
+            if(getCookie("uid01")!=""){
+                //將uid傳遞至後端api確認是否合法
+                var dataJSON = {};
+                    dataJSON["uid01"] = getCookie("uid01");
+                    // console.log(JSON.stringify(dataJSON));
+                    $.ajax({
+                        type:"POST",
+                        url:"API/member_login_check_uid_api.php",
+                        data:JSON.stringify(dataJSON),
+                        dataType:"json",
+                        success:showdata_check_uid,
+                        error:function(){
+                            alert("error-member_login_check_uid_api.php");
+                        }
+                    });
+            }else{
+                Swal.fire({
+                    icon: "warning",
+                    title: "尚未登入",
+                    text: "請登入會員來使用附加功能",
+                    });
+            }
+
+
+            //監聽r_username
+            $("#r_username").bind("input propertychange" , function(){
+                if($(this).val().length>3 && $(this).val().length<10){
+                    //符合前端規定
+                    //傳遞至後段確認是否可使用
+                    var dataJSON = {};
+                    dataJSON["username"] = $("#r_username").val();
+                    console.log(JSON.stringify(dataJSON));
+                    $.ajax({
+                        type:"POST",
+                        url:"API/member_register_checkuni_api.php",
+                        data:JSON.stringify(dataJSON),
+                        dataType:"json",
+                        success:showdata_checkuni,
+                        error:function(){
+                            alert("error-member_register_checkuni_api.php");
+                        }
+                    });
+                    
+                    
+                }else{
+                    //不符合規定
+                    $(this).removeClass("is-valid");
+                    $("#r_username").next().html('<span>不符合規定</span>')
+                    $(this).addClass("is-invalid");
+                    flag_r_username = false;
+                }
+            });
+            //監聽r_password
+            $("#r_password").bind("input propertychange" , function(){
+                if(rules_pwd.test($(this).val())){
+                    $(this).removeClass("is-invalid");
+                    $(this).addClass("is-valid");
+                    flag_r_password = true;
+                }else{
+                    //不符合規定
+                    $(this).removeClass("is-valid");
+                    $(this).addClass("is-invalid");
+                    flag_r_password = false;
+                }
+            });
+
+            //監聽r_re_password
+            $("#r_re_password").bind("input propertychange" , function(){
+                if($(this).val()==$("#r_password").val()){
+                    $(this).removeClass("is-invalid");
+                    $(this).addClass("is-valid");
+                    flag_r_re_password = true;
+                }else{
+                    //不符合規定
+                    $(this).removeClass("is-valid");
+                    $(this).addClass("is-invalid");
+                    flag_r_re_password = false;
+                }
+            });
+            
+            //監聽r_datepicker
+            $("#r_datepicker").bind("change" , function(){
+                if($(this).val()!=" "){
+                    $(this).removeClass("is-invalid");
+                    $(this).addClass("is-valid");
+                    flag_r_datepicker = true;
+                }else{
+                    //不符合規定
+                    $(this).removeClass("is-valid");
+                    $(this).addClass("is-invalid");
+                    flag_r_datepicker = false;
+                }
+            });
+
+             //監聽r_email
+             $("#r_email").bind("input propertychange" , function(){
+                if(rules_email.test($(this).val())){
+                    $(this).removeClass("is-invalid");
+                    $(this).addClass("is-valid");
+                    flag_r_email = true;
+                }else{
+                    //不符合規定
+                    $(this).removeClass("is-valid");
+                    $(this).addClass("is-invalid");
+                    flag_r_email = false;
+                }
+            });
+
+             //監聽r_agree
+             $("#r_agree").change(function(){
+                if($(this).is(':checked')){
+                    $(this).removeClass("is-invalid");
+                    $(this).next().html('<span class="text-success">同意</span>');
+                    $(this).addClass("is-valid");
+                    flag_r_agree = true;
+                }else{
+                    //不符合規定
+                    $(this).removeClass("is-valid");
+                    $(this).next().html('<span class="text-danger">請同意會員守則</span>');
+                    $(this).addClass("is-invalid");
+                    flag_r_agree = false;
+                }
+            });
+
+            //監聽註冊按鈕
+            $("#r_ok_btn").click(function(){
+                if(flag_r_username && flag_r_password && flag_r_re_password && flag_r_email && flag_r_datepicker && flag_r_agree){
+                    //傳遞資料至後端api執行註冊行為
+                    
+                    var dataJSON = {};
+                    dataJSON["username"] = $("#r_username").val();
+                    dataJSON["password"] = $("#r_password").val();
+                    dataJSON["birthday"] = $("#r_datepicker").val();
+                    dataJSON["email"]    = $("#r_email").val();
+                    console.log(JSON.stringify(dataJSON));
+                    $.ajax({
+                        type:"POST",
+                        url:"API/member_register_api.php",
+                        data:JSON.stringify(dataJSON),
+                        dataType:"json",
+                        success:showdata_register,
+                        error:function(){
+                            alert("error-member_register_api.php");
+                        }
+                    });
+
+                }else{
+                    Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: "欄位有誤請修正",
+                    });
+                }
+            })
+        
+            /*登入*/
+            //登入按鈕監聽
+            $("#l_ok_btn").click(function(){
+                if($("#l_username").val()!="" && $("#l_password").val()!="")
+                {
+                    //帳號密碼優輸入
+                    //傳遞資料至後端api執行註冊行為
+                    
+                    var dataJSON = {};
+                    dataJSON["username"] = $("#l_username").val();
+                    dataJSON["password"] = $("#l_password").val();
+
+                    // console.log(JSON.stringify(dataJSON));
+
+                    $.ajax({
+                        type:"POST",
+                        url:"API/member_login_api.php",
+                        data:JSON.stringify(dataJSON),
+                        dataType:"json",
+                        success:showdata_login,
+                        error:function(){
+                            alert("error-member_login.api.php");
+                        }
+                    });
+                }else{
+                    Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: "帳號密碼有誤請修正",
+                    });
+                }
+            });
+
+            //登出按鈕監聽
+            $("#s02_logout_button").click(function(){
+                //將cookie設為空值
+                setCookie("uid01","",7);
+                //重整
+                location.reload();
+            });
+
+            //監聽顯示密碼按紐
+            $("#show_password").mousedown(function(){
+                $(this).html('<i class="fa-solid fa-eye-slash"></i>');
+                $("#r_password").attr('type', 'text');
+            })
+            $("#show_password").mouseup(function(){
+                $(this).html('<i class="fa-solid fa-eye"></i>');
+                $("#r_password").attr('type', 'password');
+            })
+            $("#show_password").mouseleave(function(){
+                $(this).html('<i class="fa-solid fa-eye"></i>');
+                $("#r_password").attr('type', 'password');
+            })
+
+
+
+        });//end of function
+
+        function showdata_checkuni(data) {
+            console.log(data);
+            if (data.state) {
+                $("#r_username").removeClass("is-invalid");
+                $("#r_username").addClass("is-valid");
+                flag_r_username = true;
+            } else {
+                $("#r_username").removeClass("is-valid");
+                $("#r_username").next().html('<span>'+data.message+'</span>')
+                $("#r_username").addClass("is-invalid");
+                
+                flag_r_username = false;
+            }
+        }
+
+        function showdata_register(data){
+            console.log(data);
+            if(data.state){
+                Swal.fire({
+                title: "Good job!",
+                text: data.message,
+                icon: "success",
+                timer: 1500,
+                }).then((result) => {
+                if (result.isConfirmed) {
+                    // 重整頁面
+                    location.reload();
+                }
+            });
+                
+            }else{
+                Swal.fire({
+                title: "OOPS",
+                text: data.message,
+                icon: "error"
+                });
+            }
+        }
+        function showdata_login(data){
+            console.log(data);
+            if(data.state){
+                if(data.data.State == "1"){
+                    //帳號啟用
+                    Swal.fire({
+                    title: "Good job!",
+                    text: data.message,
+                    icon: "success"
+                    });
+                    //隱藏modal
+                    $("#loginModal").modal("hide");
+                    //顯示登入帳號
+                    if(data.data.Level=="0"){
+                        level_text="一般會員";
+                        strHTML="您好 會員等級:"+level_text;
+                    }else if(data.data.Level=="100"){
+                        level_text="VIP1";
+                        strHTML="您好 會員等級:"+'<i class="fa-solid fa-crown me-1 ms-1 text-colorGreatYellow"></i>'+level_text;
+                    }else if(data.data.Level=="200"){
+                        level_text="VIP2";
+                        strHTML="您好 會員等級:"+'<i class="fa-solid fa-crown me-1 ms-1 text-colorGreatYellow"></i>'+level_text;
+                    }else if(data.data.Level=="300"){
+                        level_text="VIP3";
+                        strHTML="您好 會員等級:"+'<i class="fa-solid fa-crown me-1 ms-1 text-colorGreatYellow"></i>'+level_text;
+                    }else{
+                        level_text="管理員";
+                        strHTML="您好"+'<i class="fa-solid fa-crown me-1 ms-1 text-colorGreatYellow"></i>'+level_text;
+                    }
+                    $("#login_username_message").html(strHTML);
+                    //隱藏登入與註冊按鈕
+                    $("#s02_login_button").addClass("d-none");
+                    $("#s02_register_button").addClass("d-none");
+                    //顯示登出按鈕
+                    $("#s02_logout_button").removeClass("d-none");
+                    $("#s02_login_icon").removeClass("d-none");
+                    if(data.data.Level>="200" && data.data.Level<"900"){
+                        //顯示優惠
+                        $("#s07_3_price01").removeClass("d-none");
+                        $("#s07_3_price02").removeClass("d-none");
+                        $("#s07_3_price03").removeClass("d-none");
+                        $("#s07_3_login01").addClass("d-none");
+                        $("#s07_3_login02").addClass("d-none");
+                        $("#s07_3_login03").addClass("d-none");
+                        $("#s07_3_bg01").css("opacity",1);
+                        $("#s07_3_bg02").css('opacity',1);
+                        $("#s07_3_bg03").css('opacity',1);
+                        //顯示vip下拉選單
+                        $(".dropdown-item-vip").removeClass("disabled");
+                    }else if(data.data.Level=="900"){
+                        //管理員
+                        $("#s07_3_price01").removeClass("d-none");
+                        $("#s07_3_price02").removeClass("d-none");
+                        $("#s07_3_price03").removeClass("d-none");
+                        $("#s07_3_login01").addClass("d-none");
+                        $("#s07_3_login02").addClass("d-none");
+                        $("#s07_3_login03").addClass("d-none");
+                        $("#s07_3_bg01").css("opacity",1);
+                        $("#s07_3_bg02").css('opacity',1);
+                        $("#s07_3_bg03").css('opacity',1);
+                        //顯示vip下拉選單
+                        $(".dropdown-item-vip").removeClass("disabled");
+                        //manager only
+                        $("#s01_manager_only").removeClass("d-none");
+                    }
+                }else{
+                    //帳號為停用狀態
+                    Swal.fire({
+                    title: "您已被停權!",
+                    text: "帳號為停用狀態",
+                    icon: "error",
+                    footer: '<a href="#">您的帳號已被停權，若有任何問題請聯繫我們</a>'
+                    });
+                    //隱藏modal
+                    $("#loginModal").modal("hide");
+                    //顯示登入帳號
+                    $("#login_username_message").text(data.data.Username+"  您已被停權");
+                    $("#login_username_message").addClass("text-danger");
+                    //隱藏登入與註冊按鈕
+                    $("#s02_login_button").addClass("d-none");
+                    $("#s02_register_button").addClass("d-none");
+                    //顯示登出按鈕
+                    $("#s02_logout_button").removeClass("d-none");
+                    $("#s02_login_icon").removeClass("d-none");
+                    $("#s02_login_icon_2").removeClass("fa-user");
+                    $("#s02_login_icon_2").addClass("fa-skull-crossbones");
+                    
+                }
+                
+                
+                //將uid01寫入cookie
+                //setCookie("aplication_name",data_name,days)
+                setCookie("uid01",data.data.Uid01,7)
+                
+
+            }else{
+                
+                Swal.fire({
+                title: "OOPS",
+                text: data.message,
+                icon: "error"
+                });
+            }
+        }
+        //利用cookie登入
+        function showdata_check_uid(data){
+            console.log(data);
+                //顯示登入帳號
+                if(data.state){
+                    if(data.data.State == "1"){
+                        //帳號啟用
+                        if(data.data.Level=="0"){
+                            level_text="一般會員";
+                            strHTML="您好 會員等級:"+level_text;
+                        }else if(data.data.Level=="100"){
+                            level_text="VIP1";
+                            strHTML="您好 會員等級:"+'<i class="fa-solid fa-crown me-1 ms-1 text-colorGreatYellow"></i>'+level_text;
+                        }else if(data.data.Level=="200"){
+                            level_text="VIP2";
+                            strHTML="您好 會員等級:"+'<i class="fa-solid fa-crown me-1 ms-1 text-colorGreatYellow"></i>'+level_text;
+                        }else if(data.data.Level=="300"){
+                            level_text="VIP3";
+                            strHTML="您好 會員等級:"+'<i class="fa-solid fa-crown me-1 ms-1 text-colorGreatYellow"></i>'+level_text;
+                        }else{
+                            level_text="管理員";
+                            strHTML="您好"+'<i class="fa-solid fa-crown me-1 ms-1 text-colorGreatYellow"></i>'+level_text;
+                        }
+                        $("#login_username_message").html(strHTML);
+                        // $("#login_username_message").text(data.data.Username+level_text);
+                        //隱藏登入與註冊按鈕
+                        $("#s02_login_button").addClass("d-none");
+                        $("#s02_register_button").addClass("d-none");
+                        //顯示登出按鈕
+                        $("#s02_logout_button").removeClass("d-none");
+                        $("#s02_login_icon").removeClass("d-none");
+                        
+                        if(data.data.Level>="100" && data.data.Level<"900"){
+                        //顯示優惠
+                            $("#s07_3_price01").removeClass("d-none");
+                            $("#s07_3_price02").removeClass("d-none");
+                            $("#s07_3_price03").removeClass("d-none");
+                            $("#s07_3_login01").addClass("d-none");
+                            $("#s07_3_login02").addClass("d-none");
+                            $("#s07_3_login03").addClass("d-none");
+                            $("#s07_3_bg01").css("opacity",1);
+                            $("#s07_3_bg02").css('opacity',1);
+                            $("#s07_3_bg03").css('opacity',1);
+                            $(".dropdown-item-vip").removeClass("disabled");
+                        }else if(data.data.Level=="900"){
+                            $("#s07_3_price01").removeClass("d-none");
+                            $("#s07_3_price02").removeClass("d-none");
+                            $("#s07_3_price03").removeClass("d-none");
+                            $("#s07_3_login01").addClass("d-none");
+                            $("#s07_3_login02").addClass("d-none");
+                            $("#s07_3_login03").addClass("d-none");
+                            $("#s07_3_bg01").css("opacity",1);
+                            $("#s07_3_bg02").css('opacity',1);
+                            $("#s07_3_bg03").css('opacity',1);
+                            $(".dropdown-item-vip").removeClass("disabled");
+                            //manager only
+                            $("#s01_manager_only").removeClass("d-none");
+                        }
+                    }else{
+                        //帳號為停用狀態
+                        Swal.fire({
+                        title: "您已被停權!",
+                        text: "帳號為停用狀態!",
+                        icon: "error",
+                        footer: '<a href="#">您的帳號已被停權，若有任何疑慮請聯繫我們</a>'
+                        });
+                        //隱藏modal
+                        $("#loginModal").modal("hide");
+                        //顯示登入帳號
+                        $("#login_username_message").text(data.data.Username+"  您已被停權");
+                        $("#login_username_message").addClass("text-danger");
+                        //隱藏登入與註冊按鈕
+                        $("#s02_login_button").addClass("d-none");
+                        $("#s02_register_button").addClass("d-none");
+                        //顯示登出按鈕
+                        $("#s02_logout_button").removeClass("d-none");
+                        $("#s02_login_icon").removeClass("d-none");
+                        $("#s02_login_icon_2").removeClass("fa-user");
+                        $("#s02_login_icon_2").addClass("fa-skull-crossbones");
+                    }
+                    
+                }
+        }
+        //**************cookie function from w3*****************
+        function setCookie(cname, cvalue, exdays) {
+            const d = new Date();
+            d.setTime(d.getTime() + (exdays*24*60*60*1000));
+            let expires = "expires="+ d.toUTCString();
+            document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+            }
+
+        function getCookie(cname) {
+            let name = cname + "=";
+            let decodedCookie = decodeURIComponent(document.cookie);
+            let ca = decodedCookie.split(';');
+            for(let i = 0; i <ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) == ' ') {
+                c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                return c.substring(name.length, c.length);
+                }
+            }
+            return "";
+            }
+        
+    </script>
+
+<!--slick_responsive  -->
+    <script>
+      $(".responsive").slick({
+            dots: true,
+            infinite: false,
+            speed: 300,
+            slidesToShow: 3,
+            slidesToScroll: 3,
+            prevArrow:'<button type="button" class="slick-prev"><i class="fas fa-chevron-left"></i></button>',
+            nextArrow:'<button type="button" class="slick-next"><i class="fas fa-chevron-right"></i></button>',
+            responsive: [
+                {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    infinite: true,
+                    dots: true
+                }
+                },
+            ]
+            }); 
+    </script>
+    <script>
+        $(".s06-1_responsive").slick({
+              dots: false,
+              infinite: false,
+              speed: 300,
+              slidesToShow: 5,
+              slidesToScroll: 1,
+              prevArrow:'<button type="button" class="slick-prev"><i class="fas fa-chevron-left"></i></button>',
+              nextArrow:'<button type="button" class="slick-next"><i class="fas fa-chevron-right"></i></button>',
+              responsive: [
+                  {
+                  breakpoint: 1024,
+                  settings: {
+                      slidesToShow: 3,
+                      slidesToScroll: 2,
+                      infinite: true,
+                      dots: false
+                  }
+                  },
+                  {
+                  breakpoint: 600,
+                  settings: {
+                      slidesToShow: 2,
+                      slidesToScroll: 2
+                  }
+                  },
+                  {
+                  breakpoint: 480,
+                  settings: {
+                      slidesToShow: 1,
+                      slidesToScroll: 1
+                  }
+                  }
+              ]
+              });
+      </script>
+      <script>
+        $(".s06_2_responsive").slick({
+              dots: false,
+              infinite: false,
+              speed: 300,
+              slidesToShow: 3,
+              slidesToScroll: 1,
+              prevArrow:'<button type="button" class="slick-prev"><i class="fas fa-chevron-left"></i></button>',
+              nextArrow:'<button type="button" class="slick-next"><i class="fas fa-chevron-right"></i></button>',
+              responsive: [
+                  {
+                  breakpoint: 1024,
+                  settings: {
+                      slidesToShow: 1,
+                      slidesToScroll: 1,
+                      infinite: true,
+                      dots: false
+                  }
+                  },
+              ]
+              });
+      </script>
+
+    <!-- datepicker -->
+    <script>
+        $(document).ready(function() {
+          $('#r_datepicker').datepicker({
+                format :'yyyy-mm-dd'
+          });
+        });
+      </script>
+</body>
+</html>
