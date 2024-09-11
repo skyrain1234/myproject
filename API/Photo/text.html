@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>檔案上傳</title>
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
 </head>
 <body>
     <div class="container">
@@ -14,14 +14,15 @@
                     <label for="photo_upload" class="form-label">上傳</label>
                     <input type="file" class="form-control" name="photo_upload" id="photo_upload">
                     <img id="prevImg" src="#" class="w-25 d-none" alt="">
+                    <input type="text" id="img_title" class="form-control" placeholder="標題">
                 </div>
                 <button class="btn btn-dark" id="upload_btn">確認</button>
             </div>
         </div>
     </div>
 </body>
-<script src="/js/jquery-3.7.1.min.js"></script>
-<script src="js/sweetalert2@11.js"></script>
+<script src="../../js/jquery-3.7.1.min.js"></script>
+<script src="../../js/sweetalert2@11.js"></script>
 <script>
     var flag_upload;
     $(function(){
@@ -37,7 +38,7 @@
             }
         })
         $("#photo_upload").change(function(){
-            console.log(photo_upload.files[0])
+            // console.log(photo_upload.files[0].type);
             if(photo_upload.files[0].type == 'image/jpeg' || photo_upload.files[0].type == 'image/png'){
                 $("#prevImg").removeClass("d-none");
                 $("#prevImg").attr("src",URL.createObjectURL(photo_upload.files[0]));
@@ -50,10 +51,26 @@
         })
     })//end of function
     function upload_file(){
-        // console.log(photo_upload.files);
+         //console.log(photo_upload.files);
         var formData = new FormData();
-        formData.append("file",photo_upload.files[0])
+        formData.append("file",photo_upload.files[0]);
+        formData.append("title",$("#img_title").val());
         console.log(formData);
+        $.ajax({
+            type:"POST",
+            url:"test.upload.php",
+            data:formData,
+            dataType:"json",
+            cache:false,
+            contentType:false,
+            processData:false,
+            success:function(data){
+                console.log(data);
+            },
+            error:function(data){
+                console.log("error"+data);
+            }
+        });
     }
 </script>
 </html>
