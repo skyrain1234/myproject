@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>檔案上傳</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row ">
+            <div class="col-12 ">
+                <div class="my-3 ">
+                    <label for="photo_upload" class="form-label">上傳</label>
+                    <input type="file" class="form-control" name="photo_upload" id="photo_upload">
+                    <img id="prevImg" src="#" class="w-25 d-none" alt="">
+                </div>
+                <button class="btn btn-dark" id="upload_btn">確認</button>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="/js/jquery-3.7.1.min.js"></script>
+<script src="js/sweetalert2@11.js"></script>
+<script>
+    var flag_upload;
+    $(function(){
+        $("#upload_btn").bind("click",function(){
+            if(flag_upload){
+                upload_file();
+            }else{
+                Swal.fire({
+                    icon: "warning",
+                    title: "檔案格式錯誤",
+                    text: "請使用png或jpeg",
+                    });
+            }
+        })
+        $("#photo_upload").change(function(){
+            console.log(photo_upload.files[0])
+            if(photo_upload.files[0].type == 'image/jpeg' || photo_upload.files[0].type == 'image/png'){
+                $("#prevImg").removeClass("d-none");
+                $("#prevImg").attr("src",URL.createObjectURL(photo_upload.files[0]));
+                flag_upload= true;
+            }else{
+                console.log("jpeg or png");
+                $("#prevImg").addClass("d-none");
+                flag_upload= false;
+            }
+        })
+    })//end of function
+    function upload_file(){
+        // console.log(photo_upload.files);
+        var formData = new FormData();
+        formData.append("file",photo_upload.files[0])
+        console.log(formData);
+    }
+</script>
+</html>
