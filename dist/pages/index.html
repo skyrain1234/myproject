@@ -127,7 +127,7 @@
                                 <li class="nav-item"> <a href="./index.html" class="nav-link active"> <i class="nav-icon bi bi-circle"></i>
                                         <p>Dashboard v1</p>
                                     </a> </li>
-                                <li class="nav-item"> <a href="./product_add.html" class="nav-link"> <i class="nav-icon bi bi-circle"></i>
+                                <li class="nav-item"> <a href="#" class="nav-link"> <i class="nav-icon bi bi-circle"></i>
                                         <p>Dashboard v2</p>
                                     </a> </li>
                                 <li class="nav-item"> <a href="./index3.html" class="nav-link"> <i class="nav-icon bi bi-circle"></i>
@@ -439,7 +439,7 @@
                                                     <td data-th="產品價格"><span class="table-col">100</span></td>
                                                     <td data-th="優惠價格"><span class="table-col">10</span></td>
                                                     <td data-th="庫存"><span class="table-col">10</span></td>
-                                                    <td data-th="產品圖"><span class="table-col">10</span></td>
+                                                    <td data-th="產品圖"><span class="table-col"><img src="../../image/product/20240912152202_mirror01-md.jpg" style="height: 100px;" alt=""></span></td>
                                                     <td data-th="產品狀態">
                                                         <div class="form-check form-switch">
                                                             <input type="checkbox" class="form-check-input" checked id="state_switch" name="state_switch" data-state="X">
@@ -481,12 +481,12 @@
                                     <div class="modal-body">
                                         <div class="row">
                                             <div class="col-md-7 bg-cover">
-                                                <form action="../../API/product_photo_upload.php" method="POST" enctype="multipart/form-data"  class="text-center">
-                                                    <img src="../../image/product/m" alt="" class="w-50 mb-5">
-                                                    <label for="upload_product_photo" class="form-label"></label>
-                                                    <input class="form-control" type="file" id="upload_product_photo" name="upload_product_photo">
-                                                    <button type="submit">上傳圖片</button>
-                                                </form>
+                                                <div id="pruduct_photo_lg" class="text-center">
+                                                    <img src="../../image/product/" alt="" class="w-50 mb-5">
+                                                </div>
+                                                <label for="upload_product_photo" class="form-label"></label>
+                                                <input class="form-control" type="file" id="upload_product_photo" name="upload_product_photo">
+                                                <img id="prevImg" src="#" class="d-none mt-2" style="height: 100px;" alt="">
                                             </div>
                                             <div class="col-md-5">
                                                 <div>
@@ -550,8 +550,10 @@
         var flag_product_price = true;
         var flag_product_price_discount = true;
         var flag_product_stock = true;
+        var flag_p_upload=true;
         var u_id;
         var newdata=[];
+        var photo_data=[];
     
     
         $(function(){
@@ -633,13 +635,20 @@
                 var page = parseInt(key/10);
                 newdata[page].push(item);
             });
-            console.log(newdata);
     
             drawTable(0);
     
             //監聽upload
             $("#upload_product_photo").change(function(){
-                
+                if(upload_product_photo.files[0].type == 'image/jpeg' || upload_product_photo.files[0].type == 'image/png' || upload_product_photo.files[0].type == 'image/svg+xml'){
+                    $("#prevImg").removeClass("d-none");
+                    $("#prevImg").attr("src",URL.createObjectURL(upload_product_photo.files[0]));
+                    flag_p_upload= true;
+                }else{
+                    console.log("jpeg or png");
+                    $("#prevImg").addClass("d-none");
+                    flag_p_upload= false;
+                }
             });
  
             //todo
@@ -711,12 +720,34 @@
 
             //監聽更新modal
             $("#btn_update_ok").click(function(){
-                if(flag_product_name && flag_product_desc&&flag_product_price&&flag_product_price_discount&&flag_product_stock){
+                if(flag_product_name && flag_product_desc && flag_product_price && flag_product_price_discount && flag_product_stock && flag_p_upload){
+                    var formData = new FormData();
+                        formData.append("file",upload_product_photo.files[0]);
+                        //todo
+                        formData.append("oldfile", $("#btn_update").data("image_url"));
+                        console.log(formData);
+                        $.ajax({
+                            type:"POST",
+                            url:"../../API/product_photo_update.api.php",
+                            data:formData,
+                            dataType:"json",
+                            cache:false,
+                            contentType:false,
+                            processData:false,
+                            async:false,
+                            success:function(data){
+                                photo_data=data;
+                            },
+                            error:function(data){
+                                console.log("error"+data);
+                            }
+                        });
                     var dataJSON = {};
                     dataJSON["id"] = u_id;
                     dataJSON["product_name"] = $("#update_product_name").val();
                     dataJSON["product_desc"] = $("#update_product_desc").val();
                     dataJSON["product_price"] = $("#update_product_price").val();
+                    dataJSON["photo"] = photo_data.filename;
 
                     if($("#update_product_price_discount").val()=="0"){
                         dataJSON["product_price_discount"]="NULL"
@@ -725,12 +756,12 @@
                     }
                      
                     dataJSON["product_stock"] = $("#update_product_stock").val();
-                    console.log(JSON.stringify(dataJSON));
                     $.ajax({
                         type:"POST",
                         url:"../../API/product_update_api.php",
                         data:JSON.stringify(dataJSON),
                         dataType:"json",
+                        async:false,
                         success:showdata_update,
                         error:function(){
                             alert("error-product_update_api.php");
@@ -748,7 +779,6 @@
         };
         //確認更新update
         function showdata_update(data){
-            console.log(data);
             if(data.state){
                 Swal.fire({
                     title: "Good job!",
@@ -786,6 +816,7 @@
                 }else{
                     strTYPE ='<td data-th="商品分類"><select name="prodcut_type" id="prodcut_type" class="form-select" data-id="'+item.ID+'"><<option value="1">沙發/椅子</option><option value="2">辦公桌/辦公椅</option><option value="3">床組/寢具</option><option value="4">衛浴用品</option><option value="5">廚具/餐具</option><option value="6">燈具/照明</option><option value="7">窗簾/地毯</option><option value="8" selected>其他</option></select></td>'
                 }
+                //如果沒有折扣
                 if(item.Price_discount==null)
                 {
                     strDISCOUNT='<td><span class="table-col">無</span></td>'
@@ -793,9 +824,15 @@
                     strDISCOUNT='<td><span class="table-col">'+item.Price_discount+'</span></td>'
                 }
 
-    
-                var strHTML = '<tr><td><span class="table-col align-content-center">'+item.ID+'</span></td><td><span class="table-col">'+item.Product_name+'</span></td><td><span class="table-col">'+item.Description+'</span></td>'+strTYPE+'<td><span class="table-col">'+item.Price+'</span></td>'+strDISCOUNT+'<td><span class="table-col">'+item.Stock+'</span></td><td><span class="table-col">'+item.Image_url+'</span></td><td><div class="form-check form-switch"><input type="checkbox" class="form-check-input" '+(item.State == "1" ? 'checked':'')+' id="state_switch" name="state_switch" data-id="'+item.ID+'" data-state="'+item.State+'"><label for="" class="form-check-label '+(item.State == "1" ? 'text-success':'text-danger')+'">'+(item.State == "1" ? '啟用':'停用')+'</label></div></td><td><span class="table-col">'+item.Created_at+'</span></td><td><span class="table-col">'+item.Update_at+'</span></td><td><button class="btn btn-info me-2" type="button" data-bs-toggle="modal" data-bs-target="#updateModal" data-id="'+item.ID+'"data-Product_name="'+item.Product_name+'"data-description="'+item.Description+'" data-image_url="'+item.Image_url+'" data-price="'+item.Price+'" data-price_discount="'+item.Price_discount+'" data-stock="'+item.Stock+'" data-created_at="'+item.Created_at+'" id="btn_update">更新</button></td><tr>'
+                //如果產品沒有圖片
+                if(item.Image_url==null)
+                {
+                    item.Image_url="No_image_available.svg";
+                }
+                
+                var strHTML = '<tr><td><span class="table-col align-content-center">'+item.ID+'</span></td><td><span class="table-col">'+item.Product_name+'</span></td><td><span class="table-col">'+item.Description+'</span></td>'+strTYPE+'<td><span class="table-col">'+item.Price+'</span></td>'+strDISCOUNT+'<td><span class="table-col">'+item.Stock+'</span></td><td><span class="table-col"><img src="../../image/product/'+item.Image_url+'" style="height: 100px;" alt=""></span></td><td><div class="form-check form-switch"><input type="checkbox" class="form-check-input" '+(item.State == "1" ? 'checked':'')+' id="state_switch" name="state_switch" data-id="'+item.ID+'" data-state="'+item.State+'"><label for="" class="form-check-label '+(item.State == "1" ? 'text-success':'text-danger')+'">'+(item.State == "1" ? '啟用':'停用')+'</label></div></td><td><span class="table-col">'+item.Created_at+'</span></td><td><span class="table-col">'+item.Update_at+'</span></td><td><button class="btn btn-info me-2" type="button" data-bs-toggle="modal" data-bs-target="#updateModal" data-id="'+item.ID+'"data-Product_name="'+item.Product_name+'"data-description="'+item.Description+'" data-image_url="'+item.Image_url+'" data-price="'+item.Price+'" data-price_discount="'+item.Price_discount+'" data-stock="'+item.Stock+'" data-created_at="'+item.Created_at+'" id="btn_update">更新</button></td><tr>'
                 $("#datalist").append(strHTML);
+
             });
     
             //上一頁按鈕
@@ -829,14 +866,7 @@
     
             //監聽update按鈕
             $("#datalist #btn_update").click(function(){
-                console.log($(this).data("id"));
-                console.log($(this).data("product_name"));
-                console.log($(this).data("description"));
-                console.log($(this).data("price"));
-                console.log($(this).data("price_discount"));
-                console.log($(this).data("stock"));
-
-    
+                $("#pruduct_photo_lg").html('<img src="../../image/product/'+$(this).data("image_url")+'" alt="" class="w-50 mb-5">');
                 $("#update_product_name").val($(this).data("product_name"));
                 $("#update_product_desc").val($(this).data("description"));
                 $("#update_product_price").val($(this).data("price"));
@@ -899,7 +929,6 @@
         };
     
         function showdata_product_update_state(data){
-            console.log(data);
             if(data.state){
                 Swal.fire({
                     title: "更改成功",
@@ -909,7 +938,6 @@
             }
         }
         function showdata_product_update_type(data){
-            console.log(data);
             if(data.state){
                 Swal.fire({
                     title: "更改成功",

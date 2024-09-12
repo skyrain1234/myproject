@@ -425,7 +425,7 @@
                                     <div class="mb-3">
                                         <label for="p_type" class="form-label">產品分類</label>
                                         <select class="form-select" id="p_type" name="p_type">
-                                            <option value="" disabled>請選擇產品類別</option>
+                                            <option value="" disabled selected>請選擇產品類別</option>
                                             <option value="1">沙發/椅子</option>
                                             <option value="2">辦公桌/辦公椅</option>
                                             <option value="3">床組/寢具</option>
@@ -444,15 +444,15 @@
                                         <div class="invalid-feedback">1~100000元</div>
                                     </div>
                                     <div class="mb-3">
-                                        <label for="p_num" class="form-label">庫存數量</label>
-                                        <input type="number" class="form-control is-invalid" id="p_num" name="p_num" value="0" min="0" max="50000" placeholder="1~10000">
+                                        <label for="p_stock" class="form-label">庫存數量</label>
+                                        <input type="number" class="form-control is-invalid" id="p_stock" name="p_stock" value="0" min="0" max="10000" placeholder="1~10000">
                                         <div class="valid-feedback">符合</div>
                                         <div class="invalid-feedback">1~10000</div>
                                     </div>
                                     <div class="mb-3 ">
                                         <label for="p_photo_upload" class="form-label">產品圖</label>
                                         <input type="file" class="form-control" name="p_photo_upload" id="p_photo_upload">
-                                        <img id="prevImg" src="#" class="w-25 d-none" alt="">
+                                        <img id="prevImg" src="#" class="d-none mt-2" style="height: 100px;" alt="">
                                     </div>
                                     <div class="form-check form-switch mb-3">
                                         <input type="checkbox" class="form-check-input" checked id="state_switch" name="state_switch" data-state="X">
@@ -488,15 +488,14 @@
     <script src="../../js/bootstrap.bundle.min.js"></script>
     <script src="../../js/jquery-3.7.1.min.js"></script>
     <script>
-        var flag_product_name = true;
-        var flag_product_desc = true;
-        var flag_product_price = true;
-        var flag_product_price_discount = true;
-        var flag_product_stock = true;
+        var flag_p_name = false;
+        var flag_p_desc = false;
+        var flag_p_price = false;
+        var flag_p_stock = false;
+        var flag_p_upload;
         var u_id;
         var newdata=[];
-    
-    
+        var photo_data=[];
         $(function(){
             if(getCookie("uid01")!=""){
                     //將uid傳遞至後端api確認是否合法
@@ -537,9 +536,160 @@
                             //顯示登出按鈕
                             $("#s02_logout_button").removeClass("d-none");
                             $("#s02_login_icon").removeClass("d-none");
-                            //
                             $("#member_table").removeClass("d-none");
-    
+                            $.ajax({
+                                type:"GET",
+                                url:"../../API/product_type_read_api.php",
+                                dataType:"json",
+                                async:false,
+                                success:showproduct_type_read,
+                                error:function(){
+                                    alert("error_member_read_api.php");
+                                }
+                            });
+
+                            
+                            //監聽建檔區塊
+                            $("#p_name").bind("input propertychange" , function(){
+                                if($(this).val().length>0 && $(this).val().length<31){
+                                    $(this).removeClass("is-invalid");
+                                    $(this).addClass("is-valid");
+                                    flag_p_name = true;
+                                }else{
+                                    $(this).removeClass("is-valid");
+                                    $(this).addClass("is-invalid");
+                                    flag_p_name = false;
+                                }
+                            });
+                            $("#p_desc").bind("input propertychange" , function(){
+                                if($(this).val().length>0 && $(this).val().length<31){
+                                    $(this).removeClass("is-invalid");
+                                    $(this).addClass("is-valid");
+                                    flag_p_desc = true;
+                                }else{
+                                    $(this).removeClass("is-valid");
+                                    $(this).addClass("is-invalid");
+                                    flag_p_desc = false;
+                                }
+                            });
+                            $("#p_type").change(function(){
+                                if($(this).val()!=""){
+                                    $(this).removeClass("is-invalid");
+                                    $(this).addClass("is-valid");
+                                    flag_p_type = true;
+                                }else{
+                                    $(this).removeClass("is-valid");
+                                    $(this).addClass("is-invalid");
+                                    flag_p_type = false;
+                                }
+                            });
+                            $("#p_price").bind("input propertychange" , function(){
+                                if($(this).val()>0 && $(this).val()<100000){
+                                    $(this).removeClass("is-invalid");
+                                    $(this).addClass("is-valid");
+                                    flag_p_price = true;
+                                }else{
+                                    $(this).removeClass("is-valid");
+                                    $(this).addClass("is-invalid");
+                                    flag_p_price = false;
+                                }
+                            });
+                            $("#p_stock").bind("input propertychange" , function(){
+                                if($(this).val()>=0 && $(this).val()<10001){
+                                    $(this).removeClass("is-invalid");
+                                    $(this).addClass("is-valid");
+                                    flag_p_stock = true;
+                                }else{
+                                    $(this).removeClass("is-valid");
+                                    $(this).addClass("is-invalid");
+                                    flag_p_stock = false;
+                                }
+                            });
+                            $("#p_photo_upload").change(function(){
+                                if(p_photo_upload.files[0].type == 'image/jpeg' || p_photo_upload.files[0].type == 'image/png' || p_photo_upload.files[0].type == 'image/svg+xml'){
+                                    $("#prevImg").removeClass("d-none");
+                                    $("#prevImg").attr("src",URL.createObjectURL(p_photo_upload.files[0]));
+                                    flag_p_upload= true;
+                                }else{
+                                    console.log("jpeg or png");
+                                    $("#prevImg").addClass("d-none");
+                                    flag_p_upload= false;
+                                }
+                            })
+                            //監聽state_switch 會員狀態按鈕
+                            $("#state_switch").change(function(){
+                                if($(this).is(":checked")){
+                                    $(this).next().text("啟用");
+                                    $(this).next().removeClass("text-danger");
+                                    $(this).next().addClass("text-success");
+                                }else{
+                                    $(this).next().text("停用");
+                                    $(this).next().removeClass("text-success");
+                                    $(this).next().addClass("text-danger");
+                                }
+
+                            });
+                            
+                            //監聽確認按鈕
+                            $("#ok_btn").click(function(){
+                                if(flag_p_name && flag_p_desc && flag_p_type && flag_p_price && flag_p_stock && flag_p_upload){
+                                    // console.log($("#p_name").val());
+                                    // console.log($("#p_desc").val());
+                                    // console.log($("#p_type").val());
+                                    // console.log($("#p_price").val());
+                                    // console.log($("#p_stock").val());
+
+                                    var formData = new FormData();
+                                    formData.append("file",p_photo_upload.files[0]);
+                                    formData.append("title",$("#img_title").val());
+                                    console.log(formData);
+                                    $.ajax({
+                                        type:"POST",
+                                        url:"../../API/product_photo_create.api.php",
+                                        data:formData,
+                                        dataType:"json",
+                                        cache:false,
+                                        contentType:false,
+                                        processData:false,
+                                        async:false,
+                                        success:function(data){
+                                            photo_data=data;
+                                        },
+                                        error:function(data){
+                                            console.log("error"+data);
+                                        }
+                                    });
+
+
+                                    ($("#state_switch").is(":checked") ? mystate= "1" : mystate = "0");
+                                    var dataJSON = {};
+                                    dataJSON["name"] = $("#p_name").val();
+                                    dataJSON["desc"] = $("#p_desc").val();
+                                    dataJSON["type"] = $("#p_type").val();
+                                    dataJSON["price"] = $("#p_price").val();
+                                    dataJSON["stock"] = $("#p_stock").val();
+                                    dataJSON["state"] = mystate;
+                                    dataJSON["photo"] = photo_data.filename;
+
+                                    console.log(JSON.stringify(dataJSON));
+
+                                    //傳遞至後端
+                                    $.ajax({
+                                        type:"POST",
+                                        url:"../../API/product_create_api.php" ,
+                                        data : JSON.stringify(dataJSON),
+                                        contentType: "application/json;charset=utf-8",
+                                        dataType:"json",
+                                        async:false,
+                                        success:showdata_create,
+                                        error: function(){
+                                            alert("errod-product_create_api.php");
+                                        }
+                                    });
+                                }else{
+                                    alert("欄位有錯,請修正!");
+                                }
+                            });
                         }else{
                             Swal.fire({
                             icon: "error",
@@ -553,7 +703,33 @@
                         }
                         
                     }
-            };
+            };//end of function show checkuid
+
+        //渲染產品類別p_type
+        function showproduct_type_read(data){
+            //清空草稿，手動產生第一欄
+            $("#p_type").empty();
+            $("#p_type").append('<option value="" disabled selected>請選擇產品類別</option>');
+            data.data.forEach(function(item){
+                var strHtml='<option value="'+item.Type_id+'">'+item.Product_type+'</option>';
+                $("#p_type").append(strHtml);
+            });
+        };
+        //建立產品成功提示訊息
+        function showdata_create(data){
+            if(data.state){
+                Swal.fire({
+                    title: "Good job!",
+                    text: data.message,
+                    icon: "success",
+                    }).then((result) => {
+                    if (result.isConfirmed) {
+                        // 重整頁面
+                        location.reload();
+                    }
+                });
+            }
+        }
         //**************cookie function from w3*****************
         function setCookie(cname, cvalue, exdays) {
                 const d = new Date();
@@ -577,7 +753,7 @@
                 }
                 return "";
                 }
-    </script>
+    </script><!--end of main script-->
     <script>
         const SELECTOR_SIDEBAR_WRAPPER = ".sidebar-wrapper";
         const Default = {

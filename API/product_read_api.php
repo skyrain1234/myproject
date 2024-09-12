@@ -5,7 +5,7 @@
     require_once("dbtools.php");
     $link = create_connection();
 
-    $sql = "SELECT *FROM product_all";
+    $sql = "SELECT *FROM product_all order by ID DESC";
     $result = execute_sql($link,"testdb",$sql);
     $mydata = array();
     
