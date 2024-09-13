@@ -10,6 +10,12 @@
     $mydata = array();
     
     while ($row = mysqli_fetch_assoc($result)){
+        
+        //如果產品沒有圖片
+        if($row["Image_url"]==null)
+        {
+            $row["Image_url"]="No_image_available.svg";
+        }
         $mydata[] = $row;
     }
     echo '{"state" : true, "data": ' . json_encode($mydata) . ', "message" : "讀取產品資訊"}';

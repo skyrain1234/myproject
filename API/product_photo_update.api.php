@@ -10,6 +10,17 @@
             //建立資料夾,權限777
             mkdir($target_dir,0755);
         }
+        $remove_dir = "../image/product/remove/";
+        
+        //如果指定的資料夾不存在
+        if(!file_exists($remove_dir))
+        {
+            //建立資料夾,權限777
+            mkdir($remove_dir,0755);
+        }
+        $old_file_dir = $target_dir.$_POST["old_file"];
+        rename($old_file_dir,$remove_dir.$_POST["old_file"]);
+        
 
         $filename = date("YmdHis")."_".$_FILES['file']['name'];//重新命名
         
@@ -25,7 +36,7 @@
             $datainfo["size"]=$_FILES['file']['size'];
             $datainfo["tmp_name"]=$_FILES['file']['tmp_name'];
             $datainfo["error"]=$_FILES['file']['error'];
-            $datainfo["imgTitle"]=$_POST["title"];
+            $datainfo["old_file"]=$_POST["old_file"];
             echo json_encode($datainfo);
         }else{
             $errinfo = array();
