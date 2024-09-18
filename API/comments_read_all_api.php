@@ -5,22 +5,15 @@
     require_once("dbtools.php");
     $link = create_connection();
 
-    $sql = "SELECT * FROM comments WHERE State='N' order by ID DESC";
+    $sql = "SELECT * FROM comments order by ID DESC";
     $result = execute_sql($link,"testdb",$sql);
     $mydata = array();
     
     while ($row = mysqli_fetch_assoc($result)){
-
-            $mydata[] = $row;
         
+        $mydata[] = $row;
     }
-        if($mydata!=[])
-        {
-            echo '{"state" : true, "data": ' . json_encode($mydata) . ', "message" : "讀取留言"}';
-        }else{
-            echo '{"state" : false, "data": ' . json_encode($mydata) . ', "message" : "讀取留言"}';
-        }
-    
+    echo '{"state" : true, "data": ' . json_encode($mydata) . ', "message" : "讀取留言"}';
 
     mysqli_close($link);
     

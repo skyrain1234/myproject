@@ -27,9 +27,7 @@
         <div class="container ">
             <div class="row align-items-center">
                 <div class="col-4 d-none me-auto" id="s01_manager_only">
-                    <a href="#" target="_blank" style="color: var(--mytextcolorWhite2);"><i class="fa-solid fa-gears"></i>控制台</a>
-                    <a href="20240718-product.html" target="_blank" style="color: var(--mytextcolorWhite2);"><i class="fa-solid fa-file-excel "></i>產品建檔</a>
-                    <a href="20240820-member_control_panel.html" target="_blank" style="color: var(--mytextcolorWhite2);"><i class="fa-solid fa-user-gear"></i>會員管理</a>
+                    <a href="admin.html" target="_blank" style="color: var(--mytextcolorWhite2);"><i class="fa-solid fa-gears"></i>控制台</a>
                 </div>
                 <div class="col-4 text-center mt-2">
                     <div class="h5 text-white">Modernist Lines家具工坊</div>
@@ -224,7 +222,7 @@
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb" id="breadcrumb">
                             <li class="breadcrumb-item"><a href="index.html" style="color: black;">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page"><a href="#">產品總覽</a></li>
+                            <li class="breadcrumb-item active" aria-current="page"><a href="product.html">產品總覽</a></li>
                         </ol>
                     </nav> 
                 </div>
@@ -432,7 +430,6 @@
                     //傳遞至後段確認是否可使用
                     var dataJSON = {};
                     dataJSON["username"] = $("#r_username").val();
-                    console.log(JSON.stringify(dataJSON));
                     $.ajax({
                         type:"POST",
                         url:"API/member_register_checkuni_api.php",
@@ -535,7 +532,6 @@
                     dataJSON["password"] = $("#r_password").val();
                     dataJSON["birthday"] = $("#r_datepicker").val();
                     dataJSON["email"]    = $("#r_email").val();
-                    console.log(JSON.stringify(dataJSON));
                     $.ajax({
                         type:"POST",
                         url:"API/member_register_api.php",
@@ -568,7 +564,6 @@
                     dataJSON["username"] = $("#l_username").val();
                     dataJSON["password"] = $("#l_password").val();
 
-                    // console.log(JSON.stringify(dataJSON));
 
                     $.ajax({
                         type:"POST",
@@ -634,35 +629,36 @@
                 }
             });
 
+        });//end of function
+
+        function showdata_read(data){
+            // product_type=data.data;
+            
+            $("#product").empty()
+            data.data.forEach(function(item){
+                var strHtml ='<div class="col-lg-3 col-xl-3 my-3"><div class="card"><button style="background-image: url(image/product/'+item.Image_url+');height: 250px;" class="card-img-top bg-cover btn btn-light" alt="" data-bs-toggle="modal" data-bs-target="#productModal'+item.ID+'"></button><div class="card-body text-center"><a href=""><div class="h4 fw-800">'+item.Product_name+'</div><div class="h5">$'+item.Price+'</div><div class="h5"></div></a><button class="btn btn-dark" data-id='+item.ID+' data-price='+item.Price+' data-name='+item.Product_name+'>加入購物車</button></div></div></div><div class="modal fade" id="productModal'+item.ID+'" tabindex="-1" aria-labelledby="productModal'+item.ID+'Label" aria-hidden="true"><div class="modal-dialog modal-xl "><div class="modal-content"><div class="modal-header text-bg-success"><h5 class="modal-title" id="product'+item.ID+'ModalLabel">產品資訊</h5><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div><div class="modal-body"><div class="row"><div class="col-md-7 bg-cover" style="background-image: url(image/product/'+item.Image_url+'); height: 70vh;"></div><div class="col-md-5"><div class="text-muted">'+item.Product_type+'</div><div class="h3 fw-900">'+item.Product_name+'</div><div class="h4 my-3">價格:$'+item.Price+'</div><h4 class="mt-5">產品尺寸</h3><ul class="h5"><li>長:</li><li>寬:</li><li>高:</li></ul><div class="mb-3"><label for="" class="form-label">數量</label><input type="number" class="form-control" min="1" max="50" value="1"></div><button class="btn btn-danger w-100" data-id='+item.ID+' data-price='+item.Price+' data-name='+item.Product_name+'>加入購物車</button></div></div></div></div></div></div>';
+                $("#product").append(strHtml);
+            })
+
             //監聽產品類別按鈕
             $("#product_type").on('click','.slick-slide', function(event){
                 type_id= $(this).data('id');
                 type_name = $(this).data('name');
-                product_type.forEach(function(item){
+                $("#product").empty();
+
+                //渲染麵包屑
+                $("#breadcrumb").empty();
+                var strBread='<li class="breadcrumb-item"><a href="index.html" style="color: black;">Home</a></li><li class="breadcrumb-item"><a href="product.html">產品總覽</a></li><li class="breadcrumb-item active" aria-current="page">'+type_name+'</li>';    
+                $("#breadcrumb").append(strBread);
+
+                data.data.forEach(function(item){
                     if(type_id==item.Type_id)
                     {
-                        $("#breadcrumb").empty();
-                        $("#product").empty();
                         var strHtml ='<div class="col-lg-3 col-xl-3 my-3"><div class="card"><button style="background-image: url(image/product/'+item.Image_url+');height: 250px;" class="card-img-top bg-cover btn btn-light" alt="" data-bs-toggle="modal" data-bs-target="#productModal'+item.ID+'"></button><div class="card-body text-center"><a href=""><div class="h4 fw-800">'+item.Product_name+'</div><div class="h5">$'+item.Price+'</div><div class="h5"></div></a><button class="btn btn-dark" data-id='+item.ID+' data-price='+item.Price+' data-name='+item.Product_name+'>加入購物車</button></div></div></div><div class="modal fade" id="productModal'+item.ID+'" tabindex="-1" aria-labelledby="productModal'+item.ID+'Label" aria-hidden="true"><div class="modal-dialog modal-xl "><div class="modal-content"><div class="modal-header text-bg-success"><h5 class="modal-title" id="product'+item.ID+'ModalLabel">產品資訊</h5><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div><div class="modal-body"><div class="row"><div class="col-md-7 bg-cover" style="background-image: url(image/product/'+item.Image_url+'); height: 70vh;"></div><div class="col-md-5"><div class="text-muted">'+type_name+'</div><div class="h3 fw-900">'+item.Product_name+'</div><div class="h4 my-3">價格:$'+item.Price+'</div><h4 class="mt-5">產品尺寸</h3><ul class="h5"><li>長:</li><li>寬:</li><li>高:</li></ul><div class="mb-3"><label for="" class="form-label">數量</label><input type="number" class="form-control" min="1" max="50" value="1"></div><button class="btn btn-danger w-100" data-id='+item.ID+' data-price='+item.Price+' data-name='+item.Product_name+'>加入購物車</button></div></div></div></div></div></div>';
-                            
-                        var strBread='<li class="breadcrumb-item"><a href="index.html" style="color: black;">Home</a></li><li class="breadcrumb-item"><a href="product.html">產品總覽</a></li><li class="breadcrumb-item active" aria-current="page">'+type_name+'</li>';
-                        
-                        $("#breadcrumb").append(strBread);
                         $("#product").append(strHtml);
                     }
-                })
-            })
-
-        });//end of function
-
-        function showdata_read(data){
-            product_type=data.data;
-            $("#product").empty();
-            data.data.forEach(function(item){;
-                var strHtml ='<div class="col-lg-3 col-xl-3 my-3"><div class="card"><button style="background-image: url(image/product/'+item.Image_url+');height: 250px;" class="card-img-top bg-cover btn btn-light" alt="" data-bs-toggle="modal" data-bs-target="#productModal'+item.ID+'"></button><div class="card-body text-center"><a href=""><div class="h4 fw-800">'+item.Product_name+'</div><div class="h5">$'+item.Price+'</div><div class="h5"></div></a><button class="btn btn-dark" data-id='+item.ID+' data-price='+item.Price+' data-name='+item.Product_name+'>加入購物車</button></div></div></div><div class="modal fade" id="productModal'+item.ID+'" tabindex="-1" aria-labelledby="productModal'+item.ID+'Label" aria-hidden="true"><div class="modal-dialog modal-xl "><div class="modal-content"><div class="modal-header text-bg-success"><h5 class="modal-title" id="product'+item.ID+'ModalLabel">產品資訊</h5><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div><div class="modal-body"><div class="row"><div class="col-md-7 bg-cover" style="background-image: url(image/product/'+item.Image_url+'); height: 70vh;"></div><div class="col-md-5"><div class="text-muted">'+item.Type_id+'</div><div class="h3 fw-900">'+item.Product_name+'</div><div class="h4 my-3">價格:$'+item.Price+'</div><h4 class="mt-5">產品尺寸</h3><ul class="h5"><li>長:</li><li>寬:</li><li>高:</li></ul><div class="mb-3"><label for="" class="form-label">數量</label><input type="number" class="form-control" min="1" max="50" value="1"></div><button class="btn btn-danger w-100"data-id='+item.ID+' data-price='+item.Price+' data-name='+item.Product_name+'>加入購物車</button></div></div></div></div></div></div>';
-                
-                $("#product").append(strHtml);
-            })
+                });
+            });
         };
 
         function showproduct_type_read(data){
@@ -694,7 +690,6 @@
         };
 
         function showdata_checkuni(data) {
-            console.log(data);
             if (data.state) {
                 $("#r_username").removeClass("is-invalid");
                 $("#r_username").addClass("is-valid");
@@ -709,7 +704,6 @@
         }
 
         function showdata_register(data){
-            console.log(data);
             if(data.state){
                 Swal.fire({
                 title: "Good job!",
@@ -732,7 +726,6 @@
             }
         }
         function showdata_login(data){
-            console.log(data);
             if(data.state){
                 if(data.data.State == "1"){
                     //帳號啟用
@@ -819,7 +812,6 @@
         }
         //利用cookie登入
         function showdata_check_uid(data){
-            console.log(data);
                 //顯示登入帳號
                 if(data.state){
                     if(data.data.State == "1"){
@@ -907,12 +899,12 @@
             }
     </script>
         <!-- datepicker -->
-        <script>
-            $(document).ready(function() {
-              $('#r_datepicker').datepicker({
-                    format :'yyyy-mm-dd'
-              });
+    <script>
+        $(document).ready(function() {
+            $('#r_datepicker').datepicker({
+                format :'yyyy-mm-dd'
             });
-          </script>
+        });
+    </script>
 </body>
 </html>

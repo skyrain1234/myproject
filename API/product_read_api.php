@@ -4,8 +4,9 @@
     
     require_once("dbtools.php");
     $link = create_connection();
-
-    $sql = "SELECT *FROM product_all order by ID DESC";
+    // $sql = "SELECT *FROM product_all order by ID DESC";
+    
+    $sql = "SELECT a.*,b.Product_type FROM product_all AS a JOIN product_type AS b ON a.Type_id=b.Type_id order by ID DESC";
     $result = execute_sql($link,"testdb",$sql);
     $mydata = array();
     

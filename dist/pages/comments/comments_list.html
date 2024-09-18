@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/source-sans-3@5.0.12/index.css" integrity="sha256-tXJfXfp6Ewt1ilPzLDtQnJV4hclT9XuaZUKyUvmyr+Q=" crossorigin="anonymous"><!--end::Fonts--><!--begin::Third Party Plugin(OverlayScrollbars)-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.3.0/styles/overlayscrollbars.min.css" integrity="sha256-dSokZseQNT08wYEWiz5iLI8QPlKxG+TswNRD8k35cpg=" crossorigin="anonymous"><!--end::Third Party Plugin(OverlayScrollbars)--><!--begin::Third Party Plugin(Bootstrap Icons)-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.min.css" integrity="sha256-Qsx5lrStHZyR9REqhUF8iQt73X06c8LGIUPzpOhwRrI=" crossorigin="anonymous"><!--end::Third Party Plugin(Bootstrap Icons)--><!--begin::Required Plugin(AdminLTE)-->
-    <link rel="stylesheet" href="../../dist/css/adminlte.css"><!--end::Required Plugin(AdminLTE)--><!-- apexcharts -->
+    <link rel="stylesheet" href="../../../dist/css/adminlte.css"><!--end::Required Plugin(AdminLTE)--><!-- apexcharts -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/apexcharts@3.37.1/dist/apexcharts.css" integrity="sha256-4MX+61mt9NVvvuPjUWdUdyfZfxSB1/Rf9WtqRHgG5S0=" crossorigin="anonymous"><!-- jsvectormap -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsvectormap@1.5.3/dist/css/jsvectormap.min.css" integrity="sha256-+uGLJmmTKOqBr+2E6KDYs/NRsHxSkONXFHUL0fy2O/4=" crossorigin="anonymous">
 </head> <!--end::Head--> <!--begin::Body-->
@@ -27,7 +27,7 @@
                 </ul> <!--end::Start Navbar Links--> <!--begin::End Navbar Links-->
                 <ul class="navbar-nav ms-auto"> <!--begin::Navbar Search-->
                     <li class="nav-item"> <a class="nav-link" data-widget="navbar-search" href="#" role="button"> <i class="bi bi-search"></i> </a> </li> <!--end::Navbar Search--> <!--begin::Messages Dropdown Menu-->
-                    <!--begin::Notifications Dropdown Menu-->
+                     <!--begin::Notifications Dropdown Menu-->
                     <li class="nav-item dropdown" id="comments"> <a class="nav-link" data-bs-toggle="dropdown" href="#"> <i class="bi bi-bell-fill"></i> <span class="navbar-badge badge text-bg-warning">15</span> </a>
                         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end"> <span class="dropdown-item dropdown-header">15 Notifications</span>
                             <div class="dropdown-divider"></div> <a href="#" class="dropdown-item"> <i class="bi bi-envelope me-2"></i> 4 new messages
@@ -44,11 +44,11 @@
                     <li class="nav-item"> <a class="nav-link" href="#" data-lte-toggle="fullscreen"> <i data-lte-icon="maximize" class="bi bi-arrows-fullscreen"></i> <i data-lte-icon="minimize" class="bi bi-fullscreen-exit" style="display: none;"></i> </a> </li> <!--end::Fullscreen Toggle--> <!--begin::User Menu Dropdown-->
                     <li class="nav-item dropdown user-menu" id="user-menu"> 
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"> 
-                            <img src="../../dist/assets/img/user2-160x160.jpg" class="user-image rounded-circle shadow" alt="User Image"> 
+                            <img src="../../../dist/assets/img/user2-160x160.jpg" class="user-image rounded-circle shadow" alt="User Image"> 
                             <span class="d-none d-md-inline">Alexander Pierce</span> 
                         </a>
                         <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-end"> <!--begin::User Image-->
-                            <li class="user-header text-bg-primary"> <img src="../../dist/assets/img/user2-160x160.jpg" class="rounded-circle shadow" alt="User Image">
+                            <li class="user-header text-bg-primary"> <img src="../../../dist/assets/img/user2-160x160.jpg" class="rounded-circle shadow" alt="User Image">
                                 <p>
                                     Alexander Pierce - Web Developer
                                     <small>Member since Nov. 2023</small>
@@ -71,24 +71,24 @@
             </div> <!--end::Container-->
         </nav> <!--end::Header--> <!--begin::Sidebar-->
         <aside class="app-sidebar bg-body-secondary shadow" data-bs-theme="dark"> <!--begin::Sidebar Brand-->
-            <div class="sidebar-brand"> <!--begin::Brand Link--> <a href="./index.html" class="brand-link"> <!--begin::Brand Image--> <img src="../../dist/assets/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image opacity-75 shadow"> <!--end::Brand Image--> <!--begin::Brand Text--> <span class="brand-text fw-light">AdminLTE 4</span> <!--end::Brand Text--> </a> <!--end::Brand Link--> </div> <!--end::Sidebar Brand--> <!--begin::Sidebar Wrapper-->
+            <div class="sidebar-brand"> <!--begin::Brand Link--> <a href="../index.html" class="brand-link"> <!--begin::Brand Image--> <img src="../../../dist/assets/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image opacity-75 shadow"> <!--end::Brand Image--> <!--begin::Brand Text--> <span class="brand-text fw-light">AdminLTE 4</span> <!--end::Brand Text--> </a> <!--end::Brand Link--> </div> <!--end::Sidebar Brand--> <!--begin::Sidebar Wrapper-->
             <div class="sidebar-wrapper">
                 <nav class="mt-2"> <!--begin::Sidebar Menu-->
                     <ul class="nav sidebar-menu flex-column" data-lte-toggle="treeview" role="menu" data-accordion="false">
-                        <li class="nav-item"> <a href="#" class="nav-link"> <i class="nav-icon bi bi-speedometer"></i>
+                        <li class="nav-item menu-open"> <a href="#" class="nav-link active"> <i class="nav-icon bi bi-speedometer"></i>
                                 <p>
                                     資料管理
                                     <i class="nav-arrow bi bi-chevron-right"></i>
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
-                                <li class="nav-item"> <a href="./product/product_list.html" class="nav-link"> <i class="nav-icon bi bi-circle"></i>
+                                <li class="nav-item"> <a href="../product/product_list.html" class="nav-link"> <i class="nav-icon bi bi-circle"></i>
                                         <p>產品管理</p>
                                     </a> </li>
-                                <li class="nav-item"> <a href="./comments/comments_list.html" class="nav-link"> <i class="nav-icon bi bi-circle"></i>
+                                <li class="nav-item"> <a href="../comments/comments_list.html" class="nav-link active"> <i class="nav-icon bi bi-circle"></i>
                                         <p>留言管理</p>
                                     </a> </li>
-                                    <li class="nav-item"> <a href="./product/product_type_list.html" class="nav-link"> <i class="nav-icon bi bi-circle"></i>
+                                <li class="nav-item"> <a href="../product/product_type_list.html" class="nav-link"> <i class="nav-icon bi bi-circle"></i>
                                         <p>產品類別管理</p>
                                     </a> </li>
                             </ul>
@@ -101,12 +101,12 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item"> 
-                                    <a href="./member/member_list.html" class="nav-link"><i class="nav-icon bi bi-circle"></i>
+                                    <a href="../member/member_list.html" class="nav-link"><i class="nav-icon bi bi-circle"></i>
                                         <p>會員管理</p>
                                     </a> 
                                 </li>
                             </ul>
-                        </li>    
+                        </li>
                     </ul> <!--end::Sidebar Menu-->
                 </nav>
             </div> <!--end::Sidebar Wrapper-->
@@ -116,11 +116,14 @@
                 <div class="container-fluid"> <!--begin::Row-->
                     <div class="row">
                         <div class="col-sm-6">
-                            <h3 class="mb-0">後臺管理系統</h3>
+                            <h3 class="mb-0">留言管理</h3>
                         </div>
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-end">
                                 <li class="breadcrumb-item" active aria-current="page"><a href="#">Home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">
+                                    comments
+                                </li>
                             </ol>
                         </div>
                     </div> <!--end::Row-->
@@ -128,79 +131,61 @@
             </div> <!--end::App Content Header--> <!--begin::App Content-->
             <div class="app-content"> <!--begin::Container-->
                 <div class="container-fluid"> <!--begin::Row-->
-                    <section>
-                        <div class="container my-3" id="member_total">
-                            <div class="row">
-                                <div class="col-3">
-                                    <div class="card text-center">
-                                        <div class="card-body">
-                                            <h4>會員總數</h4>
-                                            <h2>123</h2>
-                                        </div>
+                    <div id="comments_table">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-head">
+                                        <input type="checkbox" class="form-check" name="" id="">
                                     </div>
-                                </div>
-                                <div class="col-3">
-                                    <div class="card text-center">
-                                        <div class="card-body">
-                                            <h4>已停權人員總數</h4>
-                                            <h2>123</h2>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-3">
-                                    <div class="card text-center">
-                                        <div class="card-body">
-                                            <h4>啟用會員總數</h4>
-                                            <h2>123</h2>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-3">
-                                    <div class="card text-center">
-                                        <div class="card-body">
-                                            <h4>一般會員數量</h4>
-                                            <h2>123</h2>
-                                        </div>
+                                    <div class="card-body">
+                                        <!-- table-rwd 建立於myall.css裡的 -->
+                                        <table class="table table-bordered table-striped table-rwd table-hover ">
+                                            <thead>
+                                                <tr class="text-bg-secondary fw-100 h5 align-middle text-center">
+                                                    <th>留言編號</th>
+                                                    <th>留言者</th>
+                                                    <th>電話</th>
+                                                    <th>Email</th>
+                                                    <th>留言</th>
+                                                    <th>狀態</th>
+                                                    <th>建立時間</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="datalist" class="align-middle text-center">
+                                                <tr>
+                                                    <td data-th="留言編號"><span class="table-col align-content-center">001</span></td>
+                                                    <td data-th="留言者"><span class="table-col">xxxx</span></td>
+                                                    <td data-th="電話"><span class="table-col">05-45423123</span></td>
+                                                    <td data-th="Email"><span class="table-col">xxx@email.com</span></td>
+                                                    <td data-th="備註"><span class="table-col">學會高速市委你說責任編輯等人，不詳請在客服老公交流空中，
+                                                        水果美國，實現點評光臨主任不會公園品牌部落，需要每次微笑聲音傳說一步可以用推動絶對友情街道兩年每日你有，免費電影刺激接口植物研究所協會，新臺幣以往好多字幕活力點頭一會地下典型售價這個需求，趨勢才是保。</span></td>
+                                                    <td data-th="狀態">
+                                                        <div class="form-check form-switch">
+                                                            <input type="checkbox" class="form-check-input"  id="state_switch" name="state_switch" data-state="X">
+                                                            <label for="state_switch" class="form-check-label">未讀</label>
+                                                        </div>
+                                                    </td>
+                                                    <td data-th="留言時間"><span class="table-col">2024718</span></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="container my-3">
-                            <div class="row">
-                              <div class="col-7">
-                                <div class="card text-center h-100">
-                                  <div class="card-body">
-                                    <div class="row ">
-                                      <div class="col-4 m-auto">
-                                        <select name="level_type" id="level_type" class="form-select">
-                                          <option value="line">線條圖</option>
-                                          <option value="pie">圓餅圖</option>
-                                          <option value="bar">長條圖</option>
-                                        </select>
-                                      </div>
-                                    </div>
-                                    <canvas id="myChart01" class="mt-5"></canvas>
-                                  </div>
-                                </div>
-                               </div>
-                               <div class="col-5">
-                                <div class="card text-center h-100">
-                                  <div class="card-body">
-                                    <div class="row">
-                                      <div class="col-4 m-auto">
-                                        <select name="state_type" id="state_type" class="form-select">
-                                          <option value="pie">圓餅圖</option>
-                                          <option value="bar">長條圖</option>
-                                        </select>
-                                      </div>
-                                    </div>
-                                    <canvas id="myChart02" class=""></canvas>
-                                  </div>
-                                </div>
-                               </div>
-                            </div>
-                          </div>
-                    </section>
+                    </div>
+                    <div class="row mt-3">
+                        <nav aria-label="Page navigation example">
+                            <ul class="pagination pagination-lg justify-content-center " id="pagelist">
+                              <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1" aria-disabled="true">上一頁</a></li>
+                              <li class="page-item"><a class="page-link" href="#">1</a></li>
+                              <li class="page-item"><a class="page-link" href="#">2</a></li>
+                              <li class="page-item"><a class="page-link" href="#">3</a></li>
+                              <li class="page-item"><a class="page-link" href="#">下一頁</a></li>
+                            </ul>
+                          </nav>
+                    </div>
                 </div> <!--end::Container-->
             </div> <!--end::App Content-->
         </main> <!--end::App Main--> <!--begin::Footer-->
@@ -216,14 +201,12 @@
     <script src="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.3.0/browser/overlayscrollbars.browser.es6.min.js" integrity="sha256-H2VM7BKda+v2Z4+DRy69uknwxjyDRhszjXFhsL4gD3w=" crossorigin="anonymous"></script> <!--end::Third Party Plugin(OverlayScrollbars)--><!--begin::Required Plugin(popperjs for Bootstrap 5)-->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha256-whL0tQWoY1Ku1iskqPFvmZ+CHsvmRWx/PIoEvIeWh4I=" crossorigin="anonymous"></script> <!--end::Required Plugin(popperjs for Bootstrap 5)--><!--begin::Required Plugin(Bootstrap 5)-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha256-YMa+wAM6QkVyz999odX7lPRxkoYAan8suedu4k2Zur8=" crossorigin="anonymous"></script> <!--end::Required Plugin(Bootstrap 5)--><!--begin::Required Plugin(AdminLTE)-->
-    <script src="../../dist/js/adminlte.js"></script> <!--end::Required Plugin(AdminLTE)--><!--begin::OverlayScrollbars Configure-->
-    <script src="../../js/sweetalert2@11.js"></script>
-    <script src="../../js/jquery-3.7.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../../../dist/js/adminlte.js"></script> <!--end::Required Plugin(AdminLTE)--><!--begin::OverlayScrollbars Configure-->
+    <script src="../../../js/sweetalert2@11.js"></script>
+    <script src="../../../js/jquery-3.7.1.min.js"></script>
     <script>
         var comments_num=[];
-        var mychart01;
-        var mychart02;
+        var newdata=[];
 
         $(function(){
             if(getCookie("uid01")!=""){
@@ -233,7 +216,7 @@
                         // console.log(JSON.stringify(dataJSON));
                         $.ajax({
                             type:"POST",
-                            url:"../../API/member_login_check_uid_api.php",
+                            url:"../../../API/member_login_check_uid_api.php",
                             data:JSON.stringify(dataJSON),
                             dataType:"json",
                             success:showdata_check_uid,
@@ -248,7 +231,7 @@
                             text: "管理員專用",
                             }).then((result)=>{
                                 if (result.isConfirmed) {
-                                    location.href = "../../index.html";
+                                    location.href = "../../../index.html";
                                 }  
                             })
                 };
@@ -273,146 +256,8 @@
                             const formattedDate = `${month}-${year}`;
                             $("#user-menu").empty();
                             //渲染使用者區塊
-                            strUser='<a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><img src="../../dist/assets/img/user2-160x160.jpg" class="user-image rounded-circle shadow" alt="User Image"><span class="d-none d-md-inline">'+data.data.Username+'</span></a><ul class="dropdown-menu dropdown-menu-lg dropdown-menu-end"> <!--begin::User Image--><li class="user-header text-bg-primary"><img src="../../dist/assets/img/user2-160x160.jpg" class="rounded-circle shadow" alt="User Image"><p>'+data.data.Username+'<small>Member since '+formattedDate+'</small></p></li> <!--begin::Menu Footer--><li class="user-footer"><a href="#" class="btn btn-default btn-flat float-end" id="logout_button">Sign out</a></li> <!--end::Menu Footer--></ul>';
+                            strUser='<a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><img src="../../../dist/assets/img/user2-160x160.jpg" class="user-image rounded-circle shadow" alt="User Image"><span class="d-none d-md-inline">'+data.data.Username+'</span></a><ul class="dropdown-menu dropdown-menu-lg dropdown-menu-end"> <!--begin::User Image--><li class="user-header text-bg-primary"><img src="../../../dist/assets/img/user2-160x160.jpg" class="rounded-circle shadow" alt="User Image"><p>'+data.data.Username+'<small>Member since '+formattedDate+'</small></p></li> <!--begin::Menu Footer--><li class="user-footer"><a href="#" class="btn btn-default btn-flat float-end" id="logout_button">Sign out</a></li> <!--end::Menu Footer--></ul>';
                             $("#user-menu").append(strUser);
-
-                                            //取得資料
-                            $.ajax({
-                            type: "GET",
-                            url: "../../API/member_chart.php",
-                            dataType: "json",
-                            success: showdata_chart,
-                            error: function () {
-                                alert("error_member_chart.php");
-                            },
-                            });
-                            //取得資料
-                            $.ajax({
-                            type: "GET",
-                            url: "../../API/member_chart_state.php",
-                            dataType: "json",
-                            success: showdata_chart_state,
-                            error: function () {
-                                alert("error_member_chart.php");
-                            },
-                            });
-
-                            //會員階級圖表
-                            const ctx = $("#myChart01"); //=document.getElementById
-                            mychart01 = new Chart(ctx, {
-                            type: "line",
-                            data: {
-                                labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
-                                datasets: [
-                                {
-                                    label: "各層級會員人數",
-                                    data: [150, 19, 3, 5, 2, 3],
-                                    borderWidth: 1,
-                                },
-                                ],
-                            },
-                            options: {
-                                scales: {
-                                y: {
-                                    beginAtZero: true,
-                                },
-                                },
-                            },
-                            });
-                            //會員階級圖表類型監聽
-                            $("#level_type").change(function () {
-                                ////console.log($(this).val());
-                                //先清空背景色與邊線顏色
-                                mychart01.data.datasets[0].backgroundColor=[];
-                                mychart01.data.datasets[0].borderColor=[];
-
-                                if($(this).val() == "line"){
-                                    mychart01.config.type = "line";
-                                }else{
-                                    // 設置共同的背景色和邊框色
-                                    //todo 顏色
-                                    const backgroundColors = [
-                                    'rgba(255, 99, 132, 0.2)',
-                                    'rgba(255, 159, 64, 0.2)',
-                                    'rgba(255, 205, 86, 0.2)',
-                                    'rgba(75, 192, 192, 0.2)',
-                                    'rgba(54, 162, 235, 0.2)',
-                                    'rgba(153, 102, 255, 0.2)',
-                                    'rgba(201, 203, 207, 0.2)'
-                                    ];
-                                    const borderColors = [
-                                    'rgb(255, 99, 132)',
-                                    'rgb(255, 159, 64)',
-                                    'rgb(255, 205, 86)',
-                                    'rgb(75, 192, 192)',
-                                    'rgb(54, 162, 235)',
-                                    'rgb(153, 102, 255)',
-                                    'rgb(201, 203, 207)'
-                                    ];
-                                    mychart01.data.datasets[0].backgroundColor = backgroundColors;
-                                    mychart01.data.datasets[0].borderColor = borderColors;
-
-                                    if($(this).val() == "bar"){
-                                        mychart01.config.type = "bar";
-                                        mychart01.config.options = {};
-                                    }else{
-                                    // 預設為 "pie" 類型
-                                        mychart01.config.type = "pie";
-                                        mychart01.config.options = {};
-                                    }
-                                }
-                            mychart01.update();
-                            });
-
-                            //會員是否停權圖表
-                            const ctx02 = $("#myChart02");
-                            mychart02 = new Chart(ctx02, {
-                            type: "pie",
-                            data: {
-                                labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
-                                datasets: [
-                                {
-                                    label: "停權會員人數",
-                                    data: [150, 19, 3, 5, 2, 3],
-                                    borderWidth: 1,
-                                    backgroundColor: [
-                                    'rgba(255, 99, 132, 0.2)',
-                                    'rgba(255, 159, 64, 0.2)',
-                                    'rgba(255, 205, 86, 0.2)',
-                                    'rgba(75, 192, 192, 0.2)',
-                                    'rgba(54, 162, 235, 0.2)',
-                                    'rgba(153, 102, 255, 0.2)',
-                                    'rgba(201, 203, 207, 0.2)'
-                                    ],
-                                    borderColor: [
-                                    'rgb(255, 99, 132)',
-                                    'rgb(255, 159, 64)',
-                                    'rgb(255, 205, 86)',
-                                    'rgb(75, 192, 192)',
-                                    'rgb(54, 162, 235)',
-                                    'rgb(153, 102, 255)',
-                                    'rgb(201, 203, 207)'
-                                    ],
-                                },
-                                ],
-                            },
-                            });
-
-                            //會員停權圖表類型監聽
-                            $("#state_type").change(function () {
-                                //console.log($(this).val());
-                                //先清空背景色與邊線顏色
-                                    if($(this).val() == "bar"){
-                                        mychart02.config.type = "bar";
-                                        mychart02.config.options = {};
-                                    }else{
-                                    // 預設為 "pie" 類型
-                                        mychart02.config.type = "pie";
-                                        mychart02.config.options = {};
-                                        
-                                    }
-                            mychart02.update();
-                            });
 
                             
                         }else{
@@ -422,7 +267,7 @@
                             text: "管理員專用",
                             }).then((result)=>{
                                 if (result.isConfirmed) {
-                                    location.href = "../../index.html";
+                                    location.href = "../../../index.html";
                                 }  
                             })
                         } 
@@ -431,18 +276,17 @@
                     //讀取message
                     $.ajax({
                             type:"GET",
-                            url:"../../API/comments_read_for_index_api.php",
+                            url:"../../../API/comments_read_for_index_api.php",
                             dataType:"json",
                             async:false,
                             success:function(data){
-                                comments=data;                              
+                                comments=data;                             
                             },
                             error:function(){
                                 alert("comments_read_for_index_api");
                             }
                         });
-                        
-                        if(comments.state == true)
+                      if(comments.state == true)
                       {
                         let now = new Date();
                         let comment_time = new Date(comments.data[0].Create_at);
@@ -468,65 +312,123 @@
                         var timeDisplay="no news";
                       }
 
-                    strComments = '<li class="nav-item dropdown"> <a class="nav-link" data-bs-toggle="dropdown" href="#"><i class="bi bi-bell-fill"></i><span class="navbar-badge badge text-bg-warning">'+comments.data.length+'</span></a><div class="dropdown-menu dropdown-menu-lg dropdown-menu-end"> <span class="dropdown-item dropdown-header">'+comments.data.length+' Notifications</span><div class="dropdown-divider"></div> <a href="./comments/comments_list.html" class="dropdown-item"> <i class="bi bi-envelope me-2"></i> '+comments.data.length+' new messages<span class="float-end text-secondary fs-7">'+timeDisplay+'</span></a><div class="dropdown-divider"></div> <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a></div></li';
+                    strComments = '<li class="nav-item dropdown"> <a class="nav-link" data-bs-toggle="dropdown" href="#"><i class="bi bi-bell-fill"></i><span class="navbar-badge badge text-bg-warning">'+comments.data.length+'</span></a><div class="dropdown-menu dropdown-menu-lg dropdown-menu-end"> <span class="dropdown-item dropdown-header">'+comments.data.length+' Notifications</span><div class="dropdown-divider"></div> <a href="#" class="dropdown-item"> <i class="bi bi-envelope me-2"></i> '+comments.data.length+' new messages<span class="float-end text-secondary fs-7">'+timeDisplay+'</span></a><div class="dropdown-divider"></div> <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a></div></li';
                     $("#comments").empty();
-                    $("#comments").append(strComments);
+                    $("#comments").append(strComments)
+
+                    //讀取message
+                    $.ajax({
+                            type:"GET",
+                            url:"../../../API/comments_read_all_api.php",
+                            dataType:"json",
+                            // async:false,
+                            success:show_comments,
+                            error:function(){
+                                alert("comments_read_for_index_api");
+                            }
+                        });
+
 
 
             };
-            function showdata_chart(data) {
-                //console.log(data);
-
-                //清空圖表
-                mychart01.data.labels = [];
-                mychart01.data.datasets[0].data = [];
-
-                data.data.forEach(function (item) {
-                //console.log(item.level);
-                //console.log(item.level_num);
-                if (item.level == "0") {
-                    mylevel = "一般會員";
-                } else if (item.level == "100") {
-                    mylevel = "vip1";
-                } else if (item.level == "200") {
-                    mylevel = "vip2";
-                } else if (item.level == "300") {
-                    mylevel = "vip3";
-                } else {
-                    mylevel = "管理員";
+        function show_comments(data){
+            //重構data 產生newdata
+            data.data.forEach(function(item,key){
+                //  console.log(key);
+                //  console.log(item);
+                if(key % 10 ==0){
+                    newdata.push([]);
                 }
-                mychart01.data.labels.push(mylevel);
-                mychart01.data.datasets[0].data.push(item.level_num);
-                mychart01.update();
+                var page = parseInt(key/10);
+                newdata[page].push(item);
+            });
+    
+            drawTable(0)
+        }
+        //show comments  todo
+        function drawTable(page)
+        {
+            $("#datalist").empty();
+            newdata[page].forEach(function(item){
+                strComments_all='<tr><td data-th="留言編號"><span class="table-col align-content-center">'+item.ID+'</span></td><td data-th="留言者"><span class="table-col">'+item.Name+'</span></td><td data-th="電話"><span class="table-col">'+item.Tel+'</span></td><td data-th="Email"><span class="table-col">'+item.Email+'</span></td><td data-th="備註"><span class="table-col">'+item.Remark+'</span></td><td><div class="form-check form-switch"><input type="checkbox" class="form-check-input" '+(item.State == "Y" ? 'checked':'')+' id="state_switch" name="state_switch" data-id="'+item.ID+'" data-state="'+item.State+'"><label for="" class="form-check-label '+(item.State == "N" ? 'text-danger':'text-success')+'">'+(item.State == "N" ? '未讀':'已讀')+'</label></div></td><td data-th="留言時間"><span class="table-col">'+item.Create_at+'</span></td></tr>';
+                $("#datalist").append(strComments_all);
+            });
+            //上一頁按鈕
+            $("#pagelist").empty();
+            var previousPage = page-1;
+            if (previousPage < 0) {
+                previousPage = 0; // 防止頁數超出範圍
+            };
+    
+             $("#pagelist").append('<li class="page-item ' + (page == 0 ? 'disabled' : '') + '" onclick="drawTable(' + previousPage + ')"><a class="page-link" href="#">上一頁</a></li>');
+    
+            //產生頁碼
+            for(var i=0;i<newdata.length;i++){
+                var thisPage = i+1;
+                var anotherPage = thisPage-1;
+                var strHTML;
+                if(thisPage==page+1){
+                    strHTML='<li class="page-item active" onclick = "drawTable('+anotherPage+')"><a class="page-link" href="#">'+thisPage+'</a></li>';
+                }else{
+                    strHTML='<li class="page-item" onclick = "drawTable('+anotherPage+')"><a class="page-link" href="#">'+thisPage+'</a></li>';
+                }
+                $("#pagelist").append(strHTML);
+            };
+    
+            //下一頁按鈕
+            var nextPage = page+1;
+            if (nextPage >= newdata.length) {
+                nextPage =  newdata.length-1; // 防止頁數超出範圍
+            };
+            $("#pagelist").append('<li class="page-item ' + (page == (newdata.length-1) ? 'disabled' : '') + '" onclick="drawTable(' + nextPage + ')"><a class="page-link" href="#">下一頁</a></li>');
+
+            //監聽state_switch 會員狀態按鈕
+            $("#datalist #state_switch").change(function(){
+
+                if($(this).is(":checked")){
+                    $(this).next().text("已讀");
+                    $(this).next().removeClass("text-danger");
+                    $(this).next().addClass("text-success");
+                }else{
+                    $(this).next().text("未讀");
+                    $(this).next().removeClass("text-success");
+                    $(this).next().addClass("text-danger");
+                }
+    
+                //傳遞至後端更新帳號資料
+                var dataJSON = {};
+                    ($(this).is(":checked") ? mystate= "Y" : mystate = "N");
+                    dataJSON["id"] = $(this).data("id");
+                    dataJSON["state"] = mystate;
+                
+                    $.ajax({
+                        type:"POST",
+                        url:"../../../API/comments_update_state_api.php",
+                        data:JSON.stringify(dataJSON),
+                        dataType:"json",
+                        success:showdata_product_update_state,
+                        error:function(){
+                            alert("error-product_update_state_api");
+                        }
+                    });
+    
+            });
+            
+        }
+        function showdata_product_update_state(data){
+            if(data.state){
+                Swal.fire({
+                    title: "更改成功",
+                    text: data.message,
+                    icon: "success",
+                    }).then((result) => {
+                    if (result.isConfirmed) {
+                        // 重整頁面
+                        location.reload();
+                    }
                 });
             }
-
-            function showdata_chart_state(data){
-                //console.log(data);
-
-                //清空圖表
-                mychart02.data.labels = [];
-                mychart02.data.datasets[0].data = [];
-
-                data.data.forEach(function (item) {
-                //console.log(item.state);
-                //console.log(item.state_num);
-                if (item.state == "0") {
-                    mystate = "停權";
-                } else {
-                    mystate = "啟用";
-                }
-                mychart02.data.labels.push(mystate);
-                mychart02.data.datasets[0].data.push(item.state_num);
-                mychart02.update();
-                });
-                $("#member_total").empty();
-                num1=Number(data.data[0].state_num);
-                num2=Number(data.data[1].state_num);
-                sum=(num1+num2);
-                var strHTML='<div class="row"><div class="col-4"><div class="card text-center"><div class="card-body"><h4>會員總數</h4><h2>'+sum+'</h2></div></div></div><div class="col-4"><div class="card text-center"><div class="card-body"><h4>已停權人數</h4><h2>'+data.data[0].state_num+'</h2></div></div></div><div class="col-4"><div class="card text-center"><div class="card-body"><h4>啟用會員總數</h4><h2>'+data.data[1].state_num+'</h2></div></div></div>';
-                $("#member_total").append(strHTML);
-            }
+        }
         
         
         //**************cookie function from w3*****************
