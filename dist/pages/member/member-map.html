@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>觀光屬旅館資料</title>
+    <link rel="stylesheet" href="../../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../css/all.min.css"><!--icon-->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" /><!--地圖-->
+    <link rel="stylesheet" href="../../../css/MarkerCluster.css"><!--地圖自動分群-->
+    <link rel="stylesheet" href="../../../css/myall.css">
+    <style>
+        #regionList{
+            height: 85vh;
+            overflow-y: scroll;
+        }
+        .marker-cluster-medium,.marker-cluster-small{
+            font-size: 30px;
+            background-color: var(--mycolor18);
+            text-align: center;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row vh-100">
+            <div class="col-md-3 bg-grey-blue">
+                <select name="city" id="city" class="form-select form-select-lg mt-3 text-center" >
+                    <option value="" disabled selected>--請選擇縣市名稱--</option>
+                    <option value="台中市">台中市</option>
+                </select>
+
+                <select name="region" id="region" class="form-select form-select-lg mt-3 text-center" >
+                    <option value="" disabled selected>--請選擇鄉鎮--</option>
+                    <option value="北屯區">北屯區</option>
+                </select>
+
+                <ul class="list-group mt-3" id="regionList">
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                      <div>
+                        <div class="h2">旅館名稱</div>
+                        <div class="h5">地址:xxxxx</div>
+                        <div class="h5">電話:xxxxx</div>
+                      </div>
+                      <h5><span class="badge bg-success rounded-pill">TotalNumberofRooms</span></h5>
+                    </li>
+                  </ul>
+            </div>
+            <div class="col-md-9 bg-black">
+                <div class="bg-dark vh-100" id="map" ></div>
+            </div>
+        </div>
+    </div>
+    <script src="../../../js/bootstrap.bundle.min.js"></script>
+    <script src="../../../js/jquery-3.7.1.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="../../../js/leaflet.markercluster.js"></script>
+    <script>
+        var CityCountyData =[];
+        var citySelected;//被選取的縣市
+        var regionSelected;//被選取的鄉鎮
+        var HotelData=[];//觀光署旅館資料
+        var map;
+        var markers;//地圖分群
+        $(function(){
+            //產生地圖
+            map = L.map('map').setView([23.5, 120], 12);
+                L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                }).addTo(map);
+            
+            //地圖分群
+            markers = new L.markerClusterGroup().addTo(map);
+
+            //匯入資料
+            $.ajax({
+                type:"GET",
+                url:"../../../js/CityCountyData.json",
+                dataType:"json",
+                async:false,
+                success:function(data){
+                    // console.log(data);
+                    CityCountyData = data;
+                },
+                error:function(){
+                    alert("error-js/CityCountyData.json");
+                }
+            });
+            //匯入觀光署資料
+            $.ajax({
+                type:"GET",
+                url:"../../../API/member_read_api.php",
+                dataType:"json",
+                async:false,
+                success: function(data){
+                    console.log(data);
+                    HotelData = data.data;
+                },
+                error:function(){
+                    // console.log("error-js/hotel_C_f.json");
+                }
+            });
+
+            //產生縣市選單
+            //清空草稿，手動產生第一欄
+            $("#city").empty();
+            $("#city").append('<option value="" disabled selected>--請選擇縣市名稱--</option>');
+            //清空鄉鎮，手動產生第一欄
+            $("#region").empty();
+            $("#region").append('<option value="" disabled selected>--請選擇鄉鎮名稱--</option>');
+            //清空旅館列表
+            $("#regionList").empty();
+            removeMarker();
+
+            CityCountyData.forEach(function(item){
+                // console.log(item.CityName);
+                var strHtml='<option value="'+item.CityName+'">'+item.CityName+'</option>';
+                $("#city").append(strHtml);
+            });
+
+            //監聽縣市選單->產生鄉鎮區選單
+            $("#city").change(function(){
+                // console.log($(this).val());
+                $("#region").empty();
+                $("#region").append('<option value="" disabled selected>--請選擇鄉鎮名稱--</option>');
+                removeMarker();
+                citySelected=$(this).val();
+                CityCountyData.forEach(function(item){
+                    if(item.CityName ==citySelected){
+                        item.AreaList.forEach(function(item){
+                            // console.log(item.AreaName);
+                            var strHtml='<option value="'+item.AreaName+'">'+item.AreaName+'</option>';
+                            $("#region").append(strHtml);                           
+                        });
+                    }
+                });
+            });
+
+            //監聽鄉鎮區選單->產生旅館列表
+            $("#region").change(function(){
+                regionSelected = $(this).val();
+                //清空旅館列表
+                $("#regionList").empty();
+                
+                removeMarker();
+
+                //設一計數器
+                var counter = 0;
+                //  console.log(HotelData);
+                HotelData.forEach(function (item,key){
+                    if(item.Region == citySelected && item.Town == regionSelected){
+                         console.log(item);
+                        var strHtml='<li class="list-group-item d-flex justify-content-between align-items-center bg-op2-white my-1" data-lat="'+item.Py+'" data-lng="'+item.Px+'"><div><div class="h4">'+item.Username+'</div><div class="h6">地址:'+item.Address+'</div><div class="h6">電話:'+item.Tel+'</div></div><h5><span class="badge bg-success rounded-pill ">創建日期:'+item.Created_at+'</h5></li>';
+                        $("#regionList").append(strHtml);
+                        
+                        //產生marker
+                        var popupHTML = '<div class="card"><img src="'+(item.Picture1 == "" ? "image/yoruNoMachi01.jpg" : item.Picture1)+'" alt="" class="card-img-top"><div class="card-body"><div class="h4 fw-900">'+item.Username+'</div><div class="h5">地址:'+item.Address+'</div><div class="h5">電話:'+item.Tel+'</div><div class="h5">創建日期:'+item.Created_at+'</div></div></div>';
+                        
+                        // L.marker([item.Py, item.Px]).addTo(map)
+                        //     .bindPopup(popupHTML)
+                        
+                        //地圖分群
+                        markers.addLayer(L.marker([item.Py, item.Px]).bindPopup(popupHTML));
+
+                        //移動地圖
+                        //當迴圈跑第一次時
+                        counter++; 
+                        if(counter==1){
+                            //移動地圖
+                            map.panTo([item.Py, item.Px]);
+                        }
+                    }
+                });
+            });
+            
+            $("#regionList").on("click","li",function(){
+                console.log($(this).data("lat"));
+                console.log($(this).data("lng"));
+                var lat = $(this).data("lat");
+                var lng = $(this).data("lng");
+
+                // 找到點擊對應的標記，並打開彈出視窗
+                map.panTo([lat,lng]);
+                map.setView([lat, lng], 25);  // 聚焦到該標記的位置
+                
+            });
+
+
+        });//end of function
+
+        //清除所有marker
+        function removeMarker(){
+            map.eachLayer(function(layer){
+                if(layer instanceof L.Marker){
+                    map.removeLayer(layer);
+                }
+            })
+        }
+    </script>
+</body>
+</html>

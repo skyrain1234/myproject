@@ -5,7 +5,7 @@
     require_once("dbtools.php");
     $link = create_connection();
 
-    $sql = "SELECT ID, Username, Seq, Email,Birthday, Uid01,State,Level,Created_at FROM member ORDER BY  ID DESC";
+    $sql = "SELECT * FROM member ORDER BY  ID DESC";
     $result = execute_sql($link,"testdb",$sql);
     $mydata = array();
     
