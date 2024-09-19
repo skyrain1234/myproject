@@ -16,7 +16,7 @@
     <style>
         a{ 
         text-decoration: none;
-        color:black;
+        color:white;
         }
     </style>
 </head>
@@ -684,16 +684,16 @@
                     //顯示登入帳號
                     if(data.data.Level=="0"){
                         level_text="一般會員";
-                        strHTML="您好 會員等級:"+level_text;
+                        strHTML="您好"+data.data.Username+"會員等級:"+level_text;
                     }else if(data.data.Level=="100"){
                         level_text="VIP1";
-                        strHTML="您好 會員等級:"+'<i class="fa-solid fa-crown me-1 ms-1 text-colorGreatYellow"></i>'+level_text;
+                        strHTML="您好"+data.data.Username+ " 會員等級:"+'<i class="fa-solid fa-crown me-1 ms-1 text-colorGreatYellow"></i>'+level_text;
                     }else if(data.data.Level=="200"){
                         level_text="VIP2";
-                        strHTML="您好 會員等級:"+'<i class="fa-solid fa-crown me-1 ms-1 text-colorGreatYellow"></i>'+level_text;
+                        strHTML="您好"+data.data.Username+ " 會員等級:"+'<i class="fa-solid fa-crown me-1 ms-1 text-colorGreatYellow"></i>'+level_text;
                     }else if(data.data.Level=="300"){
                         level_text="VIP3";
-                        strHTML="您好 會員等級:"+'<i class="fa-solid fa-crown me-1 ms-1 text-colorGreatYellow"></i>'+level_text;
+                        strHTML="您好"+data.data.Username+ " 會員等級:"+'<i class="fa-solid fa-crown me-1 ms-1 text-colorGreatYellow"></i>'+level_text;
                     }else{
                         level_text="管理員";
                         strHTML="您好"+'<i class="fa-solid fa-crown me-1 ms-1 text-colorGreatYellow"></i>'+level_text;
@@ -765,16 +765,16 @@
                         //帳號啟用
                         if(data.data.Level=="0"){
                             level_text="一般會員";
-                            strHTML="您好 會員等級:"+level_text;
+                            strHTML="您好"+data.data.Username+"會員等級:"+level_text;
                         }else if(data.data.Level=="100"){
                             level_text="VIP1";
-                            strHTML="您好 會員等級:"+'<i class="fa-solid fa-crown me-1 ms-1 text-colorGreatYellow"></i>'+level_text;
+                            strHTML="您好"+data.data.Username+ " 會員等級:"+'<i class="fa-solid fa-crown me-1 ms-1 text-colorGreatYellow"></i>'+level_text;
                         }else if(data.data.Level=="200"){
                             level_text="VIP2";
-                            strHTML="您好 會員等級:"+'<i class="fa-solid fa-crown me-1 ms-1 text-colorGreatYellow"></i>'+level_text;
+                            strHTML="您好"+data.data.Username+ " 會員等級:"+'<i class="fa-solid fa-crown me-1 ms-1 text-colorGreatYellow"></i>'+level_text;
                         }else if(data.data.Level=="300"){
                             level_text="VIP3";
-                            strHTML="您好 會員等級:"+'<i class="fa-solid fa-crown me-1 ms-1 text-colorGreatYellow"></i>'+level_text;
+                            strHTML="您好"+data.data.Username+ " 會員等級:"+'<i class="fa-solid fa-crown me-1 ms-1 text-colorGreatYellow"></i>'+level_text;
                         }else{
                             level_text="管理員";
                             strHTML="您好"+'<i class="fa-solid fa-crown me-1 ms-1 text-colorGreatYellow"></i>'+level_text;
