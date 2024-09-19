@@ -23,7 +23,8 @@
             <div class="container-fluid"> <!--begin::Start Navbar Links-->
                 <ul class="navbar-nav">
                     <li class="nav-item"> <a class="nav-link" data-lte-toggle="sidebar" href="#" role="button"> <i class="bi bi-list"></i> </a> </li>
-                    <li class="nav-item d-none d-md-block"> <a href="#" class="nav-link">Home</a> </li>
+                    <li class="nav-item d-none d-md-block"> <a href="./index.html" class="nav-link">Home</a> </li>
+                    <li class="nav-item d-none d-md-block"> <a href="../../index.html" target="_blank" class="nav-link">Index</a> </li>
                 </ul> <!--end::Start Navbar Links--> <!--begin::End Navbar Links-->
                 <ul class="navbar-nav ms-auto"> <!--begin::Navbar Search-->
                     <li class="nav-item"> <a class="nav-link" data-widget="navbar-search" href="#" role="button"> <i class="bi bi-search"></i> </a> </li> <!--end::Navbar Search--> <!--begin::Messages Dropdown Menu-->
@@ -103,6 +104,11 @@
                                 <li class="nav-item"> 
                                     <a href="./member/member_list.html" class="nav-link"><i class="nav-icon bi bi-circle"></i>
                                         <p>會員管理</p>
+                                    </a> 
+                                </li>
+                                <li class="nav-item"> 
+                                    <a href="./member/member-map.html" target="_blank" class="nav-link"><i class="nav-icon bi bi-circle"></i>
+                                        <p>會員分布圖表</p>
                                     </a> 
                                 </li>
                             </ul>
@@ -253,13 +259,7 @@
                             })
                 };
     
-            //監聽登出按鈕
-            $("#logout_button").click(function(){
-                    //將cookie設為空值
-                    setCookie("uid01","",7);
-                    //重整
-                    location.reload();
-                })   
+               
         })//end of function
         //登入
         function showdata_check_uid(data){
@@ -296,6 +296,13 @@
                                 alert("error_member_chart.php");
                             },
                             });
+                            //監聽登出按鈕
+                            $("#logout_button").click(function(){
+                                    //將cookie設為空值
+                                    setCookie("uid01","",7);
+                                    //重整
+                                    location.reload();
+                                })
 
                             //會員階級圖表
                             const ctx = $("#myChart01"); //=document.getElementById

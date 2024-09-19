@@ -3,12 +3,13 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>後臺管理系統</title><!--begin::Primary Meta Tags-->
+    <title>產品管理</title><!--begin::Primary Meta Tags-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="title" content="後臺管理系統">
+    <meta name="title" content="產品管理">
     <meta name="author" content="ColorlibHQ">
     <meta name="description" content="AdminLTE is a Free Bootstrap 5 Admin Dashboard, 30 example pages using Vanilla JS.">
     <meta name="keywords" content="bootstrap 5, bootstrap, bootstrap 5 admin dashboard, bootstrap 5 dashboard, bootstrap 5 charts, bootstrap 5 calendar, bootstrap 5 datepicker, bootstrap 5 tables, bootstrap 5 datatable, vanilla js datatable, colorlibhq, colorlibhq dashboard, colorlibhq admin dashboard"><!--end::Primary Meta Tags--><!--begin::Fonts-->
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/source-sans-3@5.0.12/index.css" integrity="sha256-tXJfXfp6Ewt1ilPzLDtQnJV4hclT9XuaZUKyUvmyr+Q=" crossorigin="anonymous"><!--end::Fonts--><!--begin::Third Party Plugin(OverlayScrollbars)-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.3.0/styles/overlayscrollbars.min.css" integrity="sha256-dSokZseQNT08wYEWiz5iLI8QPlKxG+TswNRD8k35cpg=" crossorigin="anonymous"><!--end::Third Party Plugin(OverlayScrollbars)--><!--begin::Third Party Plugin(Bootstrap Icons)-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.min.css" integrity="sha256-Qsx5lrStHZyR9REqhUF8iQt73X06c8LGIUPzpOhwRrI=" crossorigin="anonymous"><!--end::Third Party Plugin(Bootstrap Icons)--><!--begin::Required Plugin(AdminLTE)-->
@@ -18,7 +19,7 @@
 </head> <!--end::Head--> <!--begin::Body-->
 
 <body class="layout-fixed sidebar-expand-lg bg-body-tertiary"> <!--begin::App Wrapper-->
-    <div class="app-wrapper d-none"> <!--begin::Header-->
+    <div class="app-wrapper"> <!--begin::Header-->
         <nav class="app-header navbar navbar-expand bg-body"> <!--begin::Container-->
             <div class="container-fluid"> <!--begin::Start Navbar Links-->
                 <ul class="navbar-nav">
@@ -83,13 +84,13 @@
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
-                                <li class="nav-item"> <a href="../product/product_list.html" class="nav-link"> <i class="nav-icon bi bi-circle"></i>
+                                <li class="nav-item"> <a href="../product/product_list.html" class="nav-link "> <i class="nav-icon bi bi-circle"></i>
                                         <p>產品管理</p>
                                     </a> </li>
-                                <li class="nav-item"> <a href="../comments/comments_list.html" class="nav-link active"> <i class="nav-icon bi bi-circle"></i>
+                                <li class="nav-item"> <a href="../comments/comments_list.html" class="nav-link"> <i class="nav-icon bi bi-circle"></i>
                                         <p>留言管理</p>
                                     </a> </li>
-                                <li class="nav-item"> <a href="../product/product_type_list.html" class="nav-link"> <i class="nav-icon bi bi-circle"></i>
+                                <li class="nav-item"> <a href="../product/product_type_list.html" class="nav-link active"> <i class="nav-icon bi bi-circle"></i>
                                         <p>產品類別管理</p>
                                     </a> </li>
                             </ul>
@@ -122,13 +123,13 @@
                 <div class="container-fluid"> <!--begin::Row-->
                     <div class="row">
                         <div class="col-sm-6">
-                            <h3 class="mb-0">留言管理</h3>
+                            <h3 class="mb-0">產品類別管理</h3>
                         </div>
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-end">
-                                <li class="breadcrumb-item" active aria-current="page"><a href="#">Home</a></li>
+                                <li class="breadcrumb-item"><a href="#">Home</a></li>
                                 <li class="breadcrumb-item active" aria-current="page">
-                                    comments
+                                    product
                                 </li>
                             </ol>
                         </div>
@@ -137,42 +138,29 @@
             </div> <!--end::App Content Header--> <!--begin::App Content-->
             <div class="app-content"> <!--begin::Container-->
                 <div class="container-fluid"> <!--begin::Row-->
-                    <div id="comments_table">
+                    <div id="product_table">
                         <div class="row">
                             <div class="col-12">
                                 <div class="card">
-                                    <div class="card-head">
-                                        <input type="checkbox" class="form-check" name="" id="">
-                                    </div>
                                     <div class="card-body">
                                         <!-- table-rwd 建立於myall.css裡的 -->
                                         <table class="table table-bordered table-striped table-rwd table-hover ">
                                             <thead>
                                                 <tr class="text-bg-secondary fw-100 h5 align-middle text-center">
-                                                    <th>留言編號</th>
-                                                    <th>留言者</th>
-                                                    <th>電話</th>
-                                                    <th>Email</th>
-                                                    <th>留言</th>
-                                                    <th>狀態</th>
+                                                    <th>產品類別</th>
                                                     <th>建立時間</th>
+                                                    <th>更新時間</th>
+                                                    <th>更新</th>
                                                 </tr>
                                             </thead>
                                             <tbody id="datalist" class="align-middle text-center">
                                                 <tr>
-                                                    <td data-th="留言編號"><span class="table-col align-content-center">001</span></td>
-                                                    <td data-th="留言者"><span class="table-col">xxxx</span></td>
-                                                    <td data-th="電話"><span class="table-col">05-45423123</span></td>
-                                                    <td data-th="Email"><span class="table-col">xxx@email.com</span></td>
-                                                    <td data-th="備註"><span class="table-col">學會高速市委你說責任編輯等人，不詳請在客服老公交流空中，
-                                                        水果美國，實現點評光臨主任不會公園品牌部落，需要每次微笑聲音傳說一步可以用推動絶對友情街道兩年每日你有，免費電影刺激接口植物研究所協會，新臺幣以往好多字幕活力點頭一會地下典型售價這個需求，趨勢才是保。</span></td>
-                                                    <td data-th="狀態">
-                                                        <div class="form-check form-switch">
-                                                            <input type="checkbox" class="form-check-input"  id="state_switch" name="state_switch" data-state="X">
-                                                            <label for="state_switch" class="form-check-label">未讀</label>
-                                                        </div>
+                                                    <td data-th="產品類別"><span class="table-col align-content-center">001</span></td>
+                                                    <td data-th="建檔時間"><span class="table-col">2024718</span></td>
+                                                    <td data-th="更新時間"><span class="table-col">2024718</span></td>
+                                                    <td >
+                                                      <button class="btn btn-info me-2" type="button" data-bs-toggle="modal" data-bs-target="#updateModal" data-id="XX" id="btn_update">更新</button>
                                                     </td>
-                                                    <td data-th="留言時間"><span class="table-col">2024718</span></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -181,17 +169,31 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row mt-3">
-                        <nav aria-label="Page navigation example">
-                            <ul class="pagination pagination-lg justify-content-center " id="pagelist">
-                              <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1" aria-disabled="true">上一頁</a></li>
-                              <li class="page-item"><a class="page-link" href="#">1</a></li>
-                              <li class="page-item"><a class="page-link" href="#">2</a></li>
-                              <li class="page-item"><a class="page-link" href="#">3</a></li>
-                              <li class="page-item"><a class="page-link" href="#">下一頁</a></li>
-                            </ul>
-                          </nav>
-                    </div>
+                        <!-- update_product_modal -->
+                        <div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-xl ">
+                                <div class="modal-content">
+                                    <div class="modal-header text-bg-success">
+                                    <h5 class="modal-title" id="updateModalLabel">產品類別</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="row">
+                                                <div>
+                                                    <label for="update_type_name" class="form-label">產品類別名稱</label>
+                                                    <input type="text" class="form-control is-valid" id="update_type_name" name="update_type_name" placeholder="">
+                                                    <div class="valid-feedback">符合</div>
+                                                    <div class="invalid-feedback">1~30字</div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                    <button type="button" class="btn btn-primary" id="btn_update_ok">更新</button>
+                                                </div>         
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                 </div> <!--end::Container-->
             </div> <!--end::App Content-->
         </main> <!--end::App Main--> <!--begin::Footer-->
@@ -211,9 +213,12 @@
     <script src="../../../js/sweetalert2@11.js"></script>
     <script src="../../../js/jquery-3.7.1.min.js"></script>
     <script>
-        var comments_num=[];
+        var flag_type_name = true;
+        var u_id;
         var newdata=[];
-
+        var photo_data=[];
+    
+    
         $(function(){
             if(getCookie("uid01")!=""){
                     //將uid傳遞至後端api確認是否合法
@@ -231,24 +236,19 @@
                             }
                         });
                 }else{
-                    Swal.fire({
-                            icon: "error",
-                            title: "Oops...",
-                            text: "管理員專用",
-                            }).then((result)=>{
-                                if (result.isConfirmed) {
-                                    location.href = "../../../index.html";
-                                }  
-                            })
+                    location.href = "../../../index.html";
                 };
     
             //監聽登出按鈕
-            $("#logout_button").click(function(){
+            $("#s02_logout_button").click(function(){
                     //將cookie設為空值
                     setCookie("uid01","",7);
                     //重整
                     location.reload();
-                })   
+                })
+    
+            
+            
         })//end of function
         //登入
         function showdata_check_uid(data){
@@ -264,8 +264,17 @@
                             //渲染使用者區塊
                             strUser='<a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><img src="../../../dist/assets/img/user2-160x160.jpg" class="user-image rounded-circle shadow" alt="User Image"><span class="d-none d-md-inline">'+data.data.Username+'</span></a><ul class="dropdown-menu dropdown-menu-lg dropdown-menu-end"> <!--begin::User Image--><li class="user-header text-bg-primary"><img src="../../../dist/assets/img/user2-160x160.jpg" class="rounded-circle shadow" alt="User Image"><p>'+data.data.Username+'<small>Member since '+formattedDate+'</small></p></li> <!--begin::Menu Footer--><li class="user-footer"><a href="#" class="btn btn-default btn-flat float-end" id="logout_button">Sign out</a></li> <!--end::Menu Footer--></ul>';
                             $("#user-menu").append(strUser);
-
-                            
+    
+                            //讀取產品資料
+                            $.ajax({
+                                type:"GET",
+                                url:"../../../API/product_type_read_api.php",
+                                dataType:"json",
+                                success:showdata_read,
+                                error:function(){
+                                    alert("error_member_read_api.php");
+                                }
+                            });
                         }else{
                             Swal.fire({
                             icon: "error",
@@ -276,9 +285,9 @@
                                     location.href = "../../../index.html";
                                 }  
                             })
-                        } 
+                        }
+                        
                     }
-
                     //讀取message
                     $.ajax({
                             type:"GET",
@@ -321,110 +330,73 @@
                     strComments = '<li class="nav-item dropdown"> <a class="nav-link" data-bs-toggle="dropdown" href="#"><i class="bi bi-bell-fill"></i><span class="navbar-badge badge text-bg-warning">'+comments.data.length+'</span></a><div class="dropdown-menu dropdown-menu-lg dropdown-menu-end"> <span class="dropdown-item dropdown-header">'+comments.data.length+' Notifications</span><div class="dropdown-divider"></div> <a href="#" class="dropdown-item"> <i class="bi bi-envelope me-2"></i> '+comments.data.length+' new messages<span class="float-end text-secondary fs-7">'+timeDisplay+'</span></a><div class="dropdown-divider"></div> <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a></div></li';
                     $("#comments").empty();
                     $("#comments").append(strComments)
-
-                    //讀取message
-                    $.ajax({
-                            type:"GET",
-                            url:"../../../API/comments_read_all_api.php",
-                            dataType:"json",
-                            // async:false,
-                            success:show_comments,
-                            error:function(){
-                                alert("comments_read_for_index_api");
-                            }
-                        });
-
-
-
-            };
-        function show_comments(data){
-            //重構data 產生newdata
-            data.data.forEach(function(item,key){
-                //  console.log(key);
-                //  console.log(item);
-                if(key % 10 ==0){
-                    newdata.push([]);
-                }
-                var page = parseInt(key/10);
-                newdata[page].push(item);
-            });
-    
-            drawTable(0)
-        }
-        //show comments  todo
-        function drawTable(page)
-        {
-            $("#datalist").empty();
-            newdata[page].forEach(function(item){
-                strComments_all='<tr><td data-th="留言編號"><span class="table-col align-content-center">'+item.ID+'</span></td><td data-th="留言者"><span class="table-col">'+item.Name+'</span></td><td data-th="電話"><span class="table-col">'+item.Tel+'</span></td><td data-th="Email"><span class="table-col">'+item.Email+'</span></td><td data-th="備註"><span class="table-col">'+item.Remark+'</span></td><td><div class="form-check form-switch"><input type="checkbox" class="form-check-input" '+(item.State == "Y" ? 'checked':'')+' id="state_switch" name="state_switch" data-id="'+item.ID+'" data-state="'+item.State+'"><label for="" class="form-check-label '+(item.State == "N" ? 'text-danger':'text-success')+'">'+(item.State == "N" ? '未讀':'已讀')+'</label></div></td><td data-th="留言時間"><span class="table-col">'+item.Create_at+'</span></td></tr>';
-                $("#datalist").append(strComments_all);
-            });
-            //上一頁按鈕
-            $("#pagelist").empty();
-            var previousPage = page-1;
-            if (previousPage < 0) {
-                previousPage = 0; // 防止頁數超出範圍
-            };
-    
-             $("#pagelist").append('<li class="page-item ' + (page == 0 ? 'disabled' : '') + '" onclick="drawTable(' + previousPage + ')"><a class="page-link" href="#">上一頁</a></li>');
-    
-            //產生頁碼
-            for(var i=0;i<newdata.length;i++){
-                var thisPage = i+1;
-                var anotherPage = thisPage-1;
-                var strHTML;
-                if(thisPage==page+1){
-                    strHTML='<li class="page-item active" onclick = "drawTable('+anotherPage+')"><a class="page-link" href="#">'+thisPage+'</a></li>';
-                }else{
-                    strHTML='<li class="page-item" onclick = "drawTable('+anotherPage+')"><a class="page-link" href="#">'+thisPage+'</a></li>';
-                }
-                $("#pagelist").append(strHTML);
-            };
-    
-            //下一頁按鈕
-            var nextPage = page+1;
-            if (nextPage >= newdata.length) {
-                nextPage =  newdata.length-1; // 防止頁數超出範圍
-            };
-            $("#pagelist").append('<li class="page-item ' + (page == (newdata.length-1) ? 'disabled' : '') + '" onclick="drawTable(' + nextPage + ')"><a class="page-link" href="#">下一頁</a></li>');
-
-            //監聽state_switch 會員狀態按鈕
-            $("#datalist #state_switch").change(function(){
-
-                if($(this).is(":checked")){
-                    $(this).next().text("已讀");
-                    $(this).next().removeClass("text-danger");
-                    $(this).next().addClass("text-success");
-                }else{
-                    $(this).next().text("未讀");
-                    $(this).next().removeClass("text-success");
-                    $(this).next().addClass("text-danger");
-                }
-    
-                //傳遞至後端更新帳號資料
-                var dataJSON = {};
-                    ($(this).is(":checked") ? mystate= "Y" : mystate = "N");
-                    dataJSON["id"] = $(this).data("id");
-                    dataJSON["state"] = mystate;
-                
-                    $.ajax({
-                        type:"POST",
-                        url:"../../../API/comments_update_state_api.php",
-                        data:JSON.stringify(dataJSON),
-                        dataType:"json",
-                        success:showdata_product_update_state,
-                        error:function(){
-                            alert("error-product_update_state_api");
+                    
+                     //監聽type_name
+                    $("#update_type_name").bind("input propertychange" , function(){
+                        if($(this).val().length>1 && $(this).val().length<30){
+                            $(this).removeClass("is-invalid");
+                            $(this).addClass("is-valid");
+                            flag_type_name = true;
+                        }else{
+                            //不符合規定
+                            $(this).removeClass("is-valid");
+                            $(this).addClass("is-invalid");
+                            flag_type_name = false;
                         }
                     });
-    
-            });
+
+                    //監聽更新modal
+                    $("#btn_update_ok").click(function(){
+                        if(flag_type_name){
+                            var dataJSON = {};
+                            dataJSON["id"] = u_id;
+                            dataJSON["type_name"] = $("#update_type_name").val();
+                            console.log(dataJSON);
+                            $.ajax({
+                                type:"POST",
+                                url:"../../../API/product_type_name_update_api.php",
+                                data:JSON.stringify(dataJSON),
+                                dataType:"json",
+                                async:false,
+                                success:showdata_update,
+                                error:function(){
+                                    alert("error-product_type_name_update_api.php");
+                                }
+                            });
+                        }else{
+                            Swal.fire({
+                                icon: "error",
+                                title: "Oops...",
+                                text: "欄位有誤請修正",
+                                });
+                        }
+                    });
+            };
+        //讀取product資料
+        function showdata_read(data){
+
+            if(data.state){
+                $("#datalist").empty();
+                data.data.forEach(function(item){
+                    strHTML='<tr><td data-th="產品類別"><span class="table-col align-content-center">'+item.Product_type+'</span></td><td data-th="建檔時間"><span class="table-col">'+item.Created_at+'</span></td><td data-th="更新時間"><span class="table-col">'+item.Updated_at+'</span></td><td><button class="btn btn-info me-2" type="button" data-bs-toggle="modal" data-bs-target="#updateModal" data-id="'+item.Type_id +'" data-product_type="'+item.Product_type+'" id="btn_update">更新</button></td></tr>';
+                    $("#datalist").append(strHTML);
+                })
+            }
             
-        }
-        function showdata_product_update_state(data){
+            
+            //監聽更新按鈕
+            $("#datalist #btn_update").click(function(){
+                $("#update_type_name").val($(this).data("product_type"));
+                u_id = $(this).data("id");
+            });
+
+        };
+        //確認更新update
+        function showdata_update(data){
+            console.log(data);
             if(data.state){
                 Swal.fire({
-                    title: "更改成功",
+                    title: "Good job!",
                     text: data.message,
                     icon: "success",
                     }).then((result) => {
@@ -433,10 +405,15 @@
                         location.reload();
                     }
                 });
+            }else{
+                Swal.fire({
+                        icon: "error",
+                        title: "Oops...",
+                        text: "更新失敗",
+                        });
             }
-        }
-        
-        
+        };
+    
         //**************cookie function from w3*****************
         function setCookie(cname, cvalue, exdays) {
                 const d = new Date();

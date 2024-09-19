@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>產品一覽</title>
+    <title>購物車一覽</title>
     <link rel="stylesheet" href="css/all.min.css">
     <link rel="stylesheet" href="css/animate.min.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -22,6 +22,15 @@
     </style>
 </head>
 <body>
+    <!-- 懸浮購物車按鈕和徽章 -->
+    <div class="button-container">
+        <a href="cart.html">
+            <div class="floating-cart-button">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <div class="cart-badge" id="cart_quantity">3</div> <!-- 假設購物車內有 3 件商品 -->
+            </div>
+        </a>
+    </div>
     <!-- ************s01*************** -->
     <section id="s01" class="bg-secondary">
         <div class="container ">
@@ -222,129 +231,63 @@
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb" id="breadcrumb">
                             <li class="breadcrumb-item"><a href="index.html" style="color: black;">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page"><a href="product.html">產品總覽</a></li>
+                            <li class="breadcrumb-item active" aria-current="page"><a href="cart.html">購物車</a></li>
                         </ol>
                     </nav> 
                 </div>
             </div>
         </div>   
     </section>
-    <!-- ************s04*************** -->
-    <section id="s06-1" class="my-3 wow animate__animated animate__fadeIn" data-wow-duration="1s" data-wow-delay="0" data-wow-iteration="1">
-        <div class="container">
-            <div class="product_responsive text-center" id="product_type">
-                <div class="position-relative bg-navbar01">
-                    <i class="fa-solid fa-couch fa-2x"></i>
-                    <h4>沙發/椅子</h4>
-                    <a href="#"class="stretched-link"></a>
-                </div>
-                <div class="position-relative bg-navbar01">
-                    <i class="fa-solid fa-mug-saucer fa-2x"></i>
-                    <p class="h4">辦公桌/辦公椅</p>
-                    <a href="#"class="stretched-link"></a>
-                </div>
-                <div class="position-relative bg-navbar01">
-                    <i class="fa-solid fa-bed fa-2x"></i>
-                    <p class="h4">床組/寢具</p>
-                    <a href="#"class="stretched-link"></a>
-                </div>
-                <div class="position-relative bg-navbar01">
-                    <i class="fa-solid fa-shower fa-2x"></i>
-                    <p class="h4">衛浴用品</p>
-                    <a href="#"class="stretched-link"></a>
-                </div>
-                <div class="position-relative bg-navbar01">
-                    <i class="fa-solid fa-kitchen-set fa-2x"></i>
-                    <p class="h4">廚具/餐具</p>
-                    <a href="#"class="stretched-link"></a>
-                </div>
-                <div class="position-relative bg-navbar01">
-                    <i class="fa-regular fa-lightbulb fa-2x"></i>
-                    <p class="h4">燈具/照明</p>
-                    <a href="#"class="stretched-link"></a>
-                </div>
-                <div class="position-relative bg-navbar01">
-                    <i class="fa-solid fa-rug fa-2x"></i>
-                    <p class="h4">窗簾/地毯</p>
-                    <a href="#"class="stretched-link"></a>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- ************s05*************** -->
-     <section>
-        <div class="container">
-            <div class="row mt-3 h-100" id="product">
-                <div class="col-lg-3 col-xl-3 my-3">
-                    <div class="card">
-                        <button style="background-image: url(image/furniture/product);height: 250px;" class="card-img-top bg-cover btn btn-light" alt="" ></button>
-                        <div class="card-body text-center">
-                            <a href="">
-                                <div class="h4 fw-800">Arc休閒椅</div>
-                                <div class="h5">$499</div>
-                                <div class="h5"></div>
-                            </a>
-                            <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#productModal" id="p_detail">查看詳情</button>
-                        </div>
+<!--*********content****************-->
+<section id="content" class="my-3">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <!-- table-rwd 建立於myall.css裡的 -->
+                        <table class="table table-bordered table-striped table-rwd table-hover ">
+                            <thead>
+                                <tr class="text-bg-secondary fw-100 h5 align-middle text-center">
+                                    <th>產品名稱</th>
+                                    <th>產品圖片</th>
+                                    <th>價格</th>
+                                    <th>數量</th>
+                                    <th>總價</th>
+                                    <th>移出購物車</th>
+                                </tr>
+                            </thead>
+                            <tbody id="datalist" class="align-middle text-center">
+                                <tr>
+                                    <td data-th="產品名稱"><span class="table-col align-content-center">xxx</span></td>
+                                    <td data-th="產品圖"><span class="table-col"><img src="image/product/20240913112022_mirror01-lg.jpg" style="height: 100px;" alt=""></span></td>
+                                    <td data-th="價格"><span class="table-col">$500</span></td>
+                                    <td data-th="數量"><span class="table-col">2</span></td>
+                                    <td data-th="總價"><span class="table-col">1000</span></td>
+                                    <td >
+                                      <button class="btn btn-danger" id="btn_delete" data-id="xx">刪除</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr>
+                                    <!-- 使用 colspan 來合併兩個單元格，顯示總價 -->
+                                    <td colspan="5" class="text-center">總價:</td> <!-- text-end 使內容靠右對齊 -->
+                                    <td class="table-col text-center" id="total_amount">$555</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                            
                     </div>
-                </div>
-            </div>
-            <div class="row mt-3">
-                <nav aria-label="Page navigation example">
-                    <ul class="pagination pagination justify-content-center " id="pagelist">
-                      <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1" aria-disabled="true">上一頁</a></li>
-                      <li class="page-item"><a class="page-link" href="#">1</a></li>
-                      <li class="page-item"><a class="page-link" href="#">2</a></li>
-                      <li class="page-item"><a class="page-link" href="#">3</a></li>
-                      <li class="page-item"><a class="page-link" href="#">下一頁</a></li>
-                    </ul>
-                  </nav>
-            </div>
-        </div>
-     </section>
-
-     <!-- productModal -->
-     <div class="modal fade" id="productModal" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-xl ">
-            <div class="modal-content">
-                <div class="modal-header text-bg-success">
-                <h5 class="modal-title" id="productModalLabel">產品資訊</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <input type="hidden" name="p_modal_id" id="p_modal_id" value="">
-                        <div class="col-md-7 bg-cover d-flex align-items-center justify-content-center" id="p_modal_photo_lg">
-                            <img src="image/furniture/chair01.jpg" class="w-100">
-                        </div>
-                        <div class="col-md-5 d-flex flex-column">
-                          <div class="text-muted" id="p_modal_type">沙發/椅子</div>
-                          <div class="h3 fw-900" id="p_modal_name">Arc休閒椅</div>
-                          <h5 class="mt-2">產品介紹</h5>
-                            <p id="p_modal_desc">123</p>
-                          <div class="mb-3">
-                            <label for="p_modal_stock" class="form-label" >庫存</label>
-                            <input type="number" class="form-control" min="1" max="100" value="1" id="p_modal_stock" name="p_modal_stock" readonly>
-                          </div>
-                          <div class="mb-3">
-                            <label for="p_modal_num" class="form-label" >數量</label>
-                            <input type="number" class="form-control" min="1" max="50" value="1" id="p_modal_num" name="p_modal_num">
-                          </div>
-                          <div class="h4 mt-3" id="p_modal_price">價格:$499</div>
-                          <div class="d-none" id="p_modal_d-none">
-                            <div class="text-danger h3" id="p_modal_discount">優惠價</div>
-                          </div>
-                          <input type="hidden" name="p_modal_price_final" id="p_modal_price_final" value="">
-                          <button class="btn btn-danger w-100 mt-auto" id="p_modal_shopping_cart">加入購物車</button>
-                        </div>
-                      </div>
+                    <div class="card-footer text-end">
+                        <div class="h4 me-5"></div>
+                        <button class="btn btn-success" id="btn_checkout" data-id="xx" data->結帳</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
-
+   </section>
     <!-- ************s13*************** -->
     <section id="s13" class=" bg-op-colo1 align-content-center" style="height: 100px; border-bottom: 1px solid #dfd2c1;">
       <div class="container">
@@ -406,7 +349,7 @@
         $(function(){
              //wow初始化
             new WOW().init();
-
+            $("#datalist").empty();
             //登入註冊
             //確認uid是否存在且合法
             if(getCookie("uid01")!=""){
@@ -597,6 +540,7 @@
             $("#s02_logout_button").click(function(){
                 //將cookie設為空值
                 setCookie("uid01","",7);
+                $("#datalist").empty();
                 //重整
                 location.reload();
             });
@@ -615,232 +559,41 @@
                 $("#r_password").attr('type', 'password');
             })
             //end of 登入註冊 
-
-            $.ajax({
-                type:"GET",
-                url:"API/product_read_api.php",
-                dataType:"json",
-                async:false,
-                success:showdata_read,
-                error:function(){
-                    alert("error_member_read_api.php");
-                }
-            });
-
-            $.ajax({
-                type:"GET",
-                url:"API/product_type_read_api.php",
-                dataType:"json",
-                async:false,
-                success:showproduct_type_read,
-                error:function(){
-                    alert("error_member_read_api.php");
-                }
-            });
-
-            $("#p_modal_shopping_cart").click(function(){
-                    var dataJSON = {};
-                    dataJSON["product_id"] = $("#p_modal_id").val();
-                    dataJSON["product_name"] = $("#p_modal_name").html();
-                    dataJSON["quantity"] = $("#p_modal_num").val();
-                    dataJSON["price"] = $("#p_modal_price_final").val();
-                    dataJSON["member_id"]=user_id;
-                    console.log(JSON.stringify(dataJSON));
-                    $.ajax({
-                        type:"POST",
-                        url:"API/cart_create_api.php",
-                        data:JSON.stringify(dataJSON),
-                        dataType:"json",
-                        success:showdata_cart_add,
-                        error:function(){
-                            alert("error-member_update_api.php");
-                        }
-                    });
-            });
-
         });//end of function
 
-        function showdata_read(data){
-            //分頁
-            data.data.forEach(function(item,key){
-                if(key % 10 ==0){
-                    newdata_all.push([]);
-                }
-                var page = parseInt(key/12);
-                newdata_all[page].push(item);
-            });
-            drawTable(0);
-
-            //監聽產品類別按鈕
-            $("#product_type").on('click','.slick-slide', function(event){
-                type_id= $(this).data('id');
-                type_name = $(this).data('name');
-                $("#product").empty();
-
-                //渲染麵包屑
-                $("#breadcrumb").empty();
-                var strBread='<li class="breadcrumb-item"><a href="index.html" style="color: black;">Home</a></li><li class="breadcrumb-item"><a href="product.html">產品總覽</a></li><li class="breadcrumb-item active" aria-current="page">'+type_name+'</li>';    
-                $("#breadcrumb").append(strBread);
-                $("#pagelist").empty()
-
-                //渲染產品列表
+        function showdata_read_cart(data){
+            $("#datalist").empty();
+            $("#total_amount").empty();
+            if(data.state)
+            {
+                var count = 0;
                 data.data.forEach(function(item){
-                    if(type_id==item.Type_id)
-                    {
-                        if(item.Price_discount!=null)
-                        {
-                            strPrice='<div class="h5 text-black-50" style="text-decoration: line-through">$'+item.Price+'</div><div class="text-danger h5">優惠價:'+item.Price_discount+'</div>';
-                        }else{
-                            strPrice='<div class="h5">$'+item.Price+'</div>';
-                        }
-                        var strHtml ='<div class="col-lg-3 col-xl-3 my-3"><div class="card h-100"><button style="background-image: url(image/product/'+item.Image_url+');height: 250px;" class="card-img-top bg-cover btn btn-light" alt=""></button><div class="card-body text-center d-flex flex-column"><a href=""><div class="h4 fw-800">'+item.Product_name+'</div>'+strPrice+'<div class="h5"></div></a><button class="btn btn-dark mt-auto" data-id='+item.ID+' data-price='+item.Price+' data-name='+item.Product_name+' data-image='+item.Image_url+' data-description='+item.Description+' data-type_id='+item.Type_id+' data-price_discount='+item.Price_discount+' data-stock='+item.Stock+' data-product_type='+item.Product_type+' data-bs-toggle="modal" data-bs-target="#productModal" id="p_detail">查看詳情</button>';
-                        $("#product").append(strHtml);
-                    }
-                });//end forEach
-
-                //監聽詳情按鈕
-                $("#product #p_detail").click(function(){
-                    $("#p_modal_id").val($(this).data("id"));
-                    $("#p_modal_photo_lg").html('<img src="image/product/' + $(this).data("image") + '"  class="w-75" alt="" />');
-                    $("#p_modal_type").html($(this).data("product_type"));
-                    $("#p_modal_name").html($(this).data("name"));
-                    $("#p_modal_desc").html($(this).data("description"));
-                    $("#p_modal_stock").val($(this).data("stock"));
-                    var p_price = $(this).data("price");
-                    var p_discount=$(this).data("price_discount");
-                    $("#p_modal_price").html('價格:$'+p_price);
-                    if($(this).data("price_discount")!=null)
-                    {
-                        $("#p_modal_price").addClass("text-black-50");
-                        $("#p_modal_price").css("text-decoration","line-through");
-                        $("#p_modal_d-none").removeClass("d-none");
-                        $("#p_modal_discount").html("優惠價:$"+$(this).data("price_discount"));
-                        $("#p_modal_price_final").val($(this).data("price_discount"));
-
-                    }else{
-                        $("#p_modal_d-none").addClass("d-none");
-                        $("#p_modal_price").removeClass("text-black-50");
-                        $("#p_modal_price").removeAttr("style");
-                        $("#p_modal_price_final").val($(this).data("price"));
-                    }
-                    
-                    //如果圖片無法讀取
-                    $("img").on("error", function() {
-                        if ($(this).attr("src") !== "../../../image/product//No_image_available.svg") {
-                            $(this).attr("src", "../../../image/product//No_image_available.svg");
+                    total = (item.Price)*(item.Quantity);
+                    strHTML = '<tr><td data-th="產品名稱"><span class="table-col align-content-center">'+item.Product_name+'</span></td><td data-th="產品圖"><span class="table-col"><img src="image/product/'+item.Image_url+'" style="height: 100px;" alt=""></span></td><td data-th="價格"><span class="table-col">$'+item.Price+'</span></td><td data-th="數量"><span class="table-col">'+item.Quantity+'</span></td><td data-th="總價"><span class="table-col">'+total+'</span></td><td><button class="btn btn-danger" id="btn_delete" data-id="'+item.ID+'">刪除</button></td></tr>';
+                    $("#datalist").append(strHTML);
+                    count+=total;
+                })
+                $("#total_amount").html("$"+count);
+                //監聽刪除按鈕
+                $("#datalist #btn_delete").click(function(){
+                    var dataJSON={};
+                    dataJSON["id"] = $(this).data("id");
+                    $.ajax({
+                        type:"POST",
+                        url:"API/cart_delete_api.php",
+                        data:JSON.stringify(dataJSON),
+                        dataType:"json",
+                        success:showdata_delete_cart,
+                        error:function(){
+                            alert("error-cart_delete_api.php");
                         }
                     });
-                 });//end of #product #p_detail click
+                })
+            }else{
+                alert("xxx")
+            }
 
-            });//end of product_type click
-        };//end of showdata_read()
-        function drawTable(page)
-        {
-            $("#product").empty()
-            newdata_all[page].forEach(function(item){
-                if(item.Price_discount!=null)
-                {
-                    strPrice='<div class="h5 text-black-50" style="text-decoration: line-through">$'+item.Price+'</div><div class="text-danger h5">優惠價:$'+item.Price_discount+'</div>';
-                }else{
-                    strPrice='<div class="h5">$'+item.Price+'</div>';
-                }
-                
-                var strHtml ='<div class="col-lg-3 col-xl-3 my-3"><div class="card h-100"><button style="background-image: url(image/product/'+item.Image_url+');height: 250px;" class="card-img-top bg-cover btn btn-light" alt=""></button><div class="card-body d-flex flex-column text-center"><a href=""><div class="h4 fw-800">'+item.Product_name+'</div>'+strPrice+'<div class="h5"></div></a><button class="btn btn-dark mt-auto" data-id='+item.ID+' data-price='+item.Price+' data-name='+item.Product_name+' data-image='+item.Image_url+' data-description='+item.Description+' data-type_id='+item.Type_id+' data-price_discount='+item.Price_discount+' data-stock='+item.Stock+' data-product_type='+item.Product_type+' data-bs-toggle="modal" data-bs-target="#productModal" id="p_detail">查看詳情</button></div></div></div>';
-                $("#product").append(strHtml);
-            });
-            //上一頁按鈕
-            $("#pagelist").empty();
-            var previousPage = page-1;
-            if (previousPage < 0) {
-                previousPage = 0; // 防止頁數超出範圍
-            };
-    
-             $("#pagelist").append('<li class="page-item ' + (page == 0 ? 'disabled' : '') + '" onclick="drawTable(' + previousPage + ')"><a class="page-link" href="#">上一頁</a></li>');
-    
-            //產生頁碼
-            for(var i=0;i<newdata_all.length;i++){
-                var thisPage = i+1;
-                var anotherPage = thisPage-1;
-                var strHTML;
-                if(thisPage==page+1){
-                    strHTML='<li class="page-item active" onclick = "drawTable('+anotherPage+')"><a class="page-link" href="#">'+thisPage+'</a></li>';
-                }else{
-                    strHTML='<li class="page-item" onclick = "drawTable('+anotherPage+')"><a class="page-link" href="#">'+thisPage+'</a></li>';
-                }
-                $("#pagelist").append(strHTML);
-            };
-    
-            //下一頁按鈕
-            var nextPage = page+1;
-            if (nextPage >= newdata_all.length) {
-                nextPage =  newdata_all.length-1; // 防止頁數超出範圍
-            };
-            $("#pagelist").append('<li class="page-item ' + (page == (newdata_all.length-1) ? 'disabled' : '') + '" onclick="drawTable(' + nextPage + ')"><a class="page-link" href="#">下一頁</a></li>');
-
-            //監聽update按鈕
-            $("#product #p_detail").click(function(){
-                $("#p_modal_id").val($(this).data("id"));
-                $("#p_modal_photo_lg").html('<img src="image/product/' + $(this).data("image") + '"  class="w-75" alt="" />');
-                $("#p_modal_type").html($(this).data("product_type"));
-                $("#p_modal_name").html($(this).data("name"));
-                $("#p_modal_desc").html($(this).data("description"));
-                $("#p_modal_stock").val($(this).data("stock"));
-                var p_price = $(this).data("price");
-                var p_discount=$(this).data("price_discount");
-                $("#p_modal_price").html('價格:$'+p_price);
-                if($(this).data("price_discount")!=null)
-                {
-                    $("#p_modal_price").addClass("text-black-50");
-                    $("#p_modal_price").css("text-decoration","line-through");
-                    $("#p_modal_d-none").removeClass("d-none");
-                    $("#p_modal_discount").html("優惠價:$"+$(this).data("price_discount"));
-                    $("#p_modal_price_final").val($(this).data("price_discount"));
-
-                }else{
-                    $("#p_modal_d-none").addClass("d-none");
-                    $("#p_modal_price").removeClass("text-black-50");
-                    $("#p_modal_price").removeAttr("style");
-                    $("#p_modal_price_final").val($(this).data("price"));
-                }
-                
-                
-                // $("#p_modal_price").html((p_discount != null ? '優惠價:'+p_discount : '價格:'+p_price));
-                //如果圖片無法讀取
-                $("img").on("error", function() {
-                    if ($(this).attr("src") !== "../../../image/product//No_image_available.svg") {
-                        $(this).attr("src", "../../../image/product//No_image_available.svg");
-                    }
-                });
-            });// end of 監聽update按鈕
-        }//end of drawTable()
-
-        function showproduct_type_read(data){
-            $("#product_type").empty();
-            data.data.forEach(function(item){
-                var strHtml='<div class="position-relative bg-navbar01" data-id="'+item.Type_id+'" data-name="'+item.Product_type+'"><i class="'+item.Icon+'"></i><h4>'+item.Product_type+'</h4><a href="#"class="stretched-link"></a></div>';
-                $("#product_type").append(strHtml);
-            });
-            $(".product_responsive").slick({
-            dots: false,
-            infinite: false,
-            speed: 300,
-            slidesToShow: 6,
-            slidesToScroll: 1,
-            prevArrow:'<button type="button" class="slick-prev"><i class="fas fa-chevron-left"></i></button>',
-            nextArrow:'<button type="button" class="slick-next"><i class="fas fa-chevron-right"></i></button>',
-            responsive: [
-                {
-                breakpoint: 1024,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
-                    infinite: true,
-                    dots: true
-                }
-                },
-            ]
-            }); 
-        };//end of showproduct_type_read()
+        };// end of showdata_read_cart()
 
         function showdata_checkuni(data) {
             if (data.state) {
@@ -1009,6 +762,20 @@
                             //manager only
                             $("#s01_manager_only").removeClass("d-none");
                         }
+                        //獲取購物車資訊
+                        var dataJSON = {};
+                        dataJSON["member_id"]=user_id;
+                        $.ajax({
+                            type:"POST",
+                            url:"API/cart_read_check_memberID_api.php",
+                            data:JSON.stringify(dataJSON),
+                            dataType:"json",
+                            async:false,
+                            success:showdata_read_cart,
+                            error:function(){
+                                alert("error_cart_read_api.php");
+                            }
+                        });
                     }else{
                         //帳號為停用狀態
                         Swal.fire({
@@ -1035,12 +802,17 @@
                 }
         }//end of showdata_check_uid()
 
-        function showdata_cart_add(data){
+        function showdata_delete_cart(data){
             if(data.state){
                 Swal.fire({
                     title: "Good job!",
                     text: data.message,
                     icon: "success"
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            // 重整頁面
+                            location.reload();
+                        }
                     });
             }else{
                 Swal.fire({
@@ -1049,7 +821,7 @@
                 icon: "error"
                 });
             }
-        }//end of showdata_cart_add()
+        }//end of showdata_delete_cart()
         
         //**************cookie function from w3*****************
         function setCookie(cname, cvalue, exdays) {

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>觀光屬旅館資料</title>
+    <title>會員分布</title>
     <link rel="stylesheet" href="../../../css/bootstrap.min.css">
     <link rel="stylesheet" href="../../../css/all.min.css"><!--icon-->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" /><!--地圖-->
@@ -39,7 +39,7 @@
                 <ul class="list-group mt-3" id="regionList">
                     <li class="list-group-item d-flex justify-content-between align-items-center">
                       <div>
-                        <div class="h2">旅館名稱</div>
+                        <div class="h2">會員名稱</div>
                         <div class="h5">地址:xxxxx</div>
                         <div class="h5">電話:xxxxx</div>
                       </div>
@@ -60,7 +60,7 @@
         var CityCountyData =[];
         var citySelected;//被選取的縣市
         var regionSelected;//被選取的鄉鎮
-        var HotelData=[];//觀光署旅館資料
+        var HotelData=[];//會員資料
         var map;
         var markers;//地圖分群
         $(function(){
@@ -87,7 +87,7 @@
                     alert("error-js/CityCountyData.json");
                 }
             });
-            //匯入觀光署資料
+            //匯入會員資料
             $.ajax({
                 type:"GET",
                 url:"../../../API/member_read_api.php",
@@ -140,7 +140,7 @@
             //監聽鄉鎮區選單->產生旅館列表
             $("#region").change(function(){
                 regionSelected = $(this).val();
-                //清空旅館列表
+                //清空列表
                 $("#regionList").empty();
                 
                 removeMarker();
@@ -151,7 +151,7 @@
                 HotelData.forEach(function (item,key){
                     if(item.Region == citySelected && item.Town == regionSelected){
                          console.log(item);
-                        var strHtml='<li class="list-group-item d-flex justify-content-between align-items-center bg-op2-white my-1" data-lat="'+item.Py+'" data-lng="'+item.Px+'"><div><div class="h4">'+item.Username+'</div><div class="h6">地址:'+item.Address+'</div><div class="h6">電話:'+item.Tel+'</div></div><h5><span class="badge bg-success rounded-pill ">創建日期:'+item.Created_at+'</h5></li>';
+                        var strHtml='<li class="list-group-item d-flex justify-content-between align-items-center bg-op2-white my-1" data-lat="'+item.Py+'" data-lng="'+item.Px+'"><div><div class="h4">'+item.Username+'</div><div class="h6">地址:'+item.Address+'</div><div class="h6">電話:'+item.Tel+'</div><h5><span class="badge bg-success rounded-pill ">創建日期:'+item.Created_at+'</h5></div></li>';
                         $("#regionList").append(strHtml);
                         
                         //產生marker

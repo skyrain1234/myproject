@@ -25,6 +25,7 @@
                 <ul class="navbar-nav">
                     <li class="nav-item"> <a class="nav-link" data-lte-toggle="sidebar" href="#" role="button"> <i class="bi bi-list"></i> </a> </li>
                     <li class="nav-item d-none d-md-block"> <a href="#" class="nav-link">Home</a> </li>
+                    <li class="nav-item d-none d-md-block"> <a href="../../../index.html" target="_blank" class="nav-link">Index</a> </li>
                 </ul> <!--end::Start Navbar Links--> <!--begin::End Navbar Links-->
                 <ul class="navbar-nav ms-auto"> <!--begin::Navbar Search-->
                     <li class="nav-item"> <a class="nav-link" data-widget="navbar-search" href="#" role="button"> <i class="bi bi-search"></i> </a> </li> <!--end::Navbar Search--> <!--begin::Messages Dropdown Menu-->
@@ -104,6 +105,11 @@
                                 <li class="nav-item"> 
                                     <a href="../member/member_list.html" class="nav-link"><i class="nav-icon bi bi-circle"></i>
                                         <p>會員管理</p>
+                                    </a> 
+                                </li>
+                                <li class="nav-item"> 
+                                    <a href="../member/member-map.html" target="_blank" class="nav-link"><i class="nav-icon bi bi-circle"></i>
+                                        <p>會員分布圖表</p>
                                     </a> 
                                 </li>
                             </ul>
@@ -409,8 +415,8 @@
         function showdata_read(data){
             //重構data 產生newdata
             data.data.forEach(function(item,key){
-                 console.log(key);
-                 console.log(item);
+                //  console.log(key);
+                //  console.log(item);
                 if(key % 10 ==0){
                     newdata.push([]);
                 }
@@ -427,7 +433,7 @@
                     $("#prevImg").attr("src",URL.createObjectURL(upload_product_photo.files[0]));
                     flag_p_upload= true;
                 }else{
-                    console.log("jpeg or png");
+                    // console.log("jpeg or png");
                     $("#prevImg").addClass("d-none");
                     flag_p_upload= false;
                 }
@@ -502,7 +508,13 @@
             //監聽更新modal
             $("#btn_update_ok").click(function(){
                 if(flag_product_name && flag_product_desc && flag_product_price && flag_product_price_discount && flag_product_stock && flag_p_upload){
-                    var formData = new FormData();
+                    var dataJSON = {};
+                    dataJSON["id"] = u_id;
+                    dataJSON["product_name"] = $("#update_product_name").val();
+                    dataJSON["product_desc"] = $("#update_product_desc").val();
+                    dataJSON["product_price"] = $("#update_product_price").val();
+                    if(upload_product_photo.files[0]) {
+                        var formData = new FormData();
                         formData.append("file",upload_product_photo.files[0]);
                         formData.append("old_file", $("#product_photo_lg").data("image_url"));
                         $.ajax({
@@ -516,18 +528,19 @@
                             async:false,
                             success:function(data){
                                 photo_data=data;
+                                dataJSON["photo"] = photo_data.filename;
                             },
                             error:function(data){
                                 console.log("error"+data);
                             }
                         });
-                    console.log(photo_data);
-                    var dataJSON = {};
-                    dataJSON["id"] = u_id;
-                    dataJSON["product_name"] = $("#update_product_name").val();
-                    dataJSON["product_desc"] = $("#update_product_desc").val();
-                    dataJSON["product_price"] = $("#update_product_price").val();
-                    dataJSON["photo"] = photo_data.filename;
+                    }else{
+                        // 如果沒有選擇新圖片，保留原有圖片
+                        dataJSON["photo"] = $("#product_photo_lg").data("image_url");
+                    }
+                    
+                    
+                    
 
                     if($("#update_product_price_discount").val()=="0"){
                         dataJSON["product_price_discount"]="NULL"
