@@ -82,6 +82,15 @@
     </style>
 </head>
 <body>
+       <!-- 懸浮購物車按鈕和徽章 -->
+       <div class="button-container" id="app">
+        <a href="cart.html">
+            <div class="floating-cart-button">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <div class="cart-badge" id="cart_quantity">{{itemCount}}</div> <!-- 假設購物車內有 3 件商品 -->
+            </div>
+        </a>
+    </div>
     <!-- ************s01*************** -->
     <section id="s01" class="bg-secondary">
         <div class="container ">
@@ -930,7 +939,7 @@
                               <a class="nav-link active" aria-current="page" href="#">產品一覽</a>
                             </li>
                             <li class="nav-item">
-                              <a class="nav-link" href="#">關於我們</a>
+                              <a class="nav-link" href="about.html">關於我們</a>
                             </li>
                             <li class="nav-item">
                               <a class="nav-link" href="#">精選推薦</a>
@@ -961,6 +970,8 @@
     <script type="text/javascript" src="slick/slick.min.js"></script>
     <script src="js/wow.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script>
         var flag_r_username = false;
         var flag_r_password = false;
@@ -972,6 +983,7 @@
         var flag_c_name = false;
         var flag_c_tel = false;
         var flag_c_remark = false;
+        var user_id;
         //正規表達式
         //密碼
         const rules_pwd = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/ ;
@@ -1025,6 +1037,7 @@
                         url:"API/member_login_check_uid_api.php",
                         data:JSON.stringify(dataJSON),
                         dataType:"json",
+                        async:false,
                         success:showdata_check_uid,
                         error:function(){
                             alert("error-member_login_check_uid_api.php");
@@ -1311,6 +1324,37 @@
                 $(this).html('<i class="fa-solid fa-eye"></i>');
                 $("#r_password").attr('type', 'password');
             })
+            //vue
+            let dataJSON2 = { member_id: user_id };
+            const App={
+                data(){
+                    return{
+                        items:[],
+                        itemCount: 0,
+                        userId: user_id,
+                    }
+                },
+                methods: {
+                    
+                    fetchData(dataJSON) {
+                    axios.post('API/cart_read_check_memberID_api.php',dataJSON)  // 替換為你的 API URL
+                        .then(response => {
+                        this.items = response.data;  // 將 API 返回的資料存入 items 陣列
+                        this.itemCount = this.items.data.length;  // 計算資料筆數
+                        })
+                        .catch(error => {
+                        console.error("資料獲取失敗:", error);
+                        });
+                    }
+                },
+                mounted() {
+                    let dataJSON2 = { member_id: this.userId };  // 使用 Vue 的資料變數
+                    this.fetchData(dataJSON2);  // 傳入資料進行請求
+                },
+            };
+            //將App掛載在id為app的區塊裡，讓其可以使用data中的資料
+            Vue.createApp(App).mount('#app');
+            //end of vue
 
 
 
@@ -1465,7 +1509,7 @@
         }
         //利用cookie登入
         function showdata_check_uid(data){
-            console.log(data);
+            user_id=data.data.ID;
                 //顯示登入帳號
                 if(data.state){
                     if(data.data.State == "1"){

@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
     <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
-    <link rel="stylesheet" href="css/animate.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
     <link rel="stylesheet" href="css/myall.css">
     <link rel="icon" href="image/furniture/Modernist_logo4.ico" type="image/png">
@@ -23,11 +22,11 @@
 </head>
 <body>
     <!-- 懸浮購物車按鈕和徽章 -->
-    <div class="button-container">
+    <div class="button-container" id="app">
         <a href="cart.html">
             <div class="floating-cart-button">
                 <i class="fa-solid fa-cart-shopping"></i>
-                <div class="cart-badge" id="cart_quantity">3</div> <!-- 假設購物車內有 3 件商品 -->
+                <div class="cart-badge" id="cart_quantity">{{itemCount}}</div> <!-- 假設購物車內有 3 件商品 -->
             </div>
         </a>
     </div>
@@ -98,7 +97,7 @@
                     <a class="nav-link" href="#s07-3"><i class="fa-solid fa-ticket fs-4"></i>最新優惠</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link " href="#s07-3"><i class="fa-solid fa-book fs-4"></i>關於我們</a>
+                    <a class="nav-link " href="about.html"><i class="fa-solid fa-book fs-4"></i>關於我們</a>
                   </li>
                   <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-user-gear fs-4 me-1"></i>
@@ -239,7 +238,7 @@
         </div>   
     </section>
 <!--*********content****************-->
-<section id="content" class="my-3">
+<section id="content" class="my-3 d-none" >
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -273,7 +272,7 @@
                                 <tr>
                                     <!-- 使用 colspan 來合併兩個單元格，顯示總價 -->
                                     <td colspan="5" class="text-center">總價:</td> <!-- text-end 使內容靠右對齊 -->
-                                    <td class="table-col text-center" id="total_amount">$555</td>
+                                    <td class="table-col text-center" id="total_amount"></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -301,7 +300,7 @@
                          <a class="nav-link active" aria-current="page" href="#">產品一覽</a>
                        </li>
                        <li class="nav-item">
-                         <a class="nav-link" href="#">關於我們</a>
+                         <a class="nav-link" href="about.html">關於我們</a>
                        </li>
                        <li class="nav-item">
                          <a class="nav-link" href="#">精選推薦</a>
@@ -330,17 +329,17 @@
     <script type="text/javascript" src="slick/slick.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
     <script src="js/wow.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script>
-        var product_type=[];
-        var newdata_all=[];
-        var type_id;
+        var user_id;
         var flag_r_username = false;
         var flag_r_password = false;
         var flag_r_re_password = false;
         var flag_r_datepicker = false;
         var flag_r_email = false;
         var flag_r_agree = false;
-        var user_id;
+
         //正規表達式
         //密碼
         const rules_pwd = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/ ;
@@ -361,6 +360,7 @@
                         url:"API/member_login_check_uid_api.php",
                         data:JSON.stringify(dataJSON),
                         dataType:"json",
+                        async:false,
                         success:showdata_check_uid,
                         error:function(){
                             alert("error-member_login_check_uid_api.php");
@@ -515,8 +515,6 @@
                     var dataJSON = {};
                     dataJSON["username"] = $("#l_username").val();
                     dataJSON["password"] = $("#l_password").val();
-
-
                     $.ajax({
                         type:"POST",
                         url:"API/member_login_api.php",
@@ -559,21 +557,56 @@
                 $("#r_password").attr('type', 'password');
             })
             //end of 登入註冊 
+
+            //vue
+            let dataJSON2 = { member_id: user_id };
+            const App={
+                data(){
+                    return{
+                        items:[],
+                        itemCount: 0,
+                        userId: user_id,
+                    }
+                },
+                methods: {
+                    
+                    fetchData(dataJSON) {
+                    axios.post('API/cart_read_check_memberID_api.php',dataJSON)  // 替換為你的 API URL
+                        .then(response => {
+                        this.items = response.data;  // 將 API 返回的資料存入 items 陣列
+                        this.itemCount = this.items.data.length;  // 計算資料筆數
+                        })
+                        .catch(error => {
+                        console.error("資料獲取失敗:", error);
+                        });
+                    }
+                },
+                mounted() {
+                    let dataJSON2 = { member_id: this.userId };  // 使用 Vue 的資料變數
+                    this.fetchData(dataJSON2);  // 傳入資料進行請求
+                },
+            };
+            //將App掛載在id為app的區塊裡，讓其可以使用data中的資料
+            Vue.createApp(App).mount('#app');
+            //end of vue
+
         });//end of function
 
         function showdata_read_cart(data){
+           
             $("#datalist").empty();
             $("#total_amount").empty();
+            //渲染購物車
             if(data.state)
             {
-                var count = 0;
+                var total_amount = 0;
                 data.data.forEach(function(item){
                     total = (item.Price)*(item.Quantity);
                     strHTML = '<tr><td data-th="產品名稱"><span class="table-col align-content-center">'+item.Product_name+'</span></td><td data-th="產品圖"><span class="table-col"><img src="image/product/'+item.Image_url+'" style="height: 100px;" alt=""></span></td><td data-th="價格"><span class="table-col">$'+item.Price+'</span></td><td data-th="數量"><span class="table-col">'+item.Quantity+'</span></td><td data-th="總價"><span class="table-col">'+total+'</span></td><td><button class="btn btn-danger" id="btn_delete" data-id="'+item.ID+'">刪除</button></td></tr>';
                     $("#datalist").append(strHTML);
-                    count+=total;
+                    total_amount+=total;
                 })
-                $("#total_amount").html("$"+count);
+                $("#total_amount").html("$"+total_amount);
                 //監聽刪除按鈕
                 $("#datalist #btn_delete").click(function(){
                     var dataJSON={};
@@ -639,7 +672,8 @@
                     title: "Good job!",
                     text: data.message,
                     icon: "success"
-                    }).then((result) => {
+                    })
+                    .then((result) => {
                         if (result.isConfirmed) {
                             // 重整頁面
                             location.reload();
@@ -671,6 +705,7 @@
                     //顯示登出按鈕
                     $("#s02_logout_button").removeClass("d-none");
                     $("#s02_login_icon").removeClass("d-none");
+                    $("#content").removeClass("d-none");
                     if(data.data.Level>="200" && data.data.Level<"900"){
                         //顯示優惠
                         //顯示vip下拉選單
@@ -705,7 +740,6 @@
                     $("#s02_login_icon_2").addClass("fa-skull-crossbones");
                     
                 }
-                
                 
                 //將uid01寫入cookie
                 //setCookie("aplication_name",data_name,days)
@@ -753,6 +787,7 @@
                         //顯示登出按鈕
                         $("#s02_logout_button").removeClass("d-none");
                         $("#s02_login_icon").removeClass("d-none");
+                        $("#content").removeClass("d-none");
                         
                         if(data.data.Level>="100" && data.data.Level<"900"){
                         //顯示優惠

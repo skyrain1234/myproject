@@ -7,8 +7,8 @@
     <link rel="stylesheet" href="css/all.min.css">
     <link rel="stylesheet" href="css/animate.min.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
     <link rel="stylesheet" href="css/myall.css">
-    <link rel="stylesheet" href="css/animate.min.css">
     <link rel="icon" href="image/furniture/Modernist_logo4.ico" type="image/png">
     
     <style>
@@ -24,6 +24,15 @@
     </style>
 </head>
 <body>
+    <!-- 懸浮購物車按鈕和徽章 -->
+    <div class="button-container" id="app">
+      <a href="cart.html">
+          <div class="floating-cart-button">
+              <i class="fa-solid fa-cart-shopping"></i>
+              <div class="cart-badge" id="cart_quantity">{{itemCount}}</div> <!-- 假設購物車內有 3 件商品 -->
+          </div>
+      </a>
+    </div>
     <!-- ************s01*************** -->
     <section id="s01" class="bg-secondary">
         <div class="container ">
@@ -85,13 +94,13 @@
                     </ul>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#s06-2"><i class="fa-solid fa-box fs-4"></i>精選推薦</a>
+                    <a class="nav-link disabled" href="#s06-2"><i class="fa-solid fa-box fs-4"></i>精選推薦</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#s07-3"><i class="fa-solid fa-ticket fs-4"></i>最新優惠</a>
+                    <a class="nav-link disabled" href="#s07-3"><i class="fa-solid fa-ticket fs-4"></i>最新優惠</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link active" href="#s07-3"><i class="fa-solid fa-book fs-4"></i>關於我們</a>
+                    <a class="nav-link active" href="about.html"><i class="fa-solid fa-book fs-4"></i>關於我們</a>
                   </li>
                   <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-user-gear fs-4 me-1"></i>
@@ -109,6 +118,113 @@
             </div>
           </nav>
     </section>
+         <!-- loginModal -->
+         <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+              <div class="modal-content">
+                  <div class="modal-header text-bg-warning">
+                  <h5 class="modal-title" id="loginModalLabel">會員登入</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                      <div class="mb-3">
+                          <label for="l_username" class="form-label">帳號</label>
+                          <input type="text" class="form-control" id="l_username" name="l_username">
+                      </div>
+                      <div class="mb-3">
+                          <label for="l_password" class="form-label">密碼</label>
+                          <!-- 加上form標籤 解決Password field is not contained in a form報錯 -->
+                          <!-- 加上autocomplete="off/on" 解決[DOM] Input elements should have autocomplete attributes (suggested: "new-password")報錯 -->
+                          <form>
+                              <input type="password" class="form-control" id="l_password" name="l_password" autocomplete="on" >
+                          </form> 
+                      </div>
+                  </div>
+                  <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                  <button type="button" class="btn btn-primary" id="l_ok_btn">登入</button>
+                  </div>
+              </div>
+          </div>
+      </div>
+  
+      <!-- registeredModal -->
+      <div class="modal fade" id="registeredModal" tabindex="-1" aria-labelledby="registeredModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-xl ">
+              <div class="modal-content">
+                  <div class="modal-header text-bg-success">
+                  <h5 class="modal-title" id="registeredModalLabel">會員註冊</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                      <div class="row">
+                          <div class="col-6">
+                              <div class="mb-3">
+                                  <label for="r_username" class="form-label" >帳號</label>
+                                  <input type="text" class="form-control is-invalid" id="r_username" name="r_username" placeholder="請輸入3~8個字">
+                                  <div class="invalid-feedback">不符合規定</div>
+                                  <div class="valid-feedback">符合規定</div>
+                              </div>
+                              <div class="mb-3 ">
+                                  <label for="r_password" class="form-label">密碼</label>
+                                  <div class="input-group">
+                                      <input type="password" class="form-control is-invalid" id="r_password" name="r_password" placeholder="請輸入密碼">
+                                      <div class="btn text-end" id="show_password"><i class="fa-solid fa-eye"></i></div>
+                                      <div class="valid-feedback">符合規定</div>
+                                      <div class="invalid-feedback">密碼至少8個字，至少包含一個數字與一組大小寫字母 EX:Aa123456</div>
+                                  </div>  
+                              </div>
+                              <div class="mb-3">
+                                  <label for="r_re_password" class="form-label">請再次輸入密碼</label>
+                                  <input type="password" class="form-control hiding is-invalid" id="r_re_password" name="r_re_password" placeholder="確認密碼">
+                                  <div class="valid-feedback">符合規定</div>
+                                  <div class="invalid-feedback">不符合規定</div>
+                              </div>
+                              <div class="mb-3">
+                                  <label for="r_datepicker" class="form-label">生日</label>
+                                  <input type="text" class="form-control hiding is-invalid" id="r_datepicker" name="r_datepicker" readonly>
+                                  <div class="valid-feedback">符合規定</div>
+                                  <div class="invalid-feedback">不符合規定</div>
+                              </div>
+                              <div class="mb-3">
+                                  <label for="r_email" class="form-label">email</label>
+                                  <input type="text" class="form-control hiding is-invalid" id="r_email" name="r_email" placeholder="EX:1234567@gmail.com">
+                                  <div class="valid-feedback">符合規定</div>
+                                  <div class="invalid-feedback">請輸入mail</div>
+                              </div>
+                          </div>
+                          <div class="col-6">
+                              <h3>會員守則</h3>
+                              <p>帳號安全與保護：
+                                  會員應確保其帳號和密碼的安全，不得將帳號資訊提供給第三方。如果發現帳號被未經授權的使用，應立即通知網站管理員</p>
+                              <p>真實性與準確性：
+                                  會員在註冊帳號及購物時應提供準確的個人信息，並確保所有提交的資料是真實和完整的。</p>
+                              <p>遵守法律法規：
+                                  會員在使用網站服務過程中應遵守所有相關法律法規，不得從事任何非法或不正當的活動，如欺詐、盜竊或侵權行為。</p>
+                              <p>責任與義務：
+                                  會員應對其在網站上進行的所有活動負責，包括但不限於購買商品、提交評論和參與論壇等，並承擔由此產生的責任。</p>
+                              <p>支付與退款政策：
+                                  會員在進行購物時應遵守網站的支付政策，包括付款方式和退款規定。所有的交易均按照網站的支付和退款條款處理。</p>
+                              <p>知識產權：
+                                  會員不得未經授權使用網站上的知識產權，包括商標、版權內容和其他受保護的材料。網站內容僅可用於個人、非商業用途。</p>
+                              <p>修改與終止：
+                                  網站保留隨時修改會員條款的權利。會員應定期查閱條款變更。如會員違反條款，網站有權暫停或終止其帳號及服務。</p>
+                              <div class="form-check">
+                                  <input type="checkbox" name="r_agree" id="r_agree" class="form-check-input is-invalid">
+                                  <label for="r_agree" class="form-check-label">同意</label>
+                                  <div class="valid-feedback"></div>
+                                  <div class="invalid-feedback"></div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                  <button type="button" class="btn btn-primary" id="r_ok_btn">確認註冊</button>
+                  </div>
+              </div>
+          </div>
+      </div>
     <!-- ************s03*************** -->
      <section id="s03" class="noto-sans-tc-title" style="background-image:url(image/furniture/banner03.jpg); height: 25vh;">
         <div class="container-fluid h-100">
@@ -229,10 +345,10 @@
                <div class="col-6 d-flex justify-content-center">
                    <ul class="nav">
                        <li class="nav-item text-center">
-                         <a class="nav-link active" aria-current="page" href="#">產品一覽</a>
+                         <a class="nav-link "  href="#">產品一覽</a>
                        </li>
                        <li class="nav-item">
-                         <a class="nav-link" href="#">關於我們</a>
+                         <a class="nav-link active"  aria-current="page"href="about.html">關於我們</a>
                        </li>
                        <li class="nav-item">
                          <a class="nav-link" href="#">精選推薦</a>
@@ -257,12 +373,492 @@
     </section>
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/sweetalert2@11.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="slick/slick.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
     <script src="js/wow.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script>
+      var user_id;
+      var flag_r_username = false;
+      var flag_r_password = false;
+      var flag_r_re_password = false;
+      var flag_r_datepicker = false;
+      var flag_r_email = false;
+      var flag_r_agree = false;
+
+      //正規表達式
+      //密碼
+      const rules_pwd = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/ ;
+      //email
+      const rules_email= /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
         $(function(){
              //wow初始化
             new WOW().init();
-        });
+
+            //登入註冊
+            //確認uid是否存在且合法
+            if(getCookie("uid01")!=""){
+                //將uid傳遞至後端api確認是否合法
+                var dataJSON = {};
+                    dataJSON["uid01"] = getCookie("uid01");
+                    $.ajax({
+                        type:"POST",
+                        url:"API/member_login_check_uid_api.php",
+                        data:JSON.stringify(dataJSON),
+                        dataType:"json",
+                        async:false,
+                        success:showdata_check_uid,
+                        error:function(){
+                            alert("error-member_login_check_uid_api.php");
+                        }
+                    });
+            }else{
+                Swal.fire({
+                    icon: "warning",
+                    title: "尚未登入",
+                    text: "請登入會員來使用購物車",
+                    });
+            }
+            //監聽r_username
+            $("#r_username").bind("input propertychange" , function(){
+                if($(this).val().length>3 && $(this).val().length<10){
+                    //符合前端規定
+                    //傳遞至後段確認是否可使用
+                    var dataJSON = {};
+                    dataJSON["username"] = $("#r_username").val();
+                    $.ajax({
+                        type:"POST",
+                        url:"API/member_register_checkuni_api.php",
+                        data:JSON.stringify(dataJSON),
+                        dataType:"json",
+                        success:showdata_checkuni,
+                        error:function(){
+                            alert("error-member_register_checkuni_api.php");
+                        }
+                    });
+                    
+                    
+                }else{
+                    //不符合規定
+                    $(this).removeClass("is-valid");
+                    $("#r_username").next().html('<span>不符合規定</span>')
+                    $(this).addClass("is-invalid");
+                    flag_r_username = false;
+                }
+            });
+            //監聽r_password
+            $("#r_password").bind("input propertychange" , function(){
+                if(rules_pwd.test($(this).val())){
+                    $(this).removeClass("is-invalid");
+                    $(this).addClass("is-valid");
+                    flag_r_password = true;
+                }else{
+                    //不符合規定
+                    $(this).removeClass("is-valid");
+                    $(this).addClass("is-invalid");
+                    flag_r_password = false;
+                }
+            });
+
+            //監聽r_re_password
+            $("#r_re_password").bind("input propertychange" , function(){
+                if($(this).val()==$("#r_password").val()){
+                    $(this).removeClass("is-invalid");
+                    $(this).addClass("is-valid");
+                    flag_r_re_password = true;
+                }else{
+                    //不符合規定
+                    $(this).removeClass("is-valid");
+                    $(this).addClass("is-invalid");
+                    flag_r_re_password = false;
+                }
+            });
+            
+            //監聽r_datepicker
+            $("#r_datepicker").bind("change" , function(){
+                if($(this).val()!=" "){
+                    $(this).removeClass("is-invalid");
+                    $(this).addClass("is-valid");
+                    flag_r_datepicker = true;
+                }else{
+                    //不符合規定
+                    $(this).removeClass("is-valid");
+                    $(this).addClass("is-invalid");
+                    flag_r_datepicker = false;
+                }
+            });
+
+             //監聽r_email
+             $("#r_email").bind("input propertychange" , function(){
+                if(rules_email.test($(this).val())){
+                    $(this).removeClass("is-invalid");
+                    $(this).addClass("is-valid");
+                    flag_r_email = true;
+                }else{
+                    //不符合規定
+                    $(this).removeClass("is-valid");
+                    $(this).addClass("is-invalid");
+                    flag_r_email = false;
+                }
+            });
+
+             //監聽r_agree
+             $("#r_agree").change(function(){
+                if($(this).is(':checked')){
+                    $(this).removeClass("is-invalid");
+                    $(this).next().html('<span class="text-success">同意</span>');
+                    $(this).addClass("is-valid");
+                    flag_r_agree = true;
+                }else{
+                    //不符合規定
+                    $(this).removeClass("is-valid");
+                    $(this).next().html('<span class="text-danger">請同意會員守則</span>');
+                    $(this).addClass("is-invalid");
+                    flag_r_agree = false;
+                }
+            });
+
+            //監聽註冊按鈕
+            $("#r_ok_btn").click(function(){
+                if(flag_r_username && flag_r_password && flag_r_re_password && flag_r_email && flag_r_datepicker && flag_r_agree){
+                    //傳遞資料至後端api執行註冊行為
+                    
+                    var dataJSON = {};
+                    dataJSON["username"] = $("#r_username").val();
+                    dataJSON["password"] = $("#r_password").val();
+                    dataJSON["birthday"] = $("#r_datepicker").val();
+                    dataJSON["email"]    = $("#r_email").val();
+                    $.ajax({
+                        type:"POST",
+                        url:"API/member_register_api.php",
+                        data:JSON.stringify(dataJSON),
+                        dataType:"json",
+                        success:showdata_register,
+                        error:function(){
+                            alert("error-member_register_api.php");
+                        }
+                    });
+
+                }else{
+                    Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: "欄位有誤請修正",
+                    });
+                }
+            })
+        
+            /*登入*/
+            //登入按鈕監聽
+            $("#l_ok_btn").click(function(){
+                if($("#l_username").val()!="" && $("#l_password").val()!="")
+                {
+                    //帳號密碼優輸入
+                    //傳遞資料至後端api執行註冊行為
+                    
+                    var dataJSON = {};
+                    dataJSON["username"] = $("#l_username").val();
+                    dataJSON["password"] = $("#l_password").val();
+
+
+                    $.ajax({
+                        type:"POST",
+                        url:"API/member_login_api.php",
+                        data:JSON.stringify(dataJSON),
+                        dataType:"json",
+                        success:showdata_login,
+                        error:function(){
+                            alert("error-member_login.api.php");
+                        }
+                    });
+                }else{
+                    Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: "帳號密碼有誤請修正",
+                    });
+                }
+            });
+
+            //登出按鈕監聽
+            $("#s02_logout_button").click(function(){
+                //將cookie設為空值
+                setCookie("uid01","",7);
+                $("#datalist").empty();
+                //重整
+                location.reload();
+            });
+
+            //監聽顯示密碼按紐
+            $("#show_password").mousedown(function(){
+                $(this).html('<i class="fa-solid fa-eye-slash"></i>');
+                $("#r_password").attr('type', 'text');
+            })
+            $("#show_password").mouseup(function(){
+                $(this).html('<i class="fa-solid fa-eye"></i>');
+                $("#r_password").attr('type', 'password');
+            })
+            $("#show_password").mouseleave(function(){
+                $(this).html('<i class="fa-solid fa-eye"></i>');
+                $("#r_password").attr('type', 'password');
+            })
+            //end of 登入註冊 
+
+            //vue
+            let dataJSON2 = { member_id: user_id };
+            const App={
+                data(){
+                    return{
+                        items:[],
+                        itemCount: 0,
+                        userId: user_id,
+                    }
+                },
+                methods: {
+                    
+                    fetchData(dataJSON) {
+                    axios.post('API/cart_read_check_memberID_api.php',dataJSON)  // 替換為你的 API URL
+                        .then(response => {
+                        this.items = response.data;  // 將 API 返回的資料存入 items 陣列
+                        this.itemCount = this.items.data.length;  // 計算資料筆數
+                        })
+                        .catch(error => {
+                        console.error("資料獲取失敗:", error);
+                        });
+                    }
+                },
+                mounted() {
+                    let dataJSON2 = { member_id: this.userId };  // 使用 Vue 的資料變數
+                    this.fetchData(dataJSON2);  // 傳入資料進行請求
+                },
+            };
+            //將App掛載在id為app的區塊裡，讓其可以使用data中的資料
+            Vue.createApp(App).mount('#app');
+            //end of vue
+        });//end of function
+        function showdata_login(data){
+            if(data.state){
+                if(data.data.State == "1"){
+                    //帳號啟用
+                    Swal.fire({
+                    title: "Good job!",
+                    text: data.message,
+                    icon: "success"
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            // 重整頁面
+                            location.reload();
+                        }
+                    });
+                    //隱藏modal
+                    $("#loginModal").modal("hide");
+                    //顯示登入帳號
+                    if(data.data.Level=="0"){
+                        level_text="一般會員";
+                        strHTML="您好 會員等級:"+level_text;
+                    }else if(data.data.Level=="100"){
+                        level_text="VIP1";
+                        strHTML="您好 會員等級:"+'<i class="fa-solid fa-crown me-1 ms-1 text-colorGreatYellow"></i>'+level_text;
+                    }else if(data.data.Level=="200"){
+                        level_text="VIP2";
+                        strHTML="您好 會員等級:"+'<i class="fa-solid fa-crown me-1 ms-1 text-colorGreatYellow"></i>'+level_text;
+                    }else if(data.data.Level=="300"){
+                        level_text="VIP3";
+                        strHTML="您好 會員等級:"+'<i class="fa-solid fa-crown me-1 ms-1 text-colorGreatYellow"></i>'+level_text;
+                    }else{
+                        level_text="管理員";
+                        strHTML="您好"+'<i class="fa-solid fa-crown me-1 ms-1 text-colorGreatYellow"></i>'+level_text;
+                    }
+                    $("#login_username_message").html(strHTML);
+                    //隱藏登入與註冊按鈕
+                    $("#s02_login_button").addClass("d-none");
+                    $("#s02_register_button").addClass("d-none");
+                    //顯示登出按鈕
+                    $("#s02_logout_button").removeClass("d-none");
+                    $("#s02_login_icon").removeClass("d-none");
+                    if(data.data.Level>="200" && data.data.Level<"900"){
+                        //顯示優惠
+                        //顯示vip下拉選單
+                        $(".dropdown-item-vip").removeClass("disabled");
+                    }else if(data.data.Level=="900"){
+                        //管理員
+                        //顯示vip下拉選單
+                        $(".dropdown-item-vip").removeClass("disabled");
+                        //manager only
+                        $("#s01_manager_only").removeClass("d-none");
+                    }
+                }else{
+                    //帳號為停用狀態
+                    Swal.fire({
+                    title: "您已被停權!",
+                    text: "帳號為停用狀態",
+                    icon: "error",
+                    footer: '<a href="#">您的帳號已被停權，若有任何問題請聯繫我們</a>'
+                    });
+                    //隱藏modal
+                    $("#loginModal").modal("hide");
+                    //顯示登入帳號
+                    $("#login_username_message").text(data.data.Username+"  您已被停權");
+                    $("#login_username_message").addClass("text-danger");
+                    //隱藏登入與註冊按鈕
+                    $("#s02_login_button").addClass("d-none");
+                    $("#s02_register_button").addClass("d-none");
+                    //顯示登出按鈕
+                    $("#s02_logout_button").removeClass("d-none");
+                    $("#s02_login_icon").removeClass("d-none");
+                    $("#s02_login_icon_2").removeClass("fa-user");
+                    $("#s02_login_icon_2").addClass("fa-skull-crossbones");
+                    
+                }
+                
+                
+                //將uid01寫入cookie
+                //setCookie("aplication_name",data_name,days)
+                setCookie("uid01",data.data.Uid01,7)
+                
+
+            }else{
+                
+                Swal.fire({
+                title: "OOPS",
+                text: data.message,
+                icon: "error"
+                });
+            }
+        }//end of showdata_login()
+        function showdata_check_uid(data){
+                //顯示登入帳號
+                user_id=data.data.ID;
+                if(data.state){
+                    if(data.data.State == "1"){
+                        //帳號啟用
+                        if(data.data.Level=="0"){
+                            level_text="一般會員";
+                            strHTML="您好 會員等級:"+level_text;
+                        }else if(data.data.Level=="100"){
+                            level_text="VIP1";
+                            strHTML="您好 會員等級:"+'<i class="fa-solid fa-crown me-1 ms-1 text-colorGreatYellow"></i>'+level_text;
+                        }else if(data.data.Level=="200"){
+                            level_text="VIP2";
+                            strHTML="您好 會員等級:"+'<i class="fa-solid fa-crown me-1 ms-1 text-colorGreatYellow"></i>'+level_text;
+                        }else if(data.data.Level=="300"){
+                            level_text="VIP3";
+                            strHTML="您好 會員等級:"+'<i class="fa-solid fa-crown me-1 ms-1 text-colorGreatYellow"></i>'+level_text;
+                        }else{
+                            level_text="管理員";
+                            strHTML="您好"+'<i class="fa-solid fa-crown me-1 ms-1 text-colorGreatYellow"></i>'+level_text;
+                        }
+                        $("#login_username_message").html(strHTML);
+                        // $("#login_username_message").text(data.data.Username+level_text);
+                        //隱藏登入與註冊按鈕
+                        $("#s02_login_button").addClass("d-none");
+                        $("#s02_register_button").addClass("d-none");
+                        //顯示登出按鈕
+                        $("#s02_logout_button").removeClass("d-none");
+                        $("#s02_login_icon").removeClass("d-none");
+                        
+                        if(data.data.Level>="100" && data.data.Level<"900"){
+                        //顯示優惠
+                            $(".dropdown-item-vip").removeClass("disabled");
+                        }else if(data.data.Level=="900"){
+                            $(".dropdown-item-vip").removeClass("disabled");
+                            //manager only
+                            $("#s01_manager_only").removeClass("d-none");
+                        }
+                    }else{
+                        //帳號為停用狀態
+                        Swal.fire({
+                        title: "您已被停權!",
+                        text: "帳號為停用狀態!",
+                        icon: "error",
+                        footer: '<a href="#">您的帳號已被停權，若有任何疑慮請聯繫我們</a>'
+                        });
+                        //隱藏modal
+                        $("#loginModal").modal("hide");
+                        //顯示登入帳號
+                        $("#login_username_message").text(data.data.Username+"  您已被停權");
+                        $("#login_username_message").addClass("text-danger");
+                        //隱藏登入與註冊按鈕
+                        $("#s02_login_button").addClass("d-none");
+                        $("#s02_register_button").addClass("d-none");
+                        //顯示登出按鈕
+                        $("#s02_logout_button").removeClass("d-none");
+                        $("#s02_login_icon").removeClass("d-none");
+                        $("#s02_login_icon_2").removeClass("fa-user");
+                        $("#s02_login_icon_2").addClass("fa-skull-crossbones");
+                    }
+                    
+                }
+        }//end of showdata_check_uid()
+
+        function showdata_checkuni(data) {
+            if (data.state) {
+                $("#r_username").removeClass("is-invalid");
+                $("#r_username").addClass("is-valid");
+                flag_r_username = true;
+            } else {
+                $("#r_username").removeClass("is-valid");
+                $("#r_username").next().html('<span>'+data.message+'</span>')
+                $("#r_username").addClass("is-invalid");
+                
+                flag_r_username = false;
+            }
+        }// end of showdata_checkuni()
+        function showdata_register(data){
+            if(data.state){
+                Swal.fire({
+                title: "Good job!",
+                text: data.message,
+                icon: "success",
+                timer: 1500,
+                }).then((result) => {
+                if (result.isConfirmed) {
+                    // 重整頁面
+                    location.reload();
+                }
+            });
+                
+            }else{
+                Swal.fire({
+                title: "OOPS",
+                text: data.message,
+                icon: "error"
+                });
+            }
+        }//end of showdata_register()
+        //**************cookie function from w3*****************
+        function setCookie(cname, cvalue, exdays) {
+            const d = new Date();
+            d.setTime(d.getTime() + (exdays*24*60*60*1000));
+            let expires = "expires="+ d.toUTCString();
+            document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+            }
+
+        function getCookie(cname) {
+            let name = cname + "=";
+            let decodedCookie = decodeURIComponent(document.cookie);
+            let ca = decodedCookie.split(';');
+            for(let i = 0; i <ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) == ' ') {
+                c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                return c.substring(name.length, c.length);
+                }
+            }
+            return "";
+            }
     </script>
+        <script>
+          $(document).ready(function() {
+              $('#r_datepicker').datepicker({
+                  format :'yyyy-mm-dd'
+              });
+          });
+      </script>
 </body>
 </html>

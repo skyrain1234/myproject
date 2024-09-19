@@ -22,6 +22,15 @@
     </style>
 </head>
 <body>
+    <!-- 懸浮購物車按鈕和徽章 -->
+    <div class="button-container" id="app">
+        <a href="cart.html">
+            <div class="floating-cart-button">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <div class="cart-badge" id="cart_quantity">{{itemCount}}</div> <!-- 假設購物車內有 3 件商品 -->
+            </div>
+        </a>
+    </div>
     <!-- ************s01*************** -->
     <section id="s01" class="bg-secondary">
         <div class="container ">
@@ -83,13 +92,13 @@
                       </ul>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#s06-2"><i class="fa-solid fa-box fs-4"></i>精選推薦</a>
+                    <a class="nav-link disabled" href="#s06-2"><i class="fa-solid fa-box fs-4"></i>精選推薦</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#s07-3"><i class="fa-solid fa-ticket fs-4"></i>最新優惠</a>
+                    <a class="nav-link disabled" href="#s07-3"><i class="fa-solid fa-ticket fs-4"></i>最新優惠</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link " href="#s07-3"><i class="fa-solid fa-book fs-4"></i>關於我們</a>
+                    <a class="nav-link "  href="about.html"><i class="fa-solid fa-book fs-4"></i>關於我們</a>
                   </li>
                   <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-user-gear fs-4 me-1"></i>
@@ -358,7 +367,7 @@
                          <a class="nav-link active" aria-current="page" href="#">產品一覽</a>
                        </li>
                        <li class="nav-item">
-                         <a class="nav-link" href="#">關於我們</a>
+                         <a class="nav-link" href="about.html">關於我們</a>
                        </li>
                        <li class="nav-item">
                          <a class="nav-link" href="#">精選推薦</a>
@@ -387,6 +396,8 @@
     <script type="text/javascript" src="slick/slick.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
     <script src="js/wow.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script>
         var product_type=[];
         var newdata_all=[];
@@ -418,6 +429,7 @@
                         url:"API/member_login_check_uid_api.php",
                         data:JSON.stringify(dataJSON),
                         dataType:"json",
+                        async:false,
                         success:showdata_check_uid,
                         error:function(){
                             alert("error-member_login_check_uid_api.php");
@@ -430,7 +442,6 @@
                     text: "請登入會員來使用購物車",
                     });
             }
-
 
             //監聽r_username
             $("#r_username").bind("input propertychange" , function(){
@@ -657,9 +668,42 @@
                         }
                     });
             });
+            //vue
+            let dataJSON2 = { member_id: user_id };
+            const App={
+                data(){
+                    return{
+                        items:[],
+                        itemCount: 0,
+                        userId: user_id,
+                    }
+                },
+                methods: {
+                    
+                    fetchData(dataJSON) {
+                    axios.post('API/cart_read_check_memberID_api.php',dataJSON)  // 替換為你的 API URL
+                        .then(response => {
+                        this.items = response.data;  // 將 API 返回的資料存入 items 陣列
+                        this.itemCount = this.items.data.length;  // 計算資料筆數
+                        })
+                        .catch(error => {
+                        console.error("資料獲取失敗:", error);
+                        });
+                    }
+                },
+                mounted() {
+                    let dataJSON2 = { member_id: this.userId };  // 使用 Vue 的資料變數
+                    this.fetchData(dataJSON2);  // 傳入資料進行請求
+                },
+            };
+            //將App掛載在id為app的區塊裡，讓其可以使用data中的資料
+            Vue.createApp(App).mount('#app');
+            //end of vue
+
 
         });//end of function
 
+        loadScript('js/app.js');
         function showdata_read(data){
             //分頁
             data.data.forEach(function(item,key){
