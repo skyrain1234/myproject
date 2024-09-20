@@ -18,10 +18,10 @@
             //建立資料夾,權限777
             mkdir($remove_dir,0755);
         }
-        $old_file_dir = $target_dir.$_POST["old_file"];
-        rename($old_file_dir,$remove_dir.$_POST["old_file"]);
-        
-
+        if($_POST["old_file"]!="No_image_available.svg"){
+            $old_file_dir = $target_dir.$_POST["old_file"];
+            rename($old_file_dir,$remove_dir.$_POST["old_file"]);
+        }
         $filename = date("YmdHis")."_".$_FILES['file']['name'];//重新命名
         
 

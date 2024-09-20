@@ -200,6 +200,10 @@
                               <li class="page-item"><a class="page-link" href="#">3</a></li>
                               <li class="page-item"><a class="page-link" href="#">下一頁</a></li>
                             </ul>
+                            <div class="page-search">
+                                <input type="number" id="pageInput" class="form-control" placeholder="輸入頁碼" min="1" />
+                                <button class="btn btn-primary" id="searchPageBtn">跳轉</button>
+                            </div>
                           </nav>
                     </div>
                     <!-- updateModal -->
@@ -392,10 +396,10 @@
             data.data.forEach(function(item,key){
                 //  console.log(key);
                 //  console.log(item);
-                if(key % 200 ==0){
+                if(key % 50 ==0){
                     newdata.push([]);
                 }
-                var page = parseInt(key/200);
+                var page = parseInt(key/50);
                 newdata[page].push(item);
             });
     
@@ -495,34 +499,66 @@
             $("#datalist").append(strHTML);
         });
 
-        //上一頁按鈕
-        $("#pagelist").empty();
-        var previousPage = page-1;
-        if (previousPage < 0) {
-            previousPage = 0; // 防止頁數超出範圍
-        };
+        $('#searchPageBtn').on('click', function () {
+                var pageInput = parseInt($('#pageInput').val(), 10); // 取得輸入的頁碼
+                if (!isNaN(pageInput) && pageInput > 0 && pageInput <= totalPages) {
+                    drawTable(pageInput - 1); // 跳轉到指定頁碼 (頁碼從 1 開始，但陣列 index 從 0 開始)
+                } else {
+                    Swal.fire({
+                            icon: "error",
+                            title: "Oops...",
+                            text: "請輸入正確的頁碼範圍",
+                            });
+                }
+            });
 
-         $("#pagelist").append('<li class="page-item ' + (page == 0 ? 'disabled' : '') + '" onclick="drawTable(' + previousPage + ')"><a class="page-link" href="#">上一頁</a></li>');
+        //渲染頁籤
+         $("#pagelist").empty();
 
-        //產生頁碼
-        for(var i=0;i<newdata.length;i++){
-            var thisPage = i+1;
-            var anotherPage = thisPage-1;
+        var maxPageDisplay = 5; // 每次顯示最多的頁碼數量
+        var totalPages = newdata.length; // 總頁數
+
+        var startPage = Math.max(1, page - Math.floor(maxPageDisplay / 2));
+        var endPage = Math.min(totalPages, startPage + maxPageDisplay - 1);
+
+        // 確保頁碼範圍不超出界限
+        if (endPage - startPage < maxPageDisplay - 1) {
+            startPage = Math.max(1, endPage - maxPageDisplay + 1);
+        }
+
+        // 加入「第一頁」按鈕
+        if (page >= 0) {
+            $("#pagelist").append('<li class="page-item" onclick="drawTable(0)"><a class="page-link" href="#">第一頁</a></li>');
+        }
+
+        // 加入「上一頁」按鈕
+        if (page > 0) {
+            var prevPage = page - 1;
+            $("#pagelist").append('<li class="page-item" onclick="drawTable(' + prevPage + ')"><a class="page-link" aria-label="Previous" href="#"><span aria-hidden="true">&laquo;</span></a></li>');
+        }
+
+        // 顯示頁碼
+        for (var i = startPage; i <= endPage; i++) {
+            var thisPage = i;
+            var anotherPage = thisPage - 1;
             var strHTML;
-            if(thisPage==page+1){
-                strHTML='<li class="page-item active" onclick = "drawTable('+anotherPage+')"><a class="page-link" href="#">'+thisPage+'</a></li>';
-            }else{
-                strHTML='<li class="page-item" onclick = "drawTable('+anotherPage+')"><a class="page-link" href="#">'+thisPage+'</a></li>';
+            if (thisPage == page + 1) {
+                strHTML = '<li class="page-item active" onclick="drawTable(' + anotherPage + ')"><a class="page-link" href="#">' + thisPage + '</a></li>';
+            } else {
+                strHTML = '<li class="page-item" onclick="drawTable(' + anotherPage + ')"><a class="page-link" href="#">' + thisPage + '</a></li>';
             }
             $("#pagelist").append(strHTML);
-        };
+        }
 
-        //下一頁按鈕
-        var nextPage = page+1;
-        if (nextPage >= newdata.length) {
-            nextPage =  newdata.length-1; // 防止頁數超出範圍
-        };
-        $("#pagelist").append('<li class="page-item ' + (page == (newdata.length-1) ? 'disabled' : '') + '" onclick="drawTable(' + nextPage + ')"><a class="page-link" href="#">下一頁</a></li>');
+        // 加入「下一頁」按鈕
+        if (page < totalPages - 1) {
+            var nextPage = page + 1;
+            $("#pagelist").append('<li class="page-item" onclick="drawTable(' + nextPage + ')"><a class="page-link" href="#" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>');
+        }
+        // 加入「最後一頁」按鈕
+        if (page < totalPages - 1) {
+            $("#pagelist").append('<li class="page-item" onclick="drawTable(' + (totalPages - 1) + ')"><a class="page-link" href="#">最後一頁</a></li>');
+        }
 
         //監聽update按鈕
         $("#datalist #btn_update").click(function(){
@@ -610,7 +646,6 @@
                         alert("error-member_update_state_api.php");
                     }
                 });
-
         });
         //監聽level 會員狀等級選單
         $("#datalist #level").change(function(){
@@ -650,7 +685,7 @@
                 }
             });
         }
-    };
+    };//end of showdata_member_delete
 
     function showdata_member_update_state(data){
         console.log(data);
@@ -661,7 +696,8 @@
                 icon: "success",
                 })
         }
-    }
+    }//end ofshowdata_member_update_state
+
     function showdata_member_update_level(data){
         console.log(data);
         if(data.state){
@@ -671,7 +707,7 @@
                 icon: "success",
                 })
         }
-    }
+    }//showdata_member_update_level
         
         
         //**************cookie function from w3*****************
