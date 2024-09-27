@@ -14,7 +14,7 @@
             $link = create_connection();
             $sql = "INSERT INTO comments(Name,Tel,Email,Remark) VALUES('$c_name','$c_tel','$c_email','$c_remark')";
             //INSERT 只有成功或失敗 為boolean
-                if(execute_sql($link,"testdb",$sql)){
+                if(execute_sql($link,"",$sql)){
                     echo'{"state" : true , "message" : "成功留言，我們將會盡快與您聯繫"}';
                 }else{
                     echo'{"state" : false , "message" : "留言失敗"}';

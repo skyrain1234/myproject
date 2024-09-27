@@ -18,7 +18,7 @@
 
             //搜尋傳進來的username是否存在於資料庫中
             $sql = "SELECT ID,Username,Seq,Email,Birthday,Uid01,State ,Level ,Created_at FROM member WHERE Uid01 = '$p_uid01'";
-            $result=  execute_sql($link,"testdb",$sql);
+            $result=  execute_sql($link,"",$sql);
                 
                 if(mysqli_num_rows($result) == 1){
                     //驗證成功

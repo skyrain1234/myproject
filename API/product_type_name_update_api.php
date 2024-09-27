@@ -20,7 +20,7 @@
             $link = create_connection();
 
             $sql = "UPDATE product_type SET Product_type = '$p_type_name' WHERE Type_id  = '$p_id'";
-            if(execute_sql($link, "testdb", $sql)){
+            if(execute_sql($link, "", $sql)){
                 echo '{"state" : true, "message" : "更新成功"}';
             }else{
                 echo '{"state" : false, "message" : "更新失敗"}';

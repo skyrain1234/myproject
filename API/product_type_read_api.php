@@ -6,7 +6,7 @@
     $link = create_connection();
 
     $sql = "SELECT * FROM product_type";
-    $result = execute_sql($link,"testdb",$sql);
+    $result = execute_sql($link,"",$sql);
     $mydata = array();
     
     while ($row = mysqli_fetch_assoc($result)){

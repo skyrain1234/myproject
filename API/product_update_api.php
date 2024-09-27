@@ -25,7 +25,7 @@
             $link = create_connection();
             if($p_price_discount="NULL"){
                 $sql = "UPDATE product_all SET Product_name = '$p_name', Description = '$p_desc' , Price ='$p_price' , Price_discount = NULL , Stock = '$p_stock' ,Image_url = '$p_photo' WHERE ID = '$p_id'";
-                if(execute_sql($link, "testdb", $sql)){
+                if(execute_sql($link, "", $sql)){
                     echo '{"state" : true, "message" : "更新成功"}';
                 }else{
                     echo '{"state" : false, "message" : "註冊失敗和錯誤代碼等"}';
@@ -33,7 +33,7 @@
                 mysqli_close($link); 
             }else{
                 $sql = "UPDATE product_all SET Product_name = '$p_name', Description = '$p_desc' , Price ='$p_price' , Price_discount = '$p_price_discount' , Stock = '$p_stock' ,Image_url = '$p_photo' WHERE ID = '$p_id'";
-                if(execute_sql($link, "testdb", $sql)){
+                if(execute_sql($link, "", $sql)){
                     echo '{"state" : true, "message" : "更新成功"}';
                 }else{
                     echo '{"state" : false, "message" : "註冊失敗和錯誤代碼等"}';

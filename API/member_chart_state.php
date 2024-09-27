@@ -6,7 +6,7 @@
     $link = create_connection();
 
     $sql = "SELECT COUNT(State) as state_num , State as state FROM member GROUP BY State Order BY State ";
-    $result = execute_sql($link,"testdb",$sql);
+    $result = execute_sql($link,"",$sql);
     $mydata = array();
     
     while ($row = mysqli_fetch_assoc($result)){

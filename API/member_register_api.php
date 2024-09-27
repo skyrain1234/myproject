@@ -16,7 +16,7 @@
             $link = create_connection();
             $sql = "INSERT INTO member(Username,Password,Email,Birthday) VALUES('$p_username','$p_password','$p_email','$p_birthday')";
             //INSERT 只有成功或失敗 為boolean
-                if(execute_sql($link,"testdb",$sql)){
+                if(execute_sql($link,"",$sql)){
                     echo'{"state" : true , "message" : "註冊成功"}';
                 }else{
                     echo'{"state" : false , "message" : "註冊失敗"}';
