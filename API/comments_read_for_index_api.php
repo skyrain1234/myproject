@@ -6,7 +6,7 @@
     $link = create_connection();
 
     $sql = "SELECT * FROM comments WHERE State='N' order by ID DESC";
-    $result = execute_sql($link,"",$sql);
+    $result = execute_sql($link,"testdb",$sql);
     $mydata = array();
     
     while ($row = mysqli_fetch_assoc($result)){

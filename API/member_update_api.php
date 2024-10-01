@@ -21,7 +21,7 @@
             $link = create_connection();
 
             $sql = "UPDATE member SET Email = '$p_email', Birthday = '$p_birthday' WHERE ID = '$p_id'";
-            if(execute_sql($link, "", $sql)){
+            if(execute_sql($link, "testdb", $sql)){
                 echo '{"state" : true, "message" : "更新成功"}';
             }else{
                 echo '{"state" : false, "message" : "註冊失敗和錯誤代碼等"}';

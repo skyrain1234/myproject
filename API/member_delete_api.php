@@ -19,7 +19,7 @@
             $link = create_connection();
 
             $sql = "DELETE FROM member WHERE ID = '$p_id'";
-            if(execute_sql($link, "", $sql)){
+            if(execute_sql($link, "testdb", $sql)){
                 echo '{"state" : true, "message" : "刪除成功"}';
             }else{
                 echo '{"state" : false, "message" : "刪除失敗和錯誤代碼等"}';

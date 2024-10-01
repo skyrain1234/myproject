@@ -16,7 +16,7 @@
             $link = create_connection();
             $sql = "INSERT INTO cart_items(Member_id,Product_id,Quantity,Price) VALUES('$c_member_id','$c_product_id','$c_quantity','$c_price')";
             //INSERT 只有成功或失敗 為boolean
-                if(execute_sql($link,"",$sql)){
+                if(execute_sql($link,"testdb",$sql)){
                     echo'{"state" : true , "message" : "加入購物車成功"}';
                 }else{
                     echo'{"state" : false , "message" : "加入購物車失敗"}';

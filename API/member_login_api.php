@@ -30,7 +30,7 @@
             $sql = "SELECT Username ,Password ,Seq FROM member WHERE Username = '$p_username'";
             
             //使用dbtools.php執行sql指令
-            $result = execute_sql($link,"",$sql);
+            $result = execute_sql($link,"testdb",$sql);
 
             //比對帳號是否存在,繼續比對密碼，因為帳號為唯一 所以=1
             if(mysqli_num_rows($result) == 1){
@@ -45,10 +45,10 @@
                     $uid01 = substr($hashID,0,8).substr($hashID,15,20);
                     $sql = "UPDATE member set Uid01 = '$uid01' WHERE Username = '$p_username' ";
 
-                        if(execute_sql($link,"",$sql)){
+                        if(execute_sql($link,"testdb",$sql)){
                             //uid更新成功
                             $sql = "SELECT Username ,Seq,Email,Birthday,Uid01,State,Level,Created_at FROM member WHERE Username = '$p_username'";
-                            $result = execute_sql($link,"",$sql);
+                            $result = execute_sql($link,"testdb",$sql);
                             $row = mysqli_fetch_assoc($result);
                             echo'{"state" : true , "data":'.json_encode($row).',"message" : "登入成功"}';
                         }else{

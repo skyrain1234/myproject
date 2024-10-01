@@ -6,7 +6,7 @@
     $link = create_connection();
 
     $sql = "SELECT COUNT(Level) as level_num , Level as level FROM member GROUP BY Level Order BY Level ";
-    $result = execute_sql($link,"",$sql);
+    $result = execute_sql($link,"testdb",$sql);
     $mydata = array();
     
     while ($row = mysqli_fetch_assoc($result)){

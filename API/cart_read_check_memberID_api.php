@@ -17,7 +17,7 @@
                     JOIN member AS b ON a.Member_id = b.ID
                     JOIN product_all AS c ON a.Product_id = c.ID 
                     WHERE a.Member_id = $c_id";
-            $result = execute_sql($link,"",$sql);
+            $result = execute_sql($link,"testdb",$sql);
             $mydata = array();
             
             while ($row = mysqli_fetch_assoc($result)){

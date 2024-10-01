@@ -14,7 +14,7 @@
 
             //搜尋傳進來的username是否存在於資料庫中
             $sql = "SELECT Username FROM member WHERE Username = '$p_username'";
-            $result=  execute_sql($link,"",$sql);
+            $result=  execute_sql($link,"testdb",$sql);
                 //如果搜到的筆數為0
                 if(mysqli_num_rows($result) == 0){
                     echo'{"state" : true , "message" : "可以使用"}';
