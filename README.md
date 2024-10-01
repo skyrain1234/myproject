@@ -39,7 +39,6 @@ https://skyrain1234.github.io/myproject/
 - [Chart.js v4.4.2]
 - [slick.js]
 - [SweetAlert2]
-- 
 ## 功能
 
 前台
