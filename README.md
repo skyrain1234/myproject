@@ -7,6 +7,8 @@ Modernist Lines家具工坊網頁設計
 帳號:testuser
 </br>
 密碼:Testuser01
+</br>
+https://skyrain1234.github.io/myproject/
 
 ## 目錄
 - [畫面展示](#畫面展示)
