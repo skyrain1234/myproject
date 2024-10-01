@@ -1,6 +1,12 @@
 # 我的專案
 
 Modernist Lines家具工坊網頁設計
+</br>
+測試帳號
+</br>
+帳號:testuser
+</br>
+密碼:Testuser01
 
 ## 目錄
 - [畫面展示](#畫面展示)
