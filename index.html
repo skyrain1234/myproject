@@ -1034,7 +1034,7 @@
                     // console.log(JSON.stringify(dataJSON));
                     $.ajax({
                         type:"POST",
-                        url:"API/member_login_check_uid_api.php",
+                        url:"http://www.skyrain.great-site.net/API/member_login_check_uid_api.php",
                         data:JSON.stringify(dataJSON),
                         dataType:"json",
                         async:false,
@@ -1061,7 +1061,7 @@
                     dataJSON["username"] = $("#r_username").val();
                     $.ajax({
                         type:"POST",
-                        url:"API/member_register_checkuni_api.php",
+                        url:"http://www.skyrain.great-site.net/API/member_register_checkuni_api.php",
                         data:JSON.stringify(dataJSON),
                         dataType:"json",
                         success:showdata_checkuni,
@@ -1163,7 +1163,7 @@
                     dataJSON["email"]    = $("#r_email").val();
                     $.ajax({
                         type:"POST",
-                        url:"API/member_register_api.php",
+                        url:"http://www.skyrain.great-site.net/API/member_register_api.php",
                         data:JSON.stringify(dataJSON),
                         dataType:"json",
                         success:showdata_register,
@@ -1249,7 +1249,7 @@
                     dataJSON["remark"]  = $("#c_remark").val();
                     $.ajax({
                         type:"POST",
-                        url:"API/comments_create_api.php",
+                        url:"http://www.skyrain.great-site.net/API/comments_create_api.php",
                         data:JSON.stringify(dataJSON),
                         dataType:"json",
                         success:showdata_comments,
@@ -1283,7 +1283,7 @@
 
                     $.ajax({
                         type:"POST",
-                        url:"API/member_login_api.php",
+                        url:"http://www.skyrain.great-site.net/API/member_login_api.php",
                         data:JSON.stringify(dataJSON),
                         dataType:"json",
                         success:showdata_login,
@@ -1334,7 +1334,7 @@
                 methods: {
                     
                     fetchData(dataJSON) {
-                    axios.post('API/cart_read_check_memberID_api.php',dataJSON)  // 替換為你的 API URL
+                    axios.post('http://www.skyrain.great-site.net/API/cart_read_check_memberID_api.php',dataJSON)  // 替換為你的 API URL
                         .then(response => {
                         this.items = response.data;  // 將 API 返回的資料存入 items 陣列
                         this.itemCount = this.items.data.length;  // 計算資料筆數
