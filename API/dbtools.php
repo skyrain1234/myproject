@@ -9,6 +9,7 @@
              die("連線失敗!".mysqli_connect_error());
             }
         */
+        $conn->set_charset("utf8mb4");
         return $conn;
     }
 
