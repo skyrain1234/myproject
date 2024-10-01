@@ -1433,7 +1433,7 @@
                     //顯示登出按鈕
                     $("#s02_logout_button").removeClass("d-none");
                     $("#s02_login_icon").removeClass("d-none");
-                    if(data.data.Level>="200" && data.data.Level<"900"){
+                    if(data.data.Level>="200" && data.data.Level<"800"){
                         //顯示優惠
                         $("#s07_3_price01").removeClass("d-none");
                         $("#s07_3_price02").removeClass("d-none");
@@ -1446,7 +1446,7 @@
                         $("#s07_3_bg03").css('opacity',1);
                         //顯示vip下拉選單
                         $(".dropdown-item-vip").removeClass("disabled");
-                    }else if(data.data.Level=="900"){
+                    }else if(data.data.Level>="800"){
                         //管理員
                         $("#s07_3_price01").removeClass("d-none");
                         $("#s07_3_price02").removeClass("d-none");
@@ -1533,7 +1533,7 @@
                         $("#s02_logout_button").removeClass("d-none");
                         $("#s02_login_icon").removeClass("d-none");
                         
-                        if(data.data.Level>="100" && data.data.Level<"900"){
+                        if(data.data.Level>="100" && data.data.Level<"800"){
                         //顯示優惠
                             $("#s07_3_price01").removeClass("d-none");
                             $("#s07_3_price02").removeClass("d-none");
@@ -1545,7 +1545,7 @@
                             $("#s07_3_bg02").css('opacity',1);
                             $("#s07_3_bg03").css('opacity',1);
                             $(".dropdown-item-vip").removeClass("disabled");
-                        }else if(data.data.Level=="900"){
+                        }else if(data.data.Level>="800"){
                             $("#s07_3_price01").removeClass("d-none");
                             $("#s07_3_price02").removeClass("d-none");
                             $("#s07_3_price03").removeClass("d-none");

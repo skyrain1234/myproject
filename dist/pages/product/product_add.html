@@ -239,6 +239,7 @@
         var u_id;
         var newdata=[];
         var photo_data=[];
+        var account_level;
         $(function(){
             if(getCookie("uid01")!=""){
                     //將uid傳遞至後端api確認是否合法
@@ -272,9 +273,10 @@
         })//end of function
         //登入
         function showdata_check_uid(data){
+            account_level = data.data.Level;
                     //顯示登入帳號
                     if(data.state){
-                        if(data.data.Level=="900"){
+                        if(data.data.Level>="800"){
                             $(".app-wrapper").removeClass("d-none");
                             const date = new Date(data.data.Created_at);
                             const month = String(date.getMonth() + 1).padStart(2, '0'); // 月份是從 0 開始的，所以加 1
@@ -378,65 +380,74 @@
                             });
                             
                             //監聽確認按鈕
-                            $("#ok_btn").click(function(){
-                                if(flag_p_name && flag_p_desc && flag_p_type && flag_p_price && flag_p_stock && flag_p_upload){
-                                    // console.log($("#p_name").val());
-                                    // console.log($("#p_desc").val());
-                                    // console.log($("#p_type").val());
-                                    // console.log($("#p_price").val());
-                                    // console.log($("#p_stock").val());
+                            if(account_level>"800"){
+                                $("#ok_btn").click(function(){
+                                    if(flag_p_name && flag_p_desc && flag_p_type && flag_p_price && flag_p_stock && flag_p_upload){
+                                        // console.log($("#p_name").val());
+                                        // console.log($("#p_desc").val());
+                                        // console.log($("#p_type").val());
+                                        // console.log($("#p_price").val());
+                                        // console.log($("#p_stock").val());
 
-                                    var formData = new FormData();
-                                    formData.append("file",p_photo_upload.files[0]);
-                                    formData.append("title",$("#img_title").val());
-                                    console.log(formData);
-                                    $.ajax({
-                                        type:"POST",
-                                        url:"../../../API/product_photo_create.api.php",
-                                        data:formData,
-                                        dataType:"json",
-                                        cache:false,
-                                        contentType:false,
-                                        processData:false,
-                                        async:false,
-                                        success:function(data){
-                                            photo_data=data;
-                                        },
-                                        error:function(data){
-                                            console.log("error"+data);
-                                        }
+                                        var formData = new FormData();
+                                        formData.append("file",p_photo_upload.files[0]);
+                                        formData.append("title",$("#img_title").val());
+                                        console.log(formData);
+                                        $.ajax({
+                                            type:"POST",
+                                            url:"../../../API/product_photo_create.api.php",
+                                            data:formData,
+                                            dataType:"json",
+                                            cache:false,
+                                            contentType:false,
+                                            processData:false,
+                                            async:false,
+                                            success:function(data){
+                                                photo_data=data;
+                                            },
+                                            error:function(data){
+                                                console.log("error"+data);
+                                            }
+                                        });
+
+
+                                        ($("#state_switch").is(":checked") ? mystate= "1" : mystate = "0");
+                                        var dataJSON = {};
+                                        dataJSON["name"] = $("#p_name").val();
+                                        dataJSON["desc"] = $("#p_desc").val();
+                                        dataJSON["type"] = $("#p_type").val();
+                                        dataJSON["price"] = $("#p_price").val();
+                                        dataJSON["stock"] = $("#p_stock").val();
+                                        dataJSON["state"] = mystate;
+                                        dataJSON["photo"] = photo_data.filename;
+
+                                        console.log(JSON.stringify(dataJSON));
+
+                                        //傳遞至後端
+                                        $.ajax({
+                                            type:"POST",
+                                            url:"../../../API/product_create_api.php" ,
+                                            data : JSON.stringify(dataJSON),
+                                            contentType: "application/json;charset=utf-8",
+                                            dataType:"json",
+                                            async:false,
+                                            success:showdata_create,
+                                            error: function(){
+                                                alert("errod-product_create_api.php");
+                                            }
+                                        });
+                                    }else{
+                                        alert("欄位有錯,請修正!");
+                                    }
+                                });
+                            }else{
+                                Swal.fire({
+                                    icon: "error",
+                                    title: "Oops...",
+                                    text: "測試帳號僅供檢視",
                                     });
-
-
-                                    ($("#state_switch").is(":checked") ? mystate= "1" : mystate = "0");
-                                    var dataJSON = {};
-                                    dataJSON["name"] = $("#p_name").val();
-                                    dataJSON["desc"] = $("#p_desc").val();
-                                    dataJSON["type"] = $("#p_type").val();
-                                    dataJSON["price"] = $("#p_price").val();
-                                    dataJSON["stock"] = $("#p_stock").val();
-                                    dataJSON["state"] = mystate;
-                                    dataJSON["photo"] = photo_data.filename;
-
-                                    console.log(JSON.stringify(dataJSON));
-
-                                    //傳遞至後端
-                                    $.ajax({
-                                        type:"POST",
-                                        url:"../../../API/product_create_api.php" ,
-                                        data : JSON.stringify(dataJSON),
-                                        contentType: "application/json;charset=utf-8",
-                                        dataType:"json",
-                                        async:false,
-                                        success:showdata_create,
-                                        error: function(){
-                                            alert("errod-product_create_api.php");
-                                        }
-                                    });
-                                }else{
-                                    alert("欄位有錯,請修正!");
-                                }
-                            });
+                            }
+                                
                         }else{
                             Swal.fire({
                             icon: "error",

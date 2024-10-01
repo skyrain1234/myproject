@@ -143,7 +143,7 @@
                             <div class="col-12">
                                 <div class="card">
                                     <div class="card-head">
-                                        <a href="product_add.html"><button class="btn btn-success mx-3 mt-3">新建</button></a>
+                                        <a href="product_add.html" target="_blank"><button class="btn btn-success mx-3 mt-3">新建</button></a>
                                     </div>
                                     <div class="card-body">
                                         <!-- table-rwd 建立於myall.css裡的 -->
@@ -301,6 +301,7 @@
         var u_id;
         var newdata=[];
         var photo_data=[];
+        var account_level;
     
     
         $(function(){
@@ -336,9 +337,10 @@
         })//end of function
         //登入
         function showdata_check_uid(data){
+                    account_level = data.data.Level;
                     //顯示登入帳號
                     if(data.state){
-                        if(data.data.Level=="900"){
+                        if(data.data.Level>="800"){
                             $(".app-wrapper").removeClass("d-none");
                             const date = new Date(data.data.Created_at);
                             const month = String(date.getMonth() + 1).padStart(2, '0'); // 月份是從 0 開始的，所以加 1
@@ -508,71 +510,77 @@
                 }
             });
 
+            if(account_level>"800"){
+                //監聽更新modal
+                $("#btn_update_ok").click(function(){
+                    if(flag_product_name && flag_product_desc && flag_product_price && flag_product_price_discount && flag_product_stock && flag_p_upload){
+                        var dataJSON = {};
+                        dataJSON["id"] = u_id;
+                        dataJSON["product_name"] = $("#update_product_name").val();
+                        dataJSON["product_desc"] = $("#update_product_desc").val();
+                        dataJSON["product_price"] = $("#update_product_price").val();
+                        if(upload_product_photo.files[0]) {
+                            var formData = new FormData();
+                            formData.append("file",upload_product_photo.files[0]);
+                            formData.append("old_file", $("#product_photo_lg").data("image_url"));
+                            $.ajax({
+                                type:"POST",
+                                url:"../../../API/product_photo_update.api.php",
+                                data:formData,
+                                dataType:"json",
+                                cache:false,
+                                contentType:false,
+                                processData:false,
+                                async:false,
+                                success:function(data){
+                                    photo_data=data;
+                                    dataJSON["photo"] = photo_data.filename;
+                                },
+                                error:function(data){
+                                    console.log("error"+data);
+                                }
+                            });
+                        }else{
+                            // 如果沒有選擇新圖片，保留原有圖片
+                            dataJSON["photo"] = $("#product_photo_lg").data("image_url");
+                        }
+                        
+                        
+                        
 
-            //監聽更新modal
-            $("#btn_update_ok").click(function(){
-                if(flag_product_name && flag_product_desc && flag_product_price && flag_product_price_discount && flag_product_stock && flag_p_upload){
-                    var dataJSON = {};
-                    dataJSON["id"] = u_id;
-                    dataJSON["product_name"] = $("#update_product_name").val();
-                    dataJSON["product_desc"] = $("#update_product_desc").val();
-                    dataJSON["product_price"] = $("#update_product_price").val();
-                    if(upload_product_photo.files[0]) {
-                        var formData = new FormData();
-                        formData.append("file",upload_product_photo.files[0]);
-                        formData.append("old_file", $("#product_photo_lg").data("image_url"));
+                        if($("#update_product_price_discount").val()=="0"){
+                            dataJSON["product_price_discount"]="NULL"
+                        }else{
+                            dataJSON["product_price_discount"]=$("#update_product_price_discount").val();
+                        }
+                        
+                        dataJSON["product_stock"] = $("#update_product_stock").val();
                         $.ajax({
                             type:"POST",
-                            url:"../../../API/product_photo_update.api.php",
-                            data:formData,
+                            url:"../../../API/product_update_api.php",
+                            data:JSON.stringify(dataJSON),
                             dataType:"json",
-                            cache:false,
-                            contentType:false,
-                            processData:false,
                             async:false,
-                            success:function(data){
-                                photo_data=data;
-                                dataJSON["photo"] = photo_data.filename;
-                            },
-                            error:function(data){
-                                console.log("error"+data);
+                            success:showdata_update,
+                            error:function(){
+                                alert("error-product_update_api.php");
                             }
                         });
                     }else{
-                        // 如果沒有選擇新圖片，保留原有圖片
-                        dataJSON["photo"] = $("#product_photo_lg").data("image_url");
+                        Swal.fire({
+                            icon: "error",
+                            title: "Oops...",
+                            text: "欄位有誤請修正",
+                            });
                     }
-                    
-                    
-                    
-
-                    if($("#update_product_price_discount").val()=="0"){
-                        dataJSON["product_price_discount"]="NULL"
-                    }else{
-                        dataJSON["product_price_discount"]=$("#update_product_price_discount").val();
-                    }
-                     
-                    dataJSON["product_stock"] = $("#update_product_stock").val();
-                    $.ajax({
-                        type:"POST",
-                        url:"../../../API/product_update_api.php",
-                        data:JSON.stringify(dataJSON),
-                        dataType:"json",
-                        async:false,
-                        success:showdata_update,
-                        error:function(){
-                            alert("error-product_update_api.php");
-                        }
+                });
+            }else{
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: "測試帳號僅供檢視",
                     });
-                }else{
-                    Swal.fire({
-                        icon: "error",
-                        title: "Oops...",
-                        text: "欄位有誤請修正",
-                        });
-                }
-            });
-    
+            }
         };
         //確認更新update
         function showdata_update(data){
@@ -711,58 +719,62 @@
                 });
                 u_id = $(this).data("id");
             });
-    
+            
             //監聽state_switch 會員狀態按鈕
-            $("#datalist #state_switch").change(function(){
+            if(account_level>"800"){
+                $("#datalist #state_switch").change(function(){
 
-                if($(this).is(":checked")){
-                    $(this).next().text("啟用");
-                    $(this).next().removeClass("text-danger");
-                    $(this).next().addClass("text-success");
-                }else{
-                    $(this).next().text("停用");
-                    $(this).next().removeClass("text-success");
-                    $(this).next().addClass("text-danger");
-                }
-    
-                //傳遞至後端更新帳號資料
-                var dataJSON = {};
-                    ($(this).is(":checked") ? mystate= "1" : mystate = "0");
-                    dataJSON["id"] = $(this).data("id");
-                    dataJSON["state"] = mystate;
-                
+                    if($(this).is(":checked")){
+                        $(this).next().text("啟用");
+                        $(this).next().removeClass("text-danger");
+                        $(this).next().addClass("text-success");
+                    }else{
+                        $(this).next().text("停用");
+                        $(this).next().removeClass("text-success");
+                        $(this).next().addClass("text-danger");
+                    }
+        
+                    //傳遞至後端更新帳號資料
+                    var dataJSON = {};
+                        ($(this).is(":checked") ? mystate= "1" : mystate = "0");
+                        dataJSON["id"] = $(this).data("id");
+                        dataJSON["state"] = mystate;
+                    
+                        $.ajax({
+                            type:"POST",
+                            url:"../../../API/product_update_state_api.php",
+                            data:JSON.stringify(dataJSON),
+                            dataType:"json",
+                            success:showdata_product_update_state,
+                            error:function(){
+                                alert("error-product_update_state_api");
+                            }
+                        });
+        
+                });
+            }
+            
+            //監聽type 產品分類選單
+            if(account_level>"800"){
+                $("#datalist #prodcut_type").change(function(){
+        
+                    //傳遞至後端更新資料
+                    var dataJSON = {};
+                        dataJSON["id"] = $(this).data("id");
+                        dataJSON["type"] = $(this).val();
+                    
                     $.ajax({
                         type:"POST",
-                        url:"../../../API/product_update_state_api.php",
+                        url:"../../../API/product_update_type_api.php",
                         data:JSON.stringify(dataJSON),
                         dataType:"json",
-                        success:showdata_product_update_state,
+                        success:showdata_product_update_type,
                         error:function(){
-                            alert("error-product_update_state_api");
+                            alert("error-product_update_type_api.php");
                         }
                     });
-    
-            });
-            //監聽type 產品分類選單
-            $("#datalist #prodcut_type").change(function(){
-    
-                //傳遞至後端更新資料
-                var dataJSON = {};
-                    dataJSON["id"] = $(this).data("id");
-                    dataJSON["type"] = $(this).val();
-                
-                $.ajax({
-                    type:"POST",
-                    url:"../../../API/product_update_type_api.php",
-                    data:JSON.stringify(dataJSON),
-                    dataType:"json",
-                    success:showdata_product_update_type,
-                    error:function(){
-                        alert("error-product_update_type_api.php");
-                    }
                 });
-            });
-            
+            }
         };
     
         function showdata_product_update_state(data){

@@ -1,519 +1,934 @@
 <!DOCTYPE html>
-<html lang="en"> <!--begin::Head-->
+<html lang="en">
+  <!--begin::Head-->
 
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>後臺管理系統</title><!--begin::Primary Meta Tags-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="title" content="後臺管理系統">
-    <meta name="author" content="ColorlibHQ">
-    <meta name="description" content="AdminLTE is a Free Bootstrap 5 Admin Dashboard, 30 example pages using Vanilla JS.">
-    <meta name="keywords" content="bootstrap 5, bootstrap, bootstrap 5 admin dashboard, bootstrap 5 dashboard, bootstrap 5 charts, bootstrap 5 calendar, bootstrap 5 datepicker, bootstrap 5 tables, bootstrap 5 datatable, vanilla js datatable, colorlibhq, colorlibhq dashboard, colorlibhq admin dashboard"><!--end::Primary Meta Tags--><!--begin::Fonts-->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/source-sans-3@5.0.12/index.css" integrity="sha256-tXJfXfp6Ewt1ilPzLDtQnJV4hclT9XuaZUKyUvmyr+Q=" crossorigin="anonymous"><!--end::Fonts--><!--begin::Third Party Plugin(OverlayScrollbars)-->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.3.0/styles/overlayscrollbars.min.css" integrity="sha256-dSokZseQNT08wYEWiz5iLI8QPlKxG+TswNRD8k35cpg=" crossorigin="anonymous"><!--end::Third Party Plugin(OverlayScrollbars)--><!--begin::Third Party Plugin(Bootstrap Icons)-->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.min.css" integrity="sha256-Qsx5lrStHZyR9REqhUF8iQt73X06c8LGIUPzpOhwRrI=" crossorigin="anonymous"><!--end::Third Party Plugin(Bootstrap Icons)--><!--begin::Required Plugin(AdminLTE)-->
-    <link rel="stylesheet" href="../../../dist/css/adminlte.css"><!--end::Required Plugin(AdminLTE)--><!-- apexcharts -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/apexcharts@3.37.1/dist/apexcharts.css" integrity="sha256-4MX+61mt9NVvvuPjUWdUdyfZfxSB1/Rf9WtqRHgG5S0=" crossorigin="anonymous"><!-- jsvectormap -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsvectormap@1.5.3/dist/css/jsvectormap.min.css" integrity="sha256-+uGLJmmTKOqBr+2E6KDYs/NRsHxSkONXFHUL0fy2O/4=" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
-</head> <!--end::Head--> <!--begin::Body-->
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>後臺管理系統</title>
+    <!--begin::Primary Meta Tags-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="title" content="後臺管理系統" />
+    <meta name="author" content="ColorlibHQ" />
+    <meta
+      name="description"
+      content="AdminLTE is a Free Bootstrap 5 Admin Dashboard, 30 example pages using Vanilla JS."
+    />
+    <meta
+      name="keywords"
+      content="bootstrap 5, bootstrap, bootstrap 5 admin dashboard, bootstrap 5 dashboard, bootstrap 5 charts, bootstrap 5 calendar, bootstrap 5 datepicker, bootstrap 5 tables, bootstrap 5 datatable, vanilla js datatable, colorlibhq, colorlibhq dashboard, colorlibhq admin dashboard"
+    />
+    <!--end::Primary Meta Tags-->
+    <!--begin::Fonts-->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@fontsource/source-sans-3@5.0.12/index.css"
+      integrity="sha256-tXJfXfp6Ewt1ilPzLDtQnJV4hclT9XuaZUKyUvmyr+Q="
+      crossorigin="anonymous"
+    />
+    <!--end::Fonts-->
+    <!--begin::Third Party Plugin(OverlayScrollbars)-->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.3.0/styles/overlayscrollbars.min.css"
+      integrity="sha256-dSokZseQNT08wYEWiz5iLI8QPlKxG+TswNRD8k35cpg="
+      crossorigin="anonymous"
+    />
+    <!--end::Third Party Plugin(OverlayScrollbars)-->
+    <!--begin::Third Party Plugin(Bootstrap Icons)-->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.min.css"
+      integrity="sha256-Qsx5lrStHZyR9REqhUF8iQt73X06c8LGIUPzpOhwRrI="
+      crossorigin="anonymous"
+    />
+    <!--end::Third Party Plugin(Bootstrap Icons)-->
+    <!--begin::Required Plugin(AdminLTE)-->
+    <link rel="stylesheet" href="../../../dist/css/adminlte.css" />
+    <!--end::Required Plugin(AdminLTE)-->
+    <!-- apexcharts -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/apexcharts@3.37.1/dist/apexcharts.css"
+      integrity="sha256-4MX+61mt9NVvvuPjUWdUdyfZfxSB1/Rf9WtqRHgG5S0="
+      crossorigin="anonymous"
+    />
+    <!-- jsvectormap -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/jsvectormap@1.5.3/dist/css/jsvectormap.min.css"
+      integrity="sha256-+uGLJmmTKOqBr+2E6KDYs/NRsHxSkONXFHUL0fy2O/4="
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css"
+    />
+  </head>
+  <!--end::Head-->
+  <!--begin::Body-->
 
-<body class="layout-fixed sidebar-expand-lg bg-body-tertiary"> <!--begin::App Wrapper-->
-    <div class="app-wrapper d-none"> <!--begin::Header-->
-        <nav class="app-header navbar navbar-expand bg-body"> <!--begin::Container-->
-            <div class="container-fluid"> <!--begin::Start Navbar Links-->
-                <ul class="navbar-nav">
-                    <li class="nav-item"> <a class="nav-link" data-lte-toggle="sidebar" href="#" role="button"> <i class="bi bi-list"></i> </a> </li>
-                    <li class="nav-item d-none d-md-block"> <a href="#" class="nav-link">Home</a> </li>
-                    <li class="nav-item d-none d-md-block"> <a href="../../../index.html" target="_blank" class="nav-link">Index</a> </li>
-                </ul> <!--end::Start Navbar Links--> <!--begin::End Navbar Links-->
-                <ul class="navbar-nav ms-auto"> <!--begin::Navbar Search-->
-                    <li class="nav-item"> <a class="nav-link" data-widget="navbar-search" href="#" role="button"> <i class="bi bi-search"></i> </a> </li> <!--end::Navbar Search--> <!--begin::Messages Dropdown Menu-->
-                     <!--begin::Notifications Dropdown Menu-->
-                    <li class="nav-item dropdown" id="comments"> <a class="nav-link" data-bs-toggle="dropdown" href="../comments/comments_list.html"> <i class="bi bi-bell-fill"></i> <span class="navbar-badge badge text-bg-warning">15</span> </a>
-                        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end"> <span class="dropdown-item dropdown-header">15 Notifications</span>
-                            <div class="dropdown-divider"></div> <a href="#" class="dropdown-item"> <i class="bi bi-envelope me-2"></i> 4 new messages
-                                <span class="float-end text-secondary fs-7">3 mins</span> </a>
-                            <div class="dropdown-divider"></div> <a href="#" class="dropdown-item"> <i class="bi bi-people-fill me-2"></i> 8 friend requests
-                                <span class="float-end text-secondary fs-7">12 hours</span> </a>
-                            <div class="dropdown-divider"></div> <a href="#" class="dropdown-item"> <i class="bi bi-file-earmark-fill me-2"></i> 3 new reports
-                                <span class="float-end text-secondary fs-7">2 days</span> </a>
-                            <div class="dropdown-divider"></div> <a href="#" class="dropdown-item dropdown-footer">
-                                See All Notifications
-                            </a>
-                        </div>
-                    </li> <!--end::Notifications Dropdown Menu--> <!--begin::Fullscreen Toggle-->
-                    <li class="nav-item"> <a class="nav-link" href="#" data-lte-toggle="fullscreen"> <i data-lte-icon="maximize" class="bi bi-arrows-fullscreen"></i> <i data-lte-icon="minimize" class="bi bi-fullscreen-exit" style="display: none;"></i> </a> </li> <!--end::Fullscreen Toggle--> <!--begin::User Menu Dropdown-->
-                    <li class="nav-item dropdown user-menu" id="user-menu"> 
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"> 
-                            <img src="../../../dist/assets/img/user2-160x160.jpg" class="user-image rounded-circle shadow" alt="User Image"> 
-                            <span class="d-none d-md-inline">Alexander Pierce</span> 
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-end"> <!--begin::User Image-->
-                            <li class="user-header text-bg-primary"> <img src="../../../dist/assets/img/user2-160x160.jpg" class="rounded-circle shadow" alt="User Image">
-                                <p>
-                                    Alexander Pierce - Web Developer
-                                    <small>Member since Nov. 2023</small>
-                                </p>
-                            </li> <!--end::User Image--> <!--begin::Menu Body-->
-                            <li class="user-body"> <!--begin::Row-->
-                                <div class="row">
-                                    <div class="col-4 text-center"> <a href="#">Followers</a> </div>
-                                    <div class="col-4 text-center"> <a href="#">Sales</a> </div>
-                                    <div class="col-4 text-center"> <a href="#">Friends</a> </div>
-                                </div> <!--end::Row-->
-                            </li> <!--end::Menu Body--> <!--begin::Menu Footer-->
-                            <li class="user-footer"> 
-                                <a href="#" class="btn btn-default btn-flat">Profile</a> 
-                                <a href="#" class="btn btn-default btn-flat float-end" id="logout_button">Sign out</a> 
-                            </li> <!--end::Menu Footer-->
-                        </ul>
-                    </li> <!--end::User Menu Dropdown-->
-                </ul> <!--end::End Navbar Links-->
-            </div> <!--end::Container-->
-        </nav> <!--end::Header--> <!--begin::Sidebar-->
-        <aside class="app-sidebar bg-body-secondary shadow" data-bs-theme="dark"> <!--begin::Sidebar Brand-->
-            <div class="sidebar-brand"> <!--begin::Brand Link--> <a href="../index.html" class="brand-link"> <!--begin::Brand Image--> <img src="../../../dist/assets/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image opacity-75 shadow"> <!--end::Brand Image--> <!--begin::Brand Text--> <span class="brand-text fw-light">AdminLTE 4</span> <!--end::Brand Text--> </a> <!--end::Brand Link--> </div> <!--end::Sidebar Brand--> <!--begin::Sidebar Wrapper-->
-            <div class="sidebar-wrapper">
-                <nav class="mt-2"> <!--begin::Sidebar Menu-->
-                    <ul class="nav sidebar-menu flex-column" data-lte-toggle="treeview" role="menu" data-accordion="false">
-                        <li class="nav-item "> <a href="#" class="nav-link "> <i class="nav-icon bi bi-speedometer"></i>
-                                <p>
-                                    資料管理
-                                    <i class="nav-arrow bi bi-chevron-right"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item"> <a href="../product/product_list.html" class="nav-link"> <i class="nav-icon bi bi-circle"></i>
-                                        <p>產品管理</p>
-                                    </a> </li>
-                                <li class="nav-item"> <a href="../comments/comments_list.html" class="nav-link"> <i class="nav-icon bi bi-circle"></i>
-                                        <p>留言管理</p>
-                                    </a> </li>
-                                <li class="nav-item"> <a href="../product/product_type_list.html" class="nav-link"> <i class="nav-icon bi bi-circle"></i>
-                                        <p>產品類別管理</p>
-                                    </a> </li>
-                            </ul>
-                        </li>
-                        <li class="nav-item menu-open"> <a href="#" class="nav-link active"> <i class="nav-icon bi bi-person-circle"></i>
-                                <p>
-                                    會員資料管理
-                                    <i class="nav-arrow bi bi-chevron-right"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item"> 
-                                    <a href="../member/member_list.html" class="nav-link active"><i class="nav-icon bi bi-circle"></i>
-                                        <p>會員管理</p>
-                                    </a> 
-                                </li>
-                                <li class="nav-item"> 
-                                    <a href="../member/member-map.html" target="_blank" class="nav-link"><i class="nav-icon bi bi-circle"></i>
-                                        <p>會員分布圖表</p>
-                                    </a> 
-                                </li>
-                            </ul>
-                        </li>
-                    </ul> <!--end::Sidebar Menu-->
-                </nav>
-            </div> <!--end::Sidebar Wrapper-->
-        </aside> <!--end::Sidebar--> <!--begin::App Main-->
-        <main class="app-main"> <!--begin::App Content Header-->
-            <div class="app-content-header"> <!--begin::Container-->
-                <div class="container-fluid"> <!--begin::Row-->
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <h3 class="mb-0">會員管理</h3>
-                        </div>
-                        <div class="col-sm-6">
-                            <ol class="breadcrumb float-sm-end">
-                                <li class="breadcrumb-item" active aria-current="page"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item" aria-current="page">
-                                    comments
-                                </li>
-                            </ol>
-                        </div>
-                    </div> <!--end::Row-->
-                </div> <!--end::Container-->
-            </div> <!--end::App Content Header--> <!--begin::App Content-->
-            <div class="app-content"> <!--begin::Container-->
-                <div class="container-fluid"> <!--begin::Row-->
-                    <div id="comments_table">
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <!-- table-rwd 建立於myall.css裡的 -->
-                                        <table class="table table-bordered table-striped table-rwd table-hover ">
-                                            <thead>
-                                                <tr class="text-bg-secondary fw-100 h5 align-middle text-center">
-                                                    <th>會員編號</th>
-                                                    <th>會員名稱</th>
-                                                    <th>會員等級</th>
-                                                    <th>會員email</th>
-                                                    <th>會員生日</th>
-                                                    <th>會員狀態</th>
-                                                    <th>建檔時間</th>
-                                                    <th>更新/刪除</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody id="datalist" class="align-middle text-center">
-                                                <tr>
-                                                    <td data-th="會員編號"><span class="table-col align-content-center">001</span></td>
-                                                    <td data-th="會員名稱"><span class="table-col">1</span></td>
-                                                    <td data-th="會員等級">
-                                                        <select name="level" id="level" class="form-select">
-                                                            <option value="0"selected>一般會員</option>
-                                                            <option value="100">VIP01</option>
-                                                            <option value="200">VIP02</option>
-                                                            <option value="300">VIP03</option>
-                                                            <option value="900">管理員</option>
-                                                        </select>
-                                                    </td>
-                                                    <td data-th="會員email"><span class="table-col">100</span></td>
-                                                    <td data-th="會員生日"><span class="table-col">10</span></td>
-                                                    <td data-th="會員狀態">
-                                                        <div class="form-check form-switch">
-                                                            <input type="checkbox" class="form-check-input" checked id="state_switch" name="state_switch" data-state="X">
-                                                            <label for="state_switch" class="form-check-label">啟用</label>
-                                                        </div>
-                                                    </td>
-                                                    <td data-th="建檔時間"><span class="table-col">2024718</span></td>
-                                                    <td >
-                                                      <button class="btn btn-info me-2" type="button" data-bs-toggle="modal" data-bs-target="#updateModal" data-id="XX" data-username="XX" data-email="XX" data-birthday="XX" data-created_at="XX" id="btn_update">更新</button>
-                                                      <button class="btn btn-danger" id="btn_delete" data-id="xx">刪除</button>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+  <body class="layout-fixed sidebar-expand-lg bg-body-tertiary">
+    <!--begin::App Wrapper-->
+    <div class="app-wrapper d-none">
+      <!--begin::Header-->
+      <nav class="app-header navbar navbar-expand bg-body">
+        <!--begin::Container-->
+        <div class="container-fluid">
+          <!--begin::Start Navbar Links-->
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                data-lte-toggle="sidebar"
+                href="#"
+                role="button"
+              >
+                <i class="bi bi-list"></i>
+              </a>
+            </li>
+            <li class="nav-item d-none d-md-block">
+              <a href="#" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item d-none d-md-block">
+              <a href="../../../index.html" target="_blank" class="nav-link"
+                >Index</a
+              >
+            </li>
+          </ul>
+          <!--end::Start Navbar Links-->
+          <!--begin::End Navbar Links-->
+          <ul class="navbar-nav ms-auto">
+            <!--begin::Navbar Search-->
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                data-widget="navbar-search"
+                href="#"
+                role="button"
+              >
+                <i class="bi bi-search"></i>
+              </a>
+            </li>
+            <!--end::Navbar Search-->
+            <!--begin::Messages Dropdown Menu-->
+            <!--begin::Notifications Dropdown Menu-->
+            <li class="nav-item dropdown" id="comments">
+              <a
+                class="nav-link"
+                data-bs-toggle="dropdown"
+                href="../comments/comments_list.html"
+              >
+                <i class="bi bi-bell-fill"></i>
+                <span class="navbar-badge badge text-bg-warning">15</span>
+              </a>
+              <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
+                <span class="dropdown-item dropdown-header"
+                  >15 Notifications</span
+                >
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item">
+                  <i class="bi bi-envelope me-2"></i> 4 new messages
+                  <span class="float-end text-secondary fs-7">3 mins</span>
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item">
+                  <i class="bi bi-people-fill me-2"></i> 8 friend requests
+                  <span class="float-end text-secondary fs-7">12 hours</span>
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item">
+                  <i class="bi bi-file-earmark-fill me-2"></i> 3 new reports
+                  <span class="float-end text-secondary fs-7">2 days</span>
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item dropdown-footer">
+                  See All Notifications
+                </a>
+              </div>
+            </li>
+            <!--end::Notifications Dropdown Menu-->
+            <!--begin::Fullscreen Toggle-->
+            <li class="nav-item">
+              <a class="nav-link" href="#" data-lte-toggle="fullscreen">
+                <i data-lte-icon="maximize" class="bi bi-arrows-fullscreen"></i>
+                <i
+                  data-lte-icon="minimize"
+                  class="bi bi-fullscreen-exit"
+                  style="display: none"
+                ></i>
+              </a>
+            </li>
+            <!--end::Fullscreen Toggle-->
+            <!--begin::User Menu Dropdown-->
+            <li class="nav-item dropdown user-menu" id="user-menu">
+              <a
+                href="#"
+                class="nav-link dropdown-toggle"
+                data-bs-toggle="dropdown"
+              >
+                <img
+                  src="../../../dist/assets/img/user2-160x160.jpg"
+                  class="user-image rounded-circle shadow"
+                  alt="User Image"
+                />
+                <span class="d-none d-md-inline">Alexander Pierce</span>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
+                <!--begin::User Image-->
+                <li class="user-header text-bg-primary">
+                  <img
+                    src="../../../dist/assets/img/user2-160x160.jpg"
+                    class="rounded-circle shadow"
+                    alt="User Image"
+                  />
+                  <p>
+                    Alexander Pierce - Web Developer
+                    <small>Member since Nov. 2023</small>
+                  </p>
+                </li>
+                <!--end::User Image-->
+                <!--begin::Menu Body-->
+                <li class="user-body">
+                  <!--begin::Row-->
+                  <div class="row">
+                    <div class="col-4 text-center">
+                      <a href="#">Followers</a>
                     </div>
-                    <div class="row mt-3">
-                        <nav aria-label="Page navigation example">
-                            <ul class="pagination pagination-lg justify-content-center " id="pagelist">
-                              <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1" aria-disabled="true">上一頁</a></li>
-                              <li class="page-item"><a class="page-link" href="#">1</a></li>
-                              <li class="page-item"><a class="page-link" href="#">2</a></li>
-                              <li class="page-item"><a class="page-link" href="#">3</a></li>
-                              <li class="page-item"><a class="page-link" href="#">下一頁</a></li>
-                            </ul>
-                            <div class="page-search">
-                                <input type="number" id="pageInput" class="form-control" placeholder="輸入頁碼" min="1" />
-                                <button class="btn btn-primary" id="searchPageBtn">跳轉</button>
-                            </div>
-                          </nav>
+                    <div class="col-4 text-center"><a href="#">Sales</a></div>
+                    <div class="col-4 text-center"><a href="#">Friends</a></div>
+                  </div>
+                  <!--end::Row-->
+                </li>
+                <!--end::Menu Body-->
+                <!--begin::Menu Footer-->
+                <li class="user-footer">
+                  <a href="#" class="btn btn-default btn-flat">Profile</a>
+                  <a
+                    href="#"
+                    class="btn btn-default btn-flat float-end"
+                    id="logout_button"
+                    >Sign out</a
+                  >
+                </li>
+                <!--end::Menu Footer-->
+              </ul>
+            </li>
+            <!--end::User Menu Dropdown-->
+          </ul>
+          <!--end::End Navbar Links-->
+        </div>
+        <!--end::Container-->
+      </nav>
+      <!--end::Header-->
+      <!--begin::Sidebar-->
+      <aside class="app-sidebar bg-body-secondary shadow" data-bs-theme="dark">
+        <!--begin::Sidebar Brand-->
+        <div class="sidebar-brand">
+          <!--begin::Brand Link-->
+          <a href="../index.html" class="brand-link">
+            <!--begin::Brand Image-->
+            <img
+              src="../../../dist/assets/img/AdminLTELogo.png"
+              alt="AdminLTE Logo"
+              class="brand-image opacity-75 shadow"
+            />
+            <!--end::Brand Image-->
+            <!--begin::Brand Text-->
+            <span class="brand-text fw-light">AdminLTE 4</span>
+            <!--end::Brand Text-->
+          </a>
+          <!--end::Brand Link-->
+        </div>
+        <!--end::Sidebar Brand-->
+        <!--begin::Sidebar Wrapper-->
+        <div class="sidebar-wrapper">
+          <nav class="mt-2">
+            <!--begin::Sidebar Menu-->
+            <ul
+              class="nav sidebar-menu flex-column"
+              data-lte-toggle="treeview"
+              role="menu"
+              data-accordion="false"
+            >
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon bi bi-speedometer"></i>
+                  <p>
+                    資料管理
+                    <i class="nav-arrow bi bi-chevron-right"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="../product/product_list.html" class="nav-link">
+                      <i class="nav-icon bi bi-circle"></i>
+                      <p>產品管理</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="../comments/comments_list.html" class="nav-link">
+                      <i class="nav-icon bi bi-circle"></i>
+                      <p>留言管理</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a
+                      href="../product/product_type_list.html"
+                      class="nav-link"
+                    >
+                      <i class="nav-icon bi bi-circle"></i>
+                      <p>產品類別管理</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item menu-open">
+                <a href="#" class="nav-link active">
+                  <i class="nav-icon bi bi-person-circle"></i>
+                  <p>
+                    會員資料管理
+                    <i class="nav-arrow bi bi-chevron-right"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="../member/member_list.html" class="nav-link active"
+                      ><i class="nav-icon bi bi-circle"></i>
+                      <p>會員管理</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a
+                      href="../member/member-map.html"
+                      target="_blank"
+                      class="nav-link"
+                      ><i class="nav-icon bi bi-circle"></i>
+                      <p>會員分布圖表</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+            <!--end::Sidebar Menu-->
+          </nav>
+        </div>
+        <!--end::Sidebar Wrapper-->
+      </aside>
+      <!--end::Sidebar-->
+      <!--begin::App Main-->
+      <main class="app-main">
+        <!--begin::App Content Header-->
+        <div class="app-content-header">
+          <!--begin::Container-->
+          <div class="container-fluid">
+            <!--begin::Row-->
+            <div class="row">
+              <div class="col-sm-6">
+                <h3 class="mb-0">會員管理</h3>
+              </div>
+              <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-end">
+                  <li class="breadcrumb-item" active aria-current="page">
+                    <a href="#">Home</a>
+                  </li>
+                  <li class="breadcrumb-item" aria-current="page">comments</li>
+                </ol>
+              </div>
+            </div>
+            <!--end::Row-->
+          </div>
+          <!--end::Container-->
+        </div>
+        <!--end::App Content Header-->
+        <!--begin::App Content-->
+        <div class="app-content">
+          <!--begin::Container-->
+          <div class="container-fluid">
+            <!--begin::Row-->
+            <div id="comments_table">
+              <div class="row">
+                <div class="col-12">
+                  <div class="card">
+                    <div class="card-body">
+                      <!-- table-rwd 建立於myall.css裡的 -->
+                      <table
+                        class="table table-bordered table-striped table-rwd table-hover"
+                      >
+                        <thead>
+                          <tr
+                            class="text-bg-secondary fw-100 h5 align-middle text-center"
+                          >
+                            <th>會員編號</th>
+                            <th>會員名稱</th>
+                            <th>會員等級</th>
+                            <th>會員email</th>
+                            <th>會員生日</th>
+                            <th>會員狀態</th>
+                            <th>建檔時間</th>
+                            <th>更新/刪除</th>
+                          </tr>
+                        </thead>
+                        <tbody id="datalist" class="align-middle text-center">
+                          <tr>
+                            <td data-th="會員編號">
+                              <span class="table-col align-content-center"
+                                >001</span
+                              >
+                            </td>
+                            <td data-th="會員名稱">
+                              <span class="table-col">1</span>
+                            </td>
+                            <td data-th="會員等級">
+                              <select
+                                name="level"
+                                id="level"
+                                class="form-select"
+                              >
+                                <option value="0" selected>一般會員</option>
+                                <option value="100">VIP01</option>
+                                <option value="200">VIP02</option>
+                                <option value="300">VIP03</option>
+                                <option value="900">管理員</option>
+                              </select>
+                            </td>
+                            <td data-th="會員email">
+                              <span class="table-col">100</span>
+                            </td>
+                            <td data-th="會員生日">
+                              <span class="table-col">10</span>
+                            </td>
+                            <td data-th="會員狀態">
+                              <div class="form-check form-switch">
+                                <input
+                                  type="checkbox"
+                                  class="form-check-input"
+                                  checked
+                                  id="state_switch"
+                                  name="state_switch"
+                                  data-state="X"
+                                />
+                                <label
+                                  for="state_switch"
+                                  class="form-check-label"
+                                  >啟用</label
+                                >
+                              </div>
+                            </td>
+                            <td data-th="建檔時間">
+                              <span class="table-col">2024718</span>
+                            </td>
+                            <td>
+                              <button
+                                class="btn btn-info me-2"
+                                type="button"
+                                data-bs-toggle="modal"
+                                data-bs-target="#updateModal"
+                                data-id="XX"
+                                data-username="XX"
+                                data-email="XX"
+                                data-birthday="XX"
+                                data-created_at="XX"
+                                id="btn_update"
+                              >
+                                更新
+                              </button>
+                              <button
+                                class="btn btn-danger"
+                                id="btn_delete"
+                                data-id="xx"
+                              >
+                                刪除
+                              </button>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
                     </div>
-                    <!-- updateModal -->
-                    <div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="updateModal" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable ">
-                        <div class="modal-content">
-                            <div class="modal-header text-bg-info">
-                            <h5 class="modal-title" id="updateModal">會員更新</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                <div class="mb-3">
-                                    <label for="update_username" class="form-label">帳號</label>
-                                    <input type="text" class="form-control disabled" id="update_username" name="update_username" disabled placeholder="">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="update_datepicker" class="form-label">生日</label>
-                                    <input type="text" class="form-control hiding" id="update_datepicker" name="update_datepicker" readonly>
-                                    <div class="valid-feedback">符合規定</div>
-                                    <div class="invalid-feedback">不符合規定</div>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="update_email" class="form-label">email</label>
-                                    <input type="text" class="form-control hiding" id="update_email" name="update_email" placeholder="請輸入email">
-                                    <div class="valid-feedback">符合規定</div>
-                                    <div class="invalid-feedback">請輸入正確的email</div>
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary" id="btn_update_ok">更新</button>
-                            </div>
-                        </div>
-                        </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row mt-3">
+              <nav aria-label="Page navigation example">
+                <ul
+                  class="pagination pagination-lg justify-content-center"
+                  id="pagelist"
+                >
+                  <li class="page-item disabled">
+                    <a
+                      class="page-link"
+                      href="#"
+                      tabindex="-1"
+                      aria-disabled="true"
+                      >上一頁</a
+                    >
+                  </li>
+                  <li class="page-item"><a class="page-link" href="#">1</a></li>
+                  <li class="page-item"><a class="page-link" href="#">2</a></li>
+                  <li class="page-item"><a class="page-link" href="#">3</a></li>
+                  <li class="page-item">
+                    <a class="page-link" href="#">下一頁</a>
+                  </li>
+                </ul>
+                <div class="page-search">
+                  <input
+                    type="number"
+                    id="pageInput"
+                    class="form-control"
+                    placeholder="輸入頁碼"
+                    min="1"
+                  />
+                  <button class="btn btn-primary" id="searchPageBtn">
+                    跳轉
+                  </button>
+                </div>
+              </nav>
+            </div>
+            <!-- updateModal -->
+            <div
+              class="modal fade"
+              id="updateModal"
+              tabindex="-1"
+              aria-labelledby="updateModal"
+              aria-hidden="true"
+            >
+              <div
+                class="modal-dialog modal-dialog-centered modal-dialog-scrollable"
+              >
+                <div class="modal-content">
+                  <div class="modal-header text-bg-info">
+                    <h5 class="modal-title" id="updateModal">會員更新</h5>
+                    <button
+                      type="button"
+                      class="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    ></button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="mb-3">
+                      <label for="update_username" class="form-label"
+                        >帳號</label
+                      >
+                      <input
+                        type="text"
+                        class="form-control disabled"
+                        id="update_username"
+                        name="update_username"
+                        disabled
+                        placeholder=""
+                      />
                     </div>
-                </div> <!--end::Container-->
-            </div> <!--end::App Content-->
-        </main> <!--end::App Main--> <!--begin::Footer-->
-        <footer class="app-footer"> <!--begin::To the end-->
-            <div class="float-end d-none d-sm-inline">Anything you want</div> <!--end::To the end--> <!--begin::Copyright--> <strong>
-                Copyright &copy; 2014-2024&nbsp;
-                <a href="https://Modern Liner" class="text-decoration-none">Modern Liner</a>.
-            </strong>
-            All rights reserved.
-            <!--end::Copyright-->
-        </footer> <!--end::Footer-->
-    </div> <!--end::App Wrapper--> <!--begin::Script--> <!--begin::Third Party Plugin(OverlayScrollbars)-->
-    <script src="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.3.0/browser/overlayscrollbars.browser.es6.min.js" integrity="sha256-H2VM7BKda+v2Z4+DRy69uknwxjyDRhszjXFhsL4gD3w=" crossorigin="anonymous"></script> <!--end::Third Party Plugin(OverlayScrollbars)--><!--begin::Required Plugin(popperjs for Bootstrap 5)-->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha256-whL0tQWoY1Ku1iskqPFvmZ+CHsvmRWx/PIoEvIeWh4I=" crossorigin="anonymous"></script> <!--end::Required Plugin(popperjs for Bootstrap 5)--><!--begin::Required Plugin(Bootstrap 5)-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha256-YMa+wAM6QkVyz999odX7lPRxkoYAan8suedu4k2Zur8=" crossorigin="anonymous"></script> <!--end::Required Plugin(Bootstrap 5)--><!--begin::Required Plugin(AdminLTE)-->
-    <script src="../../../dist/js/adminlte.js"></script> <!--end::Required Plugin(AdminLTE)--><!--begin::OverlayScrollbars Configure-->
+                    <div class="mb-3">
+                      <label for="update_datepicker" class="form-label"
+                        >生日</label
+                      >
+                      <input
+                        type="text"
+                        class="form-control hiding"
+                        id="update_datepicker"
+                        name="update_datepicker"
+                        readonly
+                      />
+                      <div class="valid-feedback">符合規定</div>
+                      <div class="invalid-feedback">不符合規定</div>
+                    </div>
+                    <div class="mb-3">
+                      <label for="update_email" class="form-label">email</label>
+                      <input
+                        type="text"
+                        class="form-control hiding"
+                        id="update_email"
+                        name="update_email"
+                        placeholder="請輸入email"
+                      />
+                      <div class="valid-feedback">符合規定</div>
+                      <div class="invalid-feedback">請輸入正確的email</div>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button
+                      type="button"
+                      class="btn btn-secondary"
+                      data-bs-dismiss="modal"
+                    >
+                      Close
+                    </button>
+                    <button
+                      type="button"
+                      class="btn btn-primary"
+                      id="btn_update_ok"
+                    >
+                      更新
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--end::Container-->
+        </div>
+        <!--end::App Content-->
+      </main>
+      <!--end::App Main-->
+      <!--begin::Footer-->
+      <footer class="app-footer">
+        <!--begin::To the end-->
+        <div class="float-end d-none d-sm-inline">Anything you want</div>
+        <!--end::To the end-->
+        <!--begin::Copyright-->
+        <strong>
+          Copyright &copy; 2014-2024&nbsp;
+          <a href="https://Modern Liner" class="text-decoration-none"
+            >Modern Liner</a
+          >.
+        </strong>
+        All rights reserved.
+        <!--end::Copyright-->
+      </footer>
+      <!--end::Footer-->
+    </div>
+    <!--end::App Wrapper-->
+    <!--begin::Script-->
+    <!--begin::Third Party Plugin(OverlayScrollbars)-->
+    <script
+      src="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.3.0/browser/overlayscrollbars.browser.es6.min.js"
+      integrity="sha256-H2VM7BKda+v2Z4+DRy69uknwxjyDRhszjXFhsL4gD3w="
+      crossorigin="anonymous"
+    ></script>
+    <!--end::Third Party Plugin(OverlayScrollbars)--><!--begin::Required Plugin(popperjs for Bootstrap 5)-->
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha256-whL0tQWoY1Ku1iskqPFvmZ+CHsvmRWx/PIoEvIeWh4I="
+      crossorigin="anonymous"
+    ></script>
+    <!--end::Required Plugin(popperjs for Bootstrap 5)--><!--begin::Required Plugin(Bootstrap 5)-->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+      integrity="sha256-YMa+wAM6QkVyz999odX7lPRxkoYAan8suedu4k2Zur8="
+      crossorigin="anonymous"
+    ></script>
+    <!--end::Required Plugin(Bootstrap 5)--><!--begin::Required Plugin(AdminLTE)-->
+    <script src="../../../dist/js/adminlte.js"></script>
+    <!--end::Required Plugin(AdminLTE)--><!--begin::OverlayScrollbars Configure-->
     <script src="../../../js/sweetalert2@11.js"></script>
     <script src="../../../js/jquery-3.7.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
     <script>
-        var comments_num=[];
-        var newdata=[];
-         //正規表達式
-        //密碼
-        const rules_pwd = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/ ;
-        //email
-        const rules_email= /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+      var comments_num = [];
+      var newdata = [];
+      var account_level;
+      //正規表達式
+      //密碼
+      const rules_pwd = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
+      //email
+      const rules_email = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
-        $(function(){
-            if(getCookie("uid01")!=""){
-                    //將uid傳遞至後端api確認是否合法
-                    var dataJSON = {};
-                        dataJSON["uid01"] = getCookie("uid01");
-                        // console.log(JSON.stringify(dataJSON));
-                        $.ajax({
-                            type:"POST",
-                            url:"../../../API/member_login_check_uid_api.php",
-                            data:JSON.stringify(dataJSON),
-                            dataType:"json",
-                            success:showdata_check_uid,
-                            error:function(){
-                                alert("error-member_login_check_uid_api.php");
-                            }
-                        });
-                }else{
-                    Swal.fire({
-                            icon: "error",
-                            title: "Oops...",
-                            text: "管理員專用",
-                            }).then((result)=>{
-                                if (result.isConfirmed) {
-                                    location.href = "../../../index.html";
-                                }  
-                            })
-                };
-    
-            //監聽登出按鈕
-            $("#logout_button").click(function(){
-                    //將cookie設為空值
-                    setCookie("uid01","",7);
-                    //重整
-                    location.reload();
-                })   
-        })//end of function
-        //登入
-        function showdata_check_uid(data){
-                    //顯示登入帳號
-                    if(data.state){
-                        if(data.data.Level=="900"){
-                            $(".app-wrapper").removeClass("d-none");
-                            const date = new Date(data.data.Created_at);
-                            const month = String(date.getMonth() + 1).padStart(2, '0'); // 月份是從 0 開始的，所以加 1
-                            const year = date.getFullYear();
-                            const formattedDate = `${month}-${year}`;
-                            $("#user-menu").empty();
-                            //渲染使用者區塊
-                            strUser='<a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><img src="../../../dist/assets/img/user2-160x160.jpg" class="user-image rounded-circle shadow" alt="User Image"><span class="d-none d-md-inline">'+data.data.Username+'</span></a><ul class="dropdown-menu dropdown-menu-lg dropdown-menu-end"> <!--begin::User Image--><li class="user-header text-bg-primary"><img src="../../../dist/assets/img/user2-160x160.jpg" class="rounded-circle shadow" alt="User Image"><p>'+data.data.Username+'<small>Member since '+formattedDate+'</small></p></li> <!--begin::Menu Footer--><li class="user-footer"><a href="#" class="btn btn-default btn-flat float-end" id="logout_button">Sign out</a></li> <!--end::Menu Footer--></ul>';
-                            $("#user-menu").append(strUser);
-
-                            //讀取會員資料
-                            $.ajax({
-                                type:"GET",
-                                url:"../../../API/member_read_api.php",
-                                dataType:"json",
-                                success:showdata_read,
-                                error:function(){
-                                    alert("error_member_read_api.php");
-                                }
-                            });
-
-                            
-                        }else{
-                            Swal.fire({
-                            icon: "error",
-                            title: "Oops...",
-                            text: "管理員專用",
-                            }).then((result)=>{
-                                if (result.isConfirmed) {
-                                    location.href = "../../../index.html";
-                                }  
-                            })
-                        } 
-                    }
-
-                    //讀取message
-                    $.ajax({
-                            type:"GET",
-                            url:"../../../API/comments_read_for_index_api.php",
-                            dataType:"json",
-                            async:false,
-                            success:function(data){
-                                comments=data;                             
-                            },
-                            error:function(){
-                                alert("comments_read_for_index_api");
-                            }
-                        });
-                      if(comments.state == true)
-                      {
-                        let now = new Date();
-                        let comment_time = new Date(comments.data[0].Create_at);
-                        let timeDiff = now - comment_time;
-
-                        let seconds = Math.floor(timeDiff / 1000);
-                        let minutes = Math.floor(seconds / 60);
-                        let hours = Math.floor(minutes / 60);
-                        let days = Math.floor(hours / 24);
-
-                        // 根據時間長度顯示不同的格式
-                        var timeDisplay;
-                        if (days > 0) {
-                            timeDisplay = days + " days ago";
-                        } else if (hours > 0) {
-                            timeDisplay = hours + " hours ago";
-                        } else if (minutes > 0) {
-                            timeDisplay = minutes + " minutes ago";
-                        } else {
-                            timeDisplay = "Just now";
-                        }
-                      }else{
-                        var timeDisplay="no news";
-                      }
-
-                    strComments = '<li class="nav-item dropdown"> <a class="nav-link" data-bs-toggle="dropdown" href="#"><i class="bi bi-bell-fill"></i><span class="navbar-badge badge text-bg-warning">'+comments.data.length+'</span></a><div class="dropdown-menu dropdown-menu-lg dropdown-menu-end"> <span class="dropdown-item dropdown-header">'+comments.data.length+' Notifications</span><div class="dropdown-divider"></div> <a href="../comments/comments_list.html" class="dropdown-item"> <i class="bi bi-envelope me-2"></i> '+comments.data.length+' new messages<span class="float-end text-secondary fs-7">'+timeDisplay+'</span></a><div class="dropdown-divider"></div> <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a></div></li';
-                    $("#comments").empty();
-                    $("#comments").append(strComments)
-
-                    
-
-
-
-            };
-        function showdata_read(data){
-            //重構data 產生newdata
-            data.data.forEach(function(item,key){
-                //  console.log(key);
-                //  console.log(item);
-                if(key % 50 ==0){
-                    newdata.push([]);
-                }
-                var page = parseInt(key/50);
-                newdata[page].push(item);
-            });
-    
-            drawTable(0);
-
-                 //監聽update_datepicker
-                $("#update_datepicker").bind("change" , function(){
-                        if($(this).val()!=" "){
-                            $(this).removeClass("is-invalid");
-                            $(this).addClass("is-valid");
-                            flag_datepicker = true;
-                        }else{
-                            //不符合規定
-                            $(this).removeClass("is-valid");
-                            $(this).addClass("is-invalid");
-                            flag_datepicker = false;
-                        }
-                    });
-
-                //監聽update_email
-                $("#update_email").bind("input propertychange" , function(){
-                if(rules_email.test($(this).val())){
-                    $(this).removeClass("is-invalid");
-                    $(this).addClass("is-valid");
-                    flag_email = true;
-                }else{
-                    //不符合規定
-                    $(this).removeClass("is-valid");
-                    $(this).addClass("is-invalid");
-                    flag_email = false;
-                }
-                });
-                //監聽更新modal
-                $("#btn_update_ok").click(function(){
-                    if(flag_email && flag_datepicker){
-                        var dataJSON = {};
-                        dataJSON["id"] = u_id;
-                        dataJSON["email"]    = $("#update_email").val();
-                        dataJSON["birthday"] = $("#update_datepicker").val();
-                        console.log(JSON.stringify(dataJSON));
-                        $.ajax({
-                            type:"POST",
-                            url:"../../../API/member_update_api.php",
-                            data:JSON.stringify(dataJSON),
-                            dataType:"json",
-                            success:showdata_update,
-                            error:function(){
-                                alert("error-member_update_api.php");
-                            }
-                        });
-                    }else{
-                        Swal.fire({
-                            icon: "error",
-                            title: "Oops...",
-                            text: "欄位有誤請修正",
-                            });
-                    }
-                });
+      $(function () {
+        if (getCookie("uid01") != "") {
+          //將uid傳遞至後端api確認是否合法
+          var dataJSON = {};
+          dataJSON["uid01"] = getCookie("uid01");
+          // console.log(JSON.stringify(dataJSON));
+          $.ajax({
+            type: "POST",
+            url: "../../../API/member_login_check_uid_api.php",
+            data: JSON.stringify(dataJSON),
+            dataType: "json",
+            success: showdata_check_uid,
+            error: function () {
+              alert("error-member_login_check_uid_api.php");
+            },
+          });
+        } else {
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "管理員專用",
+          }).then((result) => {
+            if (result.isConfirmed) {
+              location.href = "../../../index.html";
+            }
+          });
         }
-        //確認更新update
-        function showdata_update(data){
-            console.log(data);
-            if(data.state){
-                Swal.fire({
-                    title: "Good job!",
-                    text: data.message,
-                    icon: "success",
-                    }).then((result) => {
-                    if (result.isConfirmed) {
-                        // 重整頁面
-                        location.reload();
-                    }
-                });
-            }
-        };
-        //show comments 
-    //渲染table
-    function drawTable(page){
-        //渲染table 產生會員資料
-        $("#datalist").empty();
-        newdata[page].forEach(function(item){
-            
-            //判斷會員等級
-            if(item.Level==0){
-                strLEVEL ='<td data-th="會員等級"><select name="level" id="level" class="form-select" data-id="'+item.ID+'"><option value="0" selected>一般會員</option><option value="100">VIP01</option><option value="200">VIP02</option><option value="300">VIP03</option><option value="900">管理員</option></select></td>'
-            }else if(item.Level==100){
-                strLEVEL ='<td data-th="會員等級"><select name="level" id="level" class="form-select" data-id="'+item.ID+'"><option value="0">一般會員</option><option value="100" selected>VIP01</option><option value="200">VIP02</option><option value="300">VIP03</option><option value="900">管理員</option></select></td>'
-            }else if(item.Level==200){
-                strLEVEL ='<td data-th="會員等級"><select name="level" id="level" class="form-select" data-id="'+item.ID+'"><option value="0">一般會員</option><option value="100">VIP01</option><option value="200" selected>VIP02</option><option value="300">VIP03</option><option value="900">管理員</option></select></td>'
-            }else if(item.Level==300){
-                strLEVEL ='<td data-th="會員等級"><select name="level" id="level" class="form-select" data-id="'+item.ID+'"><option value="0">一般會員</option><option value="100">VIP01</option><option value="200">VIP02</option><option value="300" selected>VIP03</option><option value="900">管理員</option></select></td>'
-            }else{
-                strLEVEL ='<td data-th="會員等級"><select name="level" id="level" class="form-select" data-id="'+item.ID+'"><option value="0">一般會員</option><option value="100">VIP01</option><option value="200">VIP02</option><option value="300">VIP03</option><option value="900" selected>管理員</option></select></td>'
-            }
 
-            var strHTML = '<tr><td data-th="會員編號"><span class="table-col align-content-center">'+item.ID+'</span></td><td data-th="會員名稱"><span class="table-col">'+item.Username+'</span></td>'+strLEVEL+'<td data-th="會員email"><span class="table-col">'+item.Email+'</span></td><td data-th="會員生日"><span class="table-col">'+item.Birthday+'</span></td><td data-th="會員狀態"><div class="form-check form-switch"><input type="checkbox" class="form-check-input" '+(item.State == "1" ? 'checked':'')+' id="state_switch" name="state_switch" data-id="'+item.ID+'" data-state="'+item.State+'"><label for="" class="form-check-label '+(item.State == "1" ? 'text-success':'text-danger')+'">'+(item.State == "1" ? '啟用':'停用')+'</label></div></td><td data-th="建檔時間"><span class="table-col">'+item.Created_at+'</span></td><td ><button class="btn btn-info me-2" type="button" data-bs-toggle="modal" data-bs-target="#updateModal" data-id="'+item.ID+'"data-username="'+item.Username+'"data-email="'+item.Email+'" data-birthday="'+item.Birthday+'" data-created_at="'+item.Created_at+'" id="btn_update">更新</button><button class="btn btn-danger" id="btn_delete" data-id="'+item.ID+'">刪除</button></td></tr>'
-            $("#datalist").append(strHTML);
+        //監聽登出按鈕
+        $("#logout_button").click(function () {
+          //將cookie設為空值
+          setCookie("uid01", "", 7);
+          //重整
+          location.reload();
+        });
+      }); //end of function
+      //登入
+      function showdata_check_uid(data) {
+        account_level = data.data.Level;
+        //顯示登入帳號
+        if (data.state) {
+          if (data.data.Level >= "800") {
+            $(".app-wrapper").removeClass("d-none");
+            const date = new Date(data.data.Created_at);
+            const month = String(date.getMonth() + 1).padStart(2, "0"); // 月份是從 0 開始的，所以加 1
+            const year = date.getFullYear();
+            const formattedDate = `${month}-${year}`;
+            $("#user-menu").empty();
+            //渲染使用者區塊
+            strUser =
+              '<a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><img src="../../../dist/assets/img/user2-160x160.jpg" class="user-image rounded-circle shadow" alt="User Image"><span class="d-none d-md-inline">' +
+              data.data.Username +
+              '</span></a><ul class="dropdown-menu dropdown-menu-lg dropdown-menu-end"> <!--begin::User Image--><li class="user-header text-bg-primary"><img src="../../../dist/assets/img/user2-160x160.jpg" class="rounded-circle shadow" alt="User Image"><p>' +
+              data.data.Username +
+              "<small>Member since " +
+              formattedDate +
+              '</small></p></li> <!--begin::Menu Footer--><li class="user-footer"><a href="#" class="btn btn-default btn-flat float-end" id="logout_button">Sign out</a></li> <!--end::Menu Footer--></ul>';
+            $("#user-menu").append(strUser);
+
+            //讀取會員資料
+            $.ajax({
+              type: "GET",
+              url: "../../../API/member_read_api.php",
+              dataType: "json",
+              success: showdata_read,
+              error: function () {
+                alert("error_member_read_api.php");
+              },
+            });
+          } else {
+            Swal.fire({
+              icon: "error",
+              title: "Oops...",
+              text: "管理員專用",
+            }).then((result) => {
+              if (result.isConfirmed) {
+                location.href = "../../../index.html";
+              }
+            });
+          }
+        }
+
+        //讀取message
+        $.ajax({
+          type: "GET",
+          url: "../../../API/comments_read_for_index_api.php",
+          dataType: "json",
+          async: false,
+          success: function (data) {
+            comments = data;
+          },
+          error: function () {
+            alert("comments_read_for_index_api");
+          },
+        });
+        if (comments.state == true) {
+          let now = new Date();
+          let comment_time = new Date(comments.data[0].Create_at);
+          let timeDiff = now - comment_time;
+
+          let seconds = Math.floor(timeDiff / 1000);
+          let minutes = Math.floor(seconds / 60);
+          let hours = Math.floor(minutes / 60);
+          let days = Math.floor(hours / 24);
+
+          // 根據時間長度顯示不同的格式
+          var timeDisplay;
+          if (days > 0) {
+            timeDisplay = days + " days ago";
+          } else if (hours > 0) {
+            timeDisplay = hours + " hours ago";
+          } else if (minutes > 0) {
+            timeDisplay = minutes + " minutes ago";
+          } else {
+            timeDisplay = "Just now";
+          }
+        } else {
+          var timeDisplay = "no news";
+        }
+
+        strComments =
+          '<li class="nav-item dropdown"> <a class="nav-link" data-bs-toggle="dropdown" href="#"><i class="bi bi-bell-fill"></i><span class="navbar-badge badge text-bg-warning">' +
+          comments.data.length +
+          '</span></a><div class="dropdown-menu dropdown-menu-lg dropdown-menu-end"> <span class="dropdown-item dropdown-header">' +
+          comments.data.length +
+          ' Notifications</span><div class="dropdown-divider"></div> <a href="../comments/comments_list.html" class="dropdown-item"> <i class="bi bi-envelope me-2"></i> ' +
+          comments.data.length +
+          ' new messages<span class="float-end text-secondary fs-7">' +
+          timeDisplay +
+          '</span></a><div class="dropdown-divider"></div> <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a></div></li';
+        $("#comments").empty();
+        $("#comments").append(strComments);
+      }
+      function showdata_read(data) {
+        //重構data 產生newdata
+        data.data.forEach(function (item, key) {
+          //  console.log(key);
+          //  console.log(item);
+          if (key % 50 == 0) {
+            newdata.push([]);
+          }
+          var page = parseInt(key / 50);
+          newdata[page].push(item);
         });
 
-        $('#searchPageBtn').on('click', function () {
-                var pageInput = parseInt($('#pageInput').val(), 10); // 取得輸入的頁碼
-                if (!isNaN(pageInput) && pageInput > 0 && pageInput <= totalPages) {
-                    drawTable(pageInput - 1); // 跳轉到指定頁碼 (頁碼從 1 開始，但陣列 index 從 0 開始)
-                } else {
-                    Swal.fire({
-                            icon: "error",
-                            title: "Oops...",
-                            text: "請輸入正確的頁碼範圍",
-                            });
-                }
+        drawTable(0);
+
+        //監聽update_datepicker
+        $("#update_datepicker").bind("change", function () {
+          if ($(this).val() != " ") {
+            $(this).removeClass("is-invalid");
+            $(this).addClass("is-valid");
+            flag_datepicker = true;
+          } else {
+            //不符合規定
+            $(this).removeClass("is-valid");
+            $(this).addClass("is-invalid");
+            flag_datepicker = false;
+          }
+        });
+
+        //監聽update_email
+        $("#update_email").bind("input propertychange", function () {
+          if (rules_email.test($(this).val())) {
+            $(this).removeClass("is-invalid");
+            $(this).addClass("is-valid");
+            flag_email = true;
+          } else {
+            //不符合規定
+            $(this).removeClass("is-valid");
+            $(this).addClass("is-invalid");
+            flag_email = false;
+          }
+        });
+        //監聽更新modal
+        $("#btn_update_ok").click(function () {
+          if (flag_email && flag_datepicker) {
+            var dataJSON = {};
+            dataJSON["id"] = u_id;
+            dataJSON["email"] = $("#update_email").val();
+            dataJSON["birthday"] = $("#update_datepicker").val();
+            console.log(JSON.stringify(dataJSON));
+            $.ajax({
+              type: "POST",
+              url: "../../../API/member_update_api.php",
+              data: JSON.stringify(dataJSON),
+              dataType: "json",
+              success: showdata_update,
+              error: function () {
+                alert("error-member_update_api.php");
+              },
             });
+          } else {
+            Swal.fire({
+              icon: "error",
+              title: "Oops...",
+              text: "欄位有誤請修正",
+            });
+          }
+        });
+      }
+      //確認更新update
+      function showdata_update(data) {
+        console.log(data);
+        if (data.state) {
+          Swal.fire({
+            title: "Good job!",
+            text: data.message,
+            icon: "success",
+          }).then((result) => {
+            if (result.isConfirmed) {
+              // 重整頁面
+              location.reload();
+            }
+          });
+        }
+      }
+      //show comments
+      //渲染table
+      function drawTable(page) {
+        //渲染table 產生會員資料
+        $("#datalist").empty();
+        newdata[page].forEach(function (item) {
+          //判斷會員等級
+          if (item.Level == 0) {
+            strLEVEL =
+              '<td data-th="會員等級"><select name="level" id="level" class="form-select" data-id="' +
+              item.ID +
+              '"><option value="0" selected>一般會員</option><option value="100">VIP01</option><option value="200">VIP02</option><option value="300">VIP03</option><option value="900">管理員</option></select></td>';
+          } else if (item.Level == 100) {
+            strLEVEL =
+              '<td data-th="會員等級"><select name="level" id="level" class="form-select" data-id="' +
+              item.ID +
+              '"><option value="0">一般會員</option><option value="100" selected>VIP01</option><option value="200">VIP02</option><option value="300">VIP03</option><option value="900">管理員</option></select></td>';
+          } else if (item.Level == 200) {
+            strLEVEL =
+              '<td data-th="會員等級"><select name="level" id="level" class="form-select" data-id="' +
+              item.ID +
+              '"><option value="0">一般會員</option><option value="100">VIP01</option><option value="200" selected>VIP02</option><option value="300">VIP03</option><option value="900">管理員</option></select></td>';
+          } else if (item.Level == 300) {
+            strLEVEL =
+              '<td data-th="會員等級"><select name="level" id="level" class="form-select" data-id="' +
+              item.ID +
+              '"><option value="0">一般會員</option><option value="100">VIP01</option><option value="200">VIP02</option><option value="300" selected>VIP03</option><option value="900">管理員</option></select></td>';
+          } else {
+            strLEVEL =
+              '<td data-th="會員等級"><select name="level" id="level" class="form-select" data-id="' +
+              item.ID +
+              '"><option value="0">一般會員</option><option value="100">VIP01</option><option value="200">VIP02</option><option value="300">VIP03</option><option value="900" selected>管理員</option></select></td>';
+          }
+
+          var strHTML =
+            '<tr><td data-th="會員編號"><span class="table-col align-content-center">' +
+            item.ID +
+            '</span></td><td data-th="會員名稱"><span class="table-col">' +
+            item.Username +
+            "</span></td>" +
+            strLEVEL +
+            '<td data-th="會員email"><span class="table-col">' +
+            item.Email +
+            '</span></td><td data-th="會員生日"><span class="table-col">' +
+            item.Birthday +
+            '</span></td><td data-th="會員狀態"><div class="form-check form-switch"><input type="checkbox" class="form-check-input" ' +
+            (item.State == "1" ? "checked" : "") +
+            ' id="state_switch" name="state_switch" data-id="' +
+            item.ID +
+            '" data-state="' +
+            item.State +
+            '"><label for="" class="form-check-label ' +
+            (item.State == "1" ? "text-success" : "text-danger") +
+            '">' +
+            (item.State == "1" ? "啟用" : "停用") +
+            '</label></div></td><td data-th="建檔時間"><span class="table-col">' +
+            item.Created_at +
+            '</span></td><td ><button class="btn btn-info me-2" type="button" data-bs-toggle="modal" data-bs-target="#updateModal" data-id="' +
+            item.ID +
+            '"data-username="' +
+            item.Username +
+            '"data-email="' +
+            item.Email +
+            '" data-birthday="' +
+            item.Birthday +
+            '" data-created_at="' +
+            item.Created_at +
+            '" id="btn_update">更新</button><button class="btn btn-danger" id="btn_delete" data-id="' +
+            item.ID +
+            '">刪除</button></td></tr>';
+          $("#datalist").append(strHTML);
+        });
+
+        $("#searchPageBtn").on("click", function () {
+          var pageInput = parseInt($("#pageInput").val(), 10); // 取得輸入的頁碼
+          if (!isNaN(pageInput) && pageInput > 0 && pageInput <= totalPages) {
+            drawTable(pageInput - 1); // 跳轉到指定頁碼 (頁碼從 1 開始，但陣列 index 從 0 開始)
+          } else {
+            Swal.fire({
+              icon: "error",
+              title: "Oops...",
+              text: "請輸入正確的頁碼範圍",
+            });
+          }
+        });
 
         //渲染頁籤
-         $("#pagelist").empty();
+        $("#pagelist").empty();
 
         var maxPageDisplay = 5; // 每次顯示最多的頁碼數量
         var totalPages = newdata.length; // 總頁數
@@ -523,45 +938,70 @@
 
         // 確保頁碼範圍不超出界限
         if (endPage - startPage < maxPageDisplay - 1) {
-            startPage = Math.max(1, endPage - maxPageDisplay + 1);
+          startPage = Math.max(1, endPage - maxPageDisplay + 1);
         }
 
         // 加入「第一頁」按鈕
         if (page >= 0) {
-            $("#pagelist").append('<li class="page-item" onclick="drawTable(0)"><a class="page-link" href="#">第一頁</a></li>');
+          $("#pagelist").append(
+            '<li class="page-item" onclick="drawTable(0)"><a class="page-link" href="#">第一頁</a></li>'
+          );
         }
 
         // 加入「上一頁」按鈕
         if (page > 0) {
-            var prevPage = page - 1;
-            $("#pagelist").append('<li class="page-item" onclick="drawTable(' + prevPage + ')"><a class="page-link" aria-label="Previous" href="#"><span aria-hidden="true">&laquo;</span></a></li>');
+          var prevPage = page - 1;
+          $("#pagelist").append(
+            '<li class="page-item" onclick="drawTable(' +
+              prevPage +
+              ')"><a class="page-link" aria-label="Previous" href="#"><span aria-hidden="true">&laquo;</span></a></li>'
+          );
         }
 
         // 顯示頁碼
         for (var i = startPage; i <= endPage; i++) {
-            var thisPage = i;
-            var anotherPage = thisPage - 1;
-            var strHTML;
-            if (thisPage == page + 1) {
-                strHTML = '<li class="page-item active" onclick="drawTable(' + anotherPage + ')"><a class="page-link" href="#">' + thisPage + '</a></li>';
-            } else {
-                strHTML = '<li class="page-item" onclick="drawTable(' + anotherPage + ')"><a class="page-link" href="#">' + thisPage + '</a></li>';
-            }
-            $("#pagelist").append(strHTML);
+          var thisPage = i;
+          var anotherPage = thisPage - 1;
+          var strHTML;
+          if (thisPage == page + 1) {
+            strHTML =
+              '<li class="page-item active" onclick="drawTable(' +
+              anotherPage +
+              ')"><a class="page-link" href="#">' +
+              thisPage +
+              "</a></li>";
+          } else {
+            strHTML =
+              '<li class="page-item" onclick="drawTable(' +
+              anotherPage +
+              ')"><a class="page-link" href="#">' +
+              thisPage +
+              "</a></li>";
+          }
+          $("#pagelist").append(strHTML);
         }
 
         // 加入「下一頁」按鈕
         if (page < totalPages - 1) {
-            var nextPage = page + 1;
-            $("#pagelist").append('<li class="page-item" onclick="drawTable(' + nextPage + ')"><a class="page-link" href="#" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>');
+          var nextPage = page + 1;
+          $("#pagelist").append(
+            '<li class="page-item" onclick="drawTable(' +
+              nextPage +
+              ')"><a class="page-link" href="#" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>'
+          );
         }
         // 加入「最後一頁」按鈕
         if (page < totalPages - 1) {
-            $("#pagelist").append('<li class="page-item" onclick="drawTable(' + (totalPages - 1) + ')"><a class="page-link" href="#">最後一頁</a></li>');
+          $("#pagelist").append(
+            '<li class="page-item" onclick="drawTable(' +
+              (totalPages - 1) +
+              ')"><a class="page-link" href="#">最後一頁</a></li>'
+          );
         }
 
         //監聽update按鈕
-        $("#datalist #btn_update").click(function(){
+        if (account_level > "800") {
+          $("#datalist #btn_update").click(function () {
             console.log($(this).data("id"));
             console.log($(this).data("username"));
             console.log($(this).data("email"));
@@ -572,199 +1012,204 @@
             $("#update_datepicker").val($(this).data("birthday"));
             $("#update_email").val($(this).data("email"));
             u_id = $(this).data("id");
-        });
+          });
 
-        //監聽delete按鈕
-        $("#datalist #btn_delete").click(function(){
+          //監聽delete按鈕
+          $("#datalist #btn_delete").click(function () {
             console.log($(this).data("id"));
             Swal.fire({
-                title: "確定要刪除嗎",
-                showDenyButton: true,
-                confirmButtonText: "確定",
-                denyButtonText: `取消`,
-                icon: "warning",
+              title: "確定要刪除嗎",
+              showDenyButton: true,
+              confirmButtonText: "確定",
+              denyButtonText: `取消`,
+              icon: "warning",
+            }).then((result) => {
+              /* Read more about isConfirmed, isDenied below */
+              if (result.isConfirmed) {
+                Swal.fire({
+                  title: "刪除用戶?",
+                  showCancelButton: true,
+                  text: "真的確定要刪除嗎",
+                  icon: "warning",
                 }).then((result) => {
-                /* Read more about isConfirmed, isDenied below */
-                if (result.isConfirmed){
-                    Swal.fire({
-                    title: "刪除用戶?",
-                    showCancelButton: true,
-                    text: "真的確定要刪除嗎",
-                    icon: "warning"
-                    }).then((result)=>{
-                        if (result.isConfirmed) {
-                            //傳遞id後端api,執行刪除功能
-                            var dataJSON = {};
-                            dataJSON["id"] = $(this).data("id");
-                            console.log(JSON.stringify(dataJSON));
-                            $.ajax({
-                                type:"POST",
-                                url:"../../../API/member_delete_api.php",
-                                data:JSON.stringify(dataJSON),
-                                dataType:"json",
-                                success:showdata_member_delete,
-                                error:function(){
-                                    alert("error-member_delete_api.php");
-                                }
-                            });
-                        }   
-                    })
-                } else if (result.isDenied) {
-                    Swal.fire("已取消", "", "info");
-                }
-            }); 
-        });
-
-        //監聽state_switch 會員狀態按鈕
-        $("#datalist #state_switch").change(function(){
+                  if (result.isConfirmed) {
+                    //傳遞id後端api,執行刪除功能
+                    var dataJSON = {};
+                    dataJSON["id"] = $(this).data("id");
+                    console.log(JSON.stringify(dataJSON));
+                    $.ajax({
+                      type: "POST",
+                      url: "../../../API/member_delete_api.php",
+                      data: JSON.stringify(dataJSON),
+                      dataType: "json",
+                      success: showdata_member_delete,
+                      error: function () {
+                        alert("error-member_delete_api.php");
+                      },
+                    });
+                  }
+                });
+              } else if (result.isDenied) {
+                Swal.fire("已取消", "", "info");
+              }
+            });
+          });
+          //監聽state_switch 會員狀態按鈕
+          $("#datalist #state_switch").change(function () {
             console.log($(this).is(":checked"));
             console.log($(this).data("id"));
-            if($(this).is(":checked")){
-                $(this).next().text("啟用");
-                $(this).next().removeClass("text-danger");
-                $(this).next().addClass("text-success");
-            }else{
-                $(this).next().text("停用");
-                $(this).next().removeClass("text-success");
-                $(this).next().addClass("text-danger");
+            if ($(this).is(":checked")) {
+              $(this).next().text("啟用");
+              $(this).next().removeClass("text-danger");
+              $(this).next().addClass("text-success");
+            } else {
+              $(this).next().text("停用");
+              $(this).next().removeClass("text-success");
+              $(this).next().addClass("text-danger");
             }
 
             //傳遞至後端更新帳號資料
             var dataJSON = {};
-                ($(this).is(":checked") ? mystate= "1" : mystate = "0");
-                dataJSON["id"] = $(this).data("id");
-                dataJSON["state"] = mystate;
-            
-                console.log(JSON.stringify(dataJSON));
-                $.ajax({
-                    type:"POST",
-                    url:"../../../API/member_update_state_api.php",
-                    data:JSON.stringify(dataJSON),
-                    dataType:"json",
-                    success:showdata_member_update_state,
-                    error:function(){
-                        alert("error-member_update_state_api.php");
-                    }
-                });
-        });
-        //監聽level 會員狀等級選單
-        $("#datalist #level").change(function(){
+            $(this).is(":checked") ? (mystate = "1") : (mystate = "0");
+            dataJSON["id"] = $(this).data("id");
+            dataJSON["state"] = mystate;
+
+            console.log(JSON.stringify(dataJSON));
+            $.ajax({
+              type: "POST",
+              url: "../../../API/member_update_state_api.php",
+              data: JSON.stringify(dataJSON),
+              dataType: "json",
+              success: showdata_member_update_state,
+              error: function () {
+                alert("error-member_update_state_api.php");
+              },
+            });
+          });
+          //監聽level 會員狀等級選單
+          $("#datalist #level").change(function () {
             console.log($(this).val());
             console.log($(this).data("id"));
 
             //傳遞至後端更新帳號資料
             var dataJSON = {};
-                dataJSON["id"] = $(this).data("id");
-                dataJSON["level"] = $(this).val();
-            
+            dataJSON["id"] = $(this).data("id");
+            dataJSON["level"] = $(this).val();
+
             console.log(JSON.stringify(dataJSON));
             $.ajax({
-                type:"POST",
-                url:"../../../API/member_update_level_api.php",
-                data:JSON.stringify(dataJSON),
-                dataType:"json",
-                success:showdata_member_update_level,
-                error:function(){
-                    alert("error-member_update_level_api.php");
-                }
+              type: "POST",
+              url: "../../../API/member_update_level_api.php",
+              data: JSON.stringify(dataJSON),
+              dataType: "json",
+              success: showdata_member_update_level,
+              error: function () {
+                alert("error-member_update_level_api.php");
+              },
             });
-        });
-        
-    };
-    function showdata_member_delete(data){
-        console.log(data);
-        if(data.state){
-            Swal.fire({
-                title: "刪除成功",
-                text: data.message,
-                icon: "success",
-                }).then((result) => {
-                if (result.isConfirmed) {
-                    // 重整頁面
-                    location.reload();
-                }
-            });
+          });
+        } else {
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "測試帳號僅供檢視",
+          });
         }
-    };//end of showdata_member_delete
+      }
+      function showdata_member_delete(data) {
+        console.log(data);
+        if (data.state) {
+          Swal.fire({
+            title: "刪除成功",
+            text: data.message,
+            icon: "success",
+          }).then((result) => {
+            if (result.isConfirmed) {
+              // 重整頁面
+              location.reload();
+            }
+          });
+        }
+      } //end of showdata_member_delete
 
-    function showdata_member_update_state(data){
+      function showdata_member_update_state(data) {
         console.log(data);
-        if(data.state){
-            Swal.fire({
-                title: "更改成功",
-                text: data.message,
-                icon: "success",
-                })
+        if (data.state) {
+          Swal.fire({
+            title: "更改成功",
+            text: data.message,
+            icon: "success",
+          });
         }
-    }//end ofshowdata_member_update_state
+      } //end ofshowdata_member_update_state
 
-    function showdata_member_update_level(data){
+      function showdata_member_update_level(data) {
         console.log(data);
-        if(data.state){
-            Swal.fire({
-                title: "更改成功",
-                text: data.message,
-                icon: "success",
-                })
+        if (data.state) {
+          Swal.fire({
+            title: "更改成功",
+            text: data.message,
+            icon: "success",
+          });
         }
-    }//showdata_member_update_level
-        
-        
-        //**************cookie function from w3*****************
-        function setCookie(cname, cvalue, exdays) {
-                const d = new Date();
-                d.setTime(d.getTime() + (exdays*24*60*60*1000));
-                let expires = "expires="+ d.toUTCString();
-                document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-                }
-    
-            function getCookie(cname) {
-                let name = cname + "=";
-                let decodedCookie = decodeURIComponent(document.cookie);
-                let ca = decodedCookie.split(';');
-                for(let i = 0; i <ca.length; i++) {
-                    let c = ca[i];
-                    while (c.charAt(0) == ' ') {
-                    c = c.substring(1);
-                    }
-                    if (c.indexOf(name) == 0) {
-                    return c.substring(name.length, c.length);
-                    }
-                }
-                return "";
-                }
+      } //showdata_member_update_level
+
+      //**************cookie function from w3*****************
+      function setCookie(cname, cvalue, exdays) {
+        const d = new Date();
+        d.setTime(d.getTime() + exdays * 24 * 60 * 60 * 1000);
+        let expires = "expires=" + d.toUTCString();
+        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+      }
+
+      function getCookie(cname) {
+        let name = cname + "=";
+        let decodedCookie = decodeURIComponent(document.cookie);
+        let ca = decodedCookie.split(";");
+        for (let i = 0; i < ca.length; i++) {
+          let c = ca[i];
+          while (c.charAt(0) == " ") {
+            c = c.substring(1);
+          }
+          if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+          }
+        }
+        return "";
+      }
     </script>
     <script>
-        const SELECTOR_SIDEBAR_WRAPPER = ".sidebar-wrapper";
-        const Default = {
-            scrollbarTheme: "os-theme-light",
-            scrollbarAutoHide: "leave",
-            scrollbarClickScroll: true,
-        };
-        document.addEventListener("DOMContentLoaded", function() {
-            const sidebarWrapper = document.querySelector(SELECTOR_SIDEBAR_WRAPPER);
-            if (
-                sidebarWrapper &&
-                typeof OverlayScrollbarsGlobal?.OverlayScrollbars !== "undefined"
-            ) {
-                OverlayScrollbarsGlobal.OverlayScrollbars(sidebarWrapper, {
-                    scrollbars: {
-                        theme: Default.scrollbarTheme,
-                        autoHide: Default.scrollbarAutoHide,
-                        clickScroll: Default.scrollbarClickScroll,
-                    },
-                });
-            }
-        });
-    </script> <!--end::OverlayScrollbars Configure-->
-     <!-- datepicker -->
- <script>
-    $(document).ready(function() {
-      $('#update_datepicker').datepicker({
-            format :'yyyy-mm-dd'
+      const SELECTOR_SIDEBAR_WRAPPER = ".sidebar-wrapper";
+      const Default = {
+        scrollbarTheme: "os-theme-light",
+        scrollbarAutoHide: "leave",
+        scrollbarClickScroll: true,
+      };
+      document.addEventListener("DOMContentLoaded", function () {
+        const sidebarWrapper = document.querySelector(SELECTOR_SIDEBAR_WRAPPER);
+        if (
+          sidebarWrapper &&
+          typeof OverlayScrollbarsGlobal?.OverlayScrollbars !== "undefined"
+        ) {
+          OverlayScrollbarsGlobal.OverlayScrollbars(sidebarWrapper, {
+            scrollbars: {
+              theme: Default.scrollbarTheme,
+              autoHide: Default.scrollbarAutoHide,
+              clickScroll: Default.scrollbarClickScroll,
+            },
+          });
+        }
       });
-    });
-  </script>
-</body><!--end::Body-->
-
+    </script>
+    <!--end::OverlayScrollbars Configure-->
+    <!-- datepicker -->
+    <script>
+      $(document).ready(function () {
+        $("#update_datepicker").datepicker({
+          format: "yyyy-mm-dd",
+        });
+      });
+    </script>
+  </body>
+  <!--end::Body-->
 </html>

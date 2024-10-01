@@ -254,7 +254,7 @@
         function showdata_check_uid(data){
                     //顯示登入帳號
                     if(data.state){
-                        if(data.data.Level=="900"){
+                        if(data.data.Level>="800"){
                             $(".app-wrapper").removeClass("d-none");
                             const date = new Date(data.data.Created_at);
                             const month = String(date.getMonth() + 1).padStart(2, '0'); // 月份是從 0 開始的，所以加 1
@@ -388,37 +388,46 @@
             };
             $("#pagelist").append('<li class="page-item ' + (page == (newdata.length-1) ? 'disabled' : '') + '" onclick="drawTable(' + nextPage + ')"><a class="page-link" href="#">下一頁</a></li>');
 
-            //監聽state_switch 會員狀態按鈕
-            $("#datalist #state_switch").change(function(){
+            if(account_level>"800"){
+                //監聽state_switch 狀態按鈕
+                $("#datalist #state_switch").change(function(){
 
-                if($(this).is(":checked")){
-                    $(this).next().text("已讀");
-                    $(this).next().removeClass("text-danger");
-                    $(this).next().addClass("text-success");
-                }else{
-                    $(this).next().text("未讀");
-                    $(this).next().removeClass("text-success");
-                    $(this).next().addClass("text-danger");
-                }
-    
-                //傳遞至後端更新帳號資料
-                var dataJSON = {};
-                    ($(this).is(":checked") ? mystate= "Y" : mystate = "N");
-                    dataJSON["id"] = $(this).data("id");
-                    dataJSON["state"] = mystate;
-                
-                    $.ajax({
-                        type:"POST",
-                        url:"../../../API/comments_update_state_api.php",
-                        data:JSON.stringify(dataJSON),
-                        dataType:"json",
-                        success:showdata_product_update_state,
-                        error:function(){
-                            alert("error-product_update_state_api");
-                        }
+                    if($(this).is(":checked")){
+                        $(this).next().text("已讀");
+                        $(this).next().removeClass("text-danger");
+                        $(this).next().addClass("text-success");
+                    }else{
+                        $(this).next().text("未讀");
+                        $(this).next().removeClass("text-success");
+                        $(this).next().addClass("text-danger");
+                    }
+        
+                    //傳遞至後端更新帳號資料
+                    var dataJSON = {};
+                        ($(this).is(":checked") ? mystate= "Y" : mystate = "N");
+                        dataJSON["id"] = $(this).data("id");
+                        dataJSON["state"] = mystate;
+                    
+                        $.ajax({
+                            type:"POST",
+                            url:"../../../API/comments_update_state_api.php",
+                            data:JSON.stringify(dataJSON),
+                            dataType:"json",
+                            success:showdata_product_update_state,
+                            error:function(){
+                                alert("error-product_update_state_api");
+                            }
+                        });
+        
+                });
+            }else{
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: "測試帳號僅供檢視",
                     });
-    
-            });
+            }
+            
             
         }
         function showdata_product_update_state(data){

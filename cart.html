@@ -706,11 +706,11 @@
                     $("#s02_logout_button").removeClass("d-none");
                     $("#s02_login_icon").removeClass("d-none");
                     $("#content").removeClass("d-none");
-                    if(data.data.Level>="200" && data.data.Level<"900"){
+                    if(data.data.Level>="200" && data.data.Level<"800"){
                         //顯示優惠
                         //顯示vip下拉選單
                         $(".dropdown-item-vip").removeClass("disabled");
-                    }else if(data.data.Level=="900"){
+                    }else if(data.data.Level>="800"){
                         //管理員
                         //顯示vip下拉選單
                         $(".dropdown-item-vip").removeClass("disabled");
@@ -789,10 +789,10 @@
                         $("#s02_login_icon").removeClass("d-none");
                         $("#content").removeClass("d-none");
                         
-                        if(data.data.Level>="100" && data.data.Level<"900"){
+                        if(data.data.Level>="100" && data.data.Level<"800"){
                         //顯示優惠
                             $(".dropdown-item-vip").removeClass("disabled");
-                        }else if(data.data.Level=="900"){
+                        }else if(data.data.Level>="800"){
                             $(".dropdown-item-vip").removeClass("disabled");
                             //manager only
                             $("#s01_manager_only").removeClass("d-none");
